@@ -1,0 +1,149 @@
+00:00 +0: loading /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart
+00:00 +0: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a reading taken before the exchange settled is replaced
+00:00 +1: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a saturated first reading is not asked about again
+00:00 +2: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a read that throws leaves the last good reading standing
+00:00 +3: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a link that stays small says so where a report will carry it
+00:00 +4: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a later, smaller reading replaces a larger one
+00:00 +5: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a platform that settles on the first ask is not asked twice
+00:00 +6: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: asks for the largest MTU the platform will take
+00:00 +7: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: the threshold is where it says it is
+00:00 +8: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: a healthy link says nothing about being slow
+00:00 +9: /workspace/PHANTOM/lib/modules/flipperlib/test/ble_mtu_settle_test.dart: the payload never exceeds the firmware ATT ceiling
+00:00 +10: loading /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart
+00:00 +10: /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart: a USB transport that faults tells the isolate to shut the port down
+00:00 +11: /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart: a USB transport that faults waits for the isolate before giving up on it
+00:00 +12: /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart: a USB transport that faults releases once, however many faults arrive
+00:00 +13: /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart: a USB transport that faults an in-flight write is failed, not left hanging
+00:00 +14: /workspace/PHANTOM/lib/modules/flipperlib/test/usb_release_test.dart: a USB transport closed in order also tells the isolate to shut the port down
+00:00 +15: loading /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart
+00:01 +15: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: a token that is still current says so
+00:01 +16: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: a token that is still current is not stale
+00:01 +17: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: a token the switch has passed by is stale
+00:01 +18: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: a token the switch has passed by is not current
+00:01 +19: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: two tokens match when they say the same thing
+00:01 +20: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: two tokens do not match when they disagree
+00:01 +21: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: two tokens hash together when they match
+00:01 +22: /workspace/PHANTOM/lib/modules/flipperlib/test/device_token_test.dart: two tokens keep their answer in a set
+00:01 +23: loading /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart
+00:02 +23: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that refuses to reboot is reported at warning, not dropped
+00:02 +24: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that refuses to reboot says what the firmware answered
+00:03 +25: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that refuses to reboot still lets the link go
+00:03 +26: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that refuses to reboot still asks once
+00:03 +27: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that obeys is not waited for
+00:03 +28: /workspace/PHANTOM/lib/modules/flipperlib/test/reboot_refusal_test.dart: a Flipper that obeys leaves nothing in the log
+00:04 +29: loading /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart
+00:05 +29: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport that faults never reaches doClose, so close() cannot free anything
+00:05 +30: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport that faults releases from onFaultExtra instead
+00:05 +31: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport that faults releases once, however many times it is asked
+00:05 +32: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport that faults is closed, and says why
+00:05 +33: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport closed in order releases through doClose
+00:05 +34: /workspace/PHANTOM/lib/modules/flipperlib/test/transport_release_test.dart: a transport closed in order stops accepting bytes once closed
+00:05 +35: loading /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart
+00:06 +35: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the order frames leave in is by priority before it is by arrival
+00:06 +36: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the order frames leave in is by arrival when the priority is the same
+00:06 +37: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the order frames leave in follows the order the priorities are declared in
+00:06 +38: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the order frames leave in keeps arrival order inside one priority
+00:06 +39: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame reports being sent once
+00:06 +40: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame reports failing once
+00:06 +41: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame does not fail after it has been sent
+00:06 +42: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame does not report being sent after it has failed
+00:06 +43: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame carries the error to the caller
+00:06 +44: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a queued frame settles without callbacks
+00:06 +45: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire hands back the frames it collected
+00:06 +46: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire hands back a list the caller cannot change
+00:06 +47: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire completes once
+00:06 +48: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire does not complete after an error
+00:06 +49: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire settles on success and on failure, and never errors
+00:06 +50: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire can count frames without keeping them
+00:06 +51: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: a call on the wire keeps routing frames when a callback throws
+00:06 +52: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the response watchdog fires when nothing answers
+00:06 +53: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the response watchdog does not fire once the call has completed
+00:06 +54: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the response watchdog is cancelled on request
+00:06 +55: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the response watchdog starts again on a re-arm
+00:06 +56: /workspace/PHANTOM/lib/modules/flipperlib/test/queue_test.dart: the response watchdog does nothing on a re-arm that was never armed
+00:06 +57: loading /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart
+00:07 +57: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels assembles a file spanning several windows, in order
+00:07 +58: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels handles a file that is an exact number of windows
+00:07 +59: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels keeps one window in flight
+00:07 +60: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels a file smaller than a window takes one request
+00:07 +61: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels an empty file takes one request and returns nothing
+00:07 +62: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels asks for windows of the documented size
+00:07 +63: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels takes the whole file from firmware without ranges
+00:07 +64: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels reports progress against a known size, ending at 1.0
+00:07 +65: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read nobody cancels is unaffected by a predicate that always says no
+00:07 +66: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a read that fails part way throws the window's error and leaves nothing uncaught
+00:07 +67: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read throws, naming the path
+00:07 +68: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read is caught by the shared base, as a caller driving both will
+00:07 +69: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read frees the caller mid-stream and requests no more windows
+00:07 +70: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read on firmware without ranges, the one request drains on its own
+00:07 +71: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read the window failing after the cancel does not go uncaught
+00:07 +72: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read asks the predicate once, not once per remaining frame
+00:07 +73: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read goes on reporting progress while the window drains
+00:07 +74: /workspace/PHANTOM/lib/modules/flipperlib/test/storage_read_cancel_test.dart: a cancelled read drained completes when the window in flight has
+00:07 +75: loading /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart
+00:08 +75: /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart: a line about what the run is doing is progress without being asked
+00:08 +76: /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart: a line about what the run is doing is what the default constructor still gives
+00:08 +77: /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart: a line about something that did not work says so
+00:08 +78: /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart: a line about something that did not work keeps its message
+00:08 +79: /workspace/PHANTOM/lib/modules/flipperlib/test/recovery_log_level_test.dart: a line about something that did not work is not the same as a progress line
+00:08 +80: loading /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart
+00:09 +80: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "PlatformException(peer removed pairing information)"
+00:09 +81: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "GATT error: removed pairing information"
+00:09 +82: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "PeerRemovedPairing"
+00:09 +83: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "stale-bond"
+00:09 +84: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "Authentication failure (0x05)"
+00:09 +85: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a stale bond is read from "bonding keys mismatch"
+00:09 +86: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: too many bonded devices is read from "ConnectionLimitExceeded"
+00:09 +87: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: too many bonded devices is read from "le-device-limit reached"
+00:09 +88: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: too many bonded devices is read from "too many paired devices"
+00:09 +89: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: too many bonded devices is read from "TooManyPaired"
+00:09 +90: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links is read from the message the client actually throws
+00:09 +91: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links survives being wrapped in a StateError
+00:09 +92: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links is read from "Only 2 links can be held at once; disconnect one first"
+00:09 +93: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links is read from "Bad state: Only 4 links can be held at once; disconnect one first"
+00:09 +94: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links is not read as the device being unreachable
+00:09 +95: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: this library running out of links is not the OS pairing limit
+00:09 +96: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "BluetoothNotEnabled"
+00:09 +97: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "BluetoothNotAvailable"
+00:09 +98: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "BluetoothUnauthorized"
+00:09 +99: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "AccessDenied"
+00:09 +100: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "Bluetooth is powered off"
+00:09 +101: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: bluetooth being unavailable is read from "not authorized to use Bluetooth"
+00:09 +102: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: an incomplete pairing is read from "PairingFailed"
+00:09 +103: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: an incomplete pairing is read from "PairingCancelled"
+00:09 +104: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: an incomplete pairing is read from "InsufficientEncryption"
+00:09 +105: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: an incomplete pairing is read from "ProtectionLevelNotMet"
+00:09 +106: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: an incomplete pairing is read from "NotPaired"
+00:09 +107: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "DeviceNotFound"
+00:09 +108: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "ConnectionTimeout"
+00:09 +109: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "DeviceDisconnected"
+00:09 +110: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "supervision-timeout"
+00:09 +111: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "peer-initiated disconnect"
+00:09 +112: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "device is out of range"
+00:09 +113: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: the device being unreachable is read from "session setup failed"
+00:09 +114: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: being busy is read from "ConnectionAlreadyExists"
+00:09 +115: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: being busy is read from "OperationInProgress"
+00:09 +116: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: being busy is read from "already connected"
+00:09 +117: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a message that matches two kinds is stale pairing before it is an incomplete one
+00:09 +118: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a message that matches two kinds is an incomplete pairing before it is a timeout
+00:09 +119: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a message that matches two kinds is an incomplete pairing before it is a failed connection
+00:09 +120: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: a message that matches two kinds is too many devices before it is an unreachable one
+00:09 +121: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: is read regardless of case
+00:09 +122: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: is taken from any object, not only a string
+00:09 +123: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: anything else is unknown, not the nearest guess: "something nobody has seen before"
+00:09 +124: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: anything else is unknown, not the nearest guess: ""
+00:09 +125: /workspace/PHANTOM/lib/modules/flipperlib/test/connect_error_test.dart: anything else is unknown, not the nearest guess: "ENOENT"
+00:09 +126: loading /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart
+00:10 +126: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding to nothing has no device
+00:10 +127: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding to nothing is not alive
+00:10 +128: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding to nothing is const, so it costs nothing to hand back
+00:10 +129: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding that names a device reports it
+00:10 +130: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding that names a device is alive
+00:10 +131: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: a binding that names a device still runs a body, and still returns its value
+00:10 +132: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run hands back what the body returned
+00:10 +133: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run keeps the body synchronous when it is
+00:10 +134: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run lets a throw out
+00:10 +135: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run hands back a future the caller can await
+00:10 +136: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run does not outlive the body
+00:10 +137: /workspace/PHANTOM/lib/modules/flipperlib/test/session_binding_test.dart: run nests
+00:10 +138: All tests passed!

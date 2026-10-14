@@ -1,0 +1,19 @@
+$ diff -u /workspace/reference/flipperzero-protobuf/storage.proto lib/modules/flipperlib/proto/flipperzero/storage.proto
+--- /workspace/reference/flipperzero-protobuf/storage.proto	2026-10-14 09:56:38.572594688 +0000
++++ lib/modules/flipperlib/proto/flipperzero/storage.proto	2026-10-14 09:54:31.279865489 +0000
+@@ -52,10 +52,13 @@
+ 
+ message ReadRequest {
+     string path = 1;
++    uint32 offset = 2;
++    uint32 size = 3;
+ }
+ 
+ message ReadResponse {
+     File file = 1;
++    bool ranged = 2;
+ }
+ 
+ message WriteRequest {
+
+Exit: 1

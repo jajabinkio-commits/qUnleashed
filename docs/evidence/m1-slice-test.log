@@ -1,0 +1,23 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_gateway_test.dart
+00:00 +0: /workspace/PHANTOM/test/phantom_gateway_test.dart: status maps actual response fields without firmware matching
+00:00 +1: /workspace/PHANTOM/test/phantom_gateway_test.dart: capabilities are unknown before probing, USB features require bridge
+00:00 +2: /workspace/PHANTOM/test/phantom_gateway_test.dart: successful reads establish only the capabilities they exercised
+00:00 +3: /workspace/PHANTOM/test/phantom_gateway_test.dart: NOT_IMPLEMENTED differs from temporary unavailability
+00:00 +4: /workspace/PHANTOM/test/phantom_gateway_test.dart: empty ACKs are not invented status or directory observations
+00:00 +5: /workspace/PHANTOM/test/phantom_gateway_test.dart: invalid storage response is rejected
+00:00 +6: /workspace/PHANTOM/test/phantom_gateway_test.dart: listFiles uses real storageList and decodes response entries
+00:00 +7: /workspace/PHANTOM/test/phantom_gateway_test.dart: an observed empty directory remains empty
+00:00 +8: /workspace/PHANTOM/test/phantom_gateway_test.dart: traversal, aliases and non-storage paths fail before any RPC
+00:00 +9: /workspace/PHANTOM/test/phantom_gateway_test.dart: disconnected and CLI sessions send no RPC
+00:00 +10: /workspace/PHANTOM/test/phantom_gateway_test.dart: STOP discards the in-flight read and sends no following requests
+00:00 +11: /workspace/PHANTOM/test/phantom_gateway_test.dart: switching warm devices aborts inspection rather than mixing responses
+00:00 +12: /workspace/PHANTOM/test/phantom_gateway_test.dart: same-device reconnect clears previously observed capabilities
+00:00 +13: /workspace/PHANTOM/test/phantom_gateway_test.dart: bounded request timeout is reported and never retried
+00:00 +14: /workspace/PHANTOM/test/phantom_gateway_test.dart: watch reports current connection immediately and observed status later
+00:00 +15: /workspace/PHANTOM/test/phantom_gateway_test.dart: closing gateway rejects future work without disconnecting shared client
+00:00 +16: loading /workspace/PHANTOM/test/phantom_inspection_page_test.dart
+00:01 +16: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: manual inspection displays observed status with no provider configured
+00:02 +17: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: stop discards late results and prevents subsequent RPC
+00:02 +18: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: backgrounding cancels inspection instead of reporting unattended success
+00:02 +19: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: disconnected device cannot start an inspection
+00:02 +20: All tests passed!

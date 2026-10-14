@@ -1,0 +1,80 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_gateway_test.dart
+test/phantom_gateway_test.dart:122:29: Error: Method not found: 'Int64'.
+                totalSpace: Int64(5),
+                            ^^^^^
+test/phantom_gateway_test.dart:123:28: Error: Method not found: 'Int64'.
+                freeSpace: Int64(6),
+                           ^^^^^
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_gateway_test.dart [E]
+  Failed to load "/workspace/PHANTOM/test/phantom_gateway_test.dart":
+  Compilation failed for testPath=/workspace/PHANTOM/test/phantom_gateway_test.dart: test/phantom_gateway_test.dart:122:29: Error: Method not found: 'Int64'.
+                  totalSpace: Int64(5),
+                              ^^^^^
+  test/phantom_gateway_test.dart:123:28: Error: Method not found: 'Int64'.
+                  freeSpace: Int64(6),
+                             ^^^^^
+  .
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_inspection_page_test.dart
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_gateway_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -1: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: manual inspection displays observed status with no provider configured
+00:00 +1 -1: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: stop discards late results and prevents subsequent RPC
+00:00 +2 -1: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: backgrounding cancels inspection instead of reporting unattended success
+00:01 +3 -1: /workspace/PHANTOM/test/phantom_inspection_page_test.dart: disconnected device cannot start an inspection
+00:01 +4 -1: loading /workspace/PHANTOM/test/client_reach_budget_test.dart
+00:05 +4 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: the rule counts the factory however it is written
+00:06 +5 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: the rule counts a stored client once, not once per use
+00:06 +6 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: the rule is the factory, not anything that merely mentions it
+00:06 +7 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: the rule finds it wherever it is nested
+00:06 +8 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: the rule reports the line the site is on
+00:06 +9 -1: /workspace/PHANTOM/test/client_reach_budget_test.dart: no area reaches for the device client more than its budget
+00:07 +10 -1: loading /workspace/PHANTOM/test/unawaited_budget_test.dart
+00:07 +10 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts a future dropped with no handler
+00:08 +11 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts one it cannot see inside
+00:08 +12 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not one that names what happens on failure
+00:08 +13 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not a method that merely shares the name
+00:08 +14 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule wants the handler attached to something
+00:08 +15 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reads through parentheses
+00:08 +16 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the call, not anything that mentions it
+00:08 +17 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the one-argument form
+00:08 +18 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule finds it wherever it is nested
+00:08 +19 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reports the line the call is on
+00:08 +20 -1: /workspace/PHANTOM/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget
+00:09 +21 -1: loading /workspace/PHANTOM/test/bare_catch_budget_test.dart
+00:10 +21 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is a catch that does nothing
+00:10 +22 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a catch that does something with it
+00:10 +23 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule counts a body that holds only a comment
+00:10 +24 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a finally that does nothing
+00:10 +25 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not something that merely reads like one
+00:10 +26 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule follows the catch wherever it is nested
+00:10 +27 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule reports the line the catch is on
+00:10 +28 -1: /workspace/PHANTOM/test/bare_catch_budget_test.dart: no area swallows more failures than its budget
+00:11 +29 -1: loading /workspace/PHANTOM/test/translation_completeness_test.dart
+00:12 +29 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: (setUpAll)
+00:12 +29 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: there is something to check
+00:12 +30 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: no language is offered that the app does not speak
+00:12 +31 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: every language can say its own name
+00:12 +32 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: the budget does not outlive what it covers
+00:12 +33 -1: /workspace/PHANTOM/test/translation_completeness_test.dart: (tearDownAll)
+00:12 +33 -1: Some tests failed.
+
+Failing tests:
+  /workspace/PHANTOM/test/phantom_gateway_test.dart: loading /workspace/PHANTOM/test/phantom_gateway_test.dart

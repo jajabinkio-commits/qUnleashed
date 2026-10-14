@@ -1,0 +1,125 @@
+[1/10] Material Fonts                                              253ms
+[2/10] Gradle Wrapper                                              163ms
+[3/10] Flutter SDK
+  ├─ [1/5] sky_engine                                              210ms
+  ├─ [2/5] flutter_gpu                                             127ms
+  ├─ [3/5] flutter_patched_sdk                                     271ms
+  ├─ [4/5] flutter_patched_sdk_product                             370ms
+  └─ [5/5] linux-x64                                             1,055ms
+[10/10] linux-x64/font-subset                                      237ms
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 108.0.0 (109.0.0 available)
+  _flutterfire_internals 1.3.73 (1.3.77 available)
+  analyzer 14.4.0 (14.5.0 available)
+  archive 4.0.9 (4.5.2 available)
+  bluez 0.8.3 (0.9.0 available)
+  clock 1.1.2 (1.1.3 available)
+  code_assets 1.2.0 (2.1.0 available)
+  cross_file 0.3.5+2 (0.4.0 available)
+  dbus 0.7.12 (0.8.0 available)
+  device_info_plus 11.5.0 (13.3.0 available)
+  device_info_plus_platform_interface 7.0.3 (8.1.0 available)
+  equatable 2.0.8 (3.0.0 available)
+  file_picker 8.3.7 (13.1.0 available)
+  firebase_core 4.11.0 (4.15.0 available)
+  firebase_core_platform_interface 7.1.0 (8.1.1 available)
+  firebase_core_web 3.9.0 (3.12.0 available)
+  firebase_messaging 16.4.1 (16.7.0 available)
+  firebase_messaging_platform_interface 4.9.0 (4.10.0 available)
+  firebase_messaging_web 4.2.1 (4.2.5 available)
+  flutter_foreground_task 9.2.2 (11.0.3 available)
+  flutter_local_notifications 21.0.0 (22.3.2 available)
+  flutter_local_notifications_linux 8.0.0 (8.0.2 available)
+  flutter_local_notifications_platform_interface 11.0.0 (12.2.0 available)
+  flutter_local_notifications_windows 3.0.0 (3.1.1 available)
+  flutter_map 7.0.2 (8.3.2 available)
+  flutter_plugin_android_lifecycle 2.0.34 (2.0.35 available)
+  geolocator 13.0.4 (14.1.1 available)
+  geolocator_android 4.6.2 (5.1.1+1 available)
+  geolocator_apple 2.3.13 (2.3.15 available)
+  geolocator_platform_interface 4.2.6 (4.4.0 available)
+  geolocator_web 4.1.3 (4.1.4 available)
+  hooks 2.0.0 (2.2.0 available)
+  html 0.15.6 (0.15.7 available)
+  image 4.8.0 (4.12.0 available)
+  injector 3.0.0 (4.0.0 available)
+! irondash_engine_context 0.5.5 from path lib/modules/irondash/engine_context/dart (overridden)
+! irondash_message_channel 0.7.0 from path lib/modules/irondash/message_channel/dart (overridden)
+  isolate_contactor 4.1.0 (4.2.0 available)
+  isolate_manager 4.1.5+1 (6.3.2 available)
+  jni 0.14.2 (1.1.0 available)
+  latlong2 0.9.1 (0.10.1 available)
+  logger 2.7.0 (2.8.0 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  mgrs_dart 2.0.0 (3.0.0 available)
+  mime 2.0.0 (2.1.0 available)
+  objective_c 9.4.1 (9.6.2 available)
+  package_config 2.2.0 (3.0.0 available)
+  package_info_plus 8.3.1 (10.2.2 available)
+  package_info_plus_platform_interface 3.2.1 (4.1.0 available)
+  path_provider 2.1.5 (2.1.6 available)
+  path_provider_android 2.2.23 (2.3.1 available)
+  path_provider_linux 2.2.1 (2.2.2 available)
+  path_provider_platform_interface 2.1.2 (2.1.3 available)
+  permission_handler 11.4.0 (13.0.2 available)
+  permission_handler_android 12.1.0 (14.1.0 available)
+  permission_handler_apple 9.4.8 (9.6.2 available)
+  permission_handler_html 0.1.3+5 (0.1.4+1 available)
+  permission_handler_platform_interface 4.3.0 (4.4.1 available)
+  permission_handler_windows 0.2.1 (0.2.2 available)
+  petitparser 7.0.2 (7.1.0 available)
+  platform 3.1.6 (3.2.0 available)
+  posix 6.5.0 (6.5.2 available)
+  proj4dart 2.1.0 (3.0.0 available)
+  protobuf 6.0.0 (6.1.0 available)
+  pub_semver 2.2.0 (2.2.1 available)
+  record_use 0.6.0 (1.1.1 available)
+  saver_gallery 4.1.2 (5.1.0 available)
+  screen_retriever 0.2.0 (0.3.0 available)
+  screen_retriever_linux 0.2.0 (0.2.2 available)
+  screen_retriever_macos 0.2.0 (0.2.2 available)
+  screen_retriever_platform_interface 0.2.0 (0.2.2 available)
+  screen_retriever_windows 0.2.0 (0.2.2 available)
+  sentry 9.30.1 (10.0.0 available)
+  sentry_flutter 9.30.1 (10.0.0 available)
+  share_plus 10.1.4 (13.3.1 available)
+  share_plus_platform_interface 5.0.2 (7.2.0 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  shared_preferences_android 2.4.26 (2.4.28 available)
+  shared_preferences_foundation 2.5.6 (2.5.7 available)
+  stack_trace 1.12.1 (1.12.2 available)
+! super_clipboard 0.9.1 from path lib/modules/extensions/super_clipboard (overridden)
+! super_native_extensions 0.9.1 from path lib/modules/extensions/super_native_extensions (overridden)
+  test_api 0.7.12 (0.7.15 available)
+  timezone 0.11.0 (0.11.2 available)
+  unicode 0.3.1 (1.1.9 available)
+  url_launcher 6.3.2 (6.3.3 available)
+  url_launcher_android 6.3.30 (6.3.33 available)
+  url_launcher_ios 6.4.1 (6.4.2 available)
+  url_launcher_linux 3.2.2 (3.2.3 available)
+  url_launcher_macos 3.2.5 (3.2.6 available)
+  url_launcher_windows 3.1.5 (3.1.6 available)
+  uuid 4.5.3 (4.6.0 available)
+  vector_graphics 1.2.2 (1.2.3 available)
+  vector_graphics_compiler 1.2.5 (1.3.1 available)
+  vector_math 2.4.2 (2.4.3 available)
+  vm_service 15.2.0 (15.3.0 available)
+  win32 5.15.0 (6.4.0 available)
+  win32_registry 2.1.0 (3.0.3 available)
+  window_manager 0.5.1 (0.5.2 available)
+  xml 6.6.1 (7.1.0 available)
+  yaml 3.1.3 (3.1.4 available)
+Got dependencies!
+97 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+"ru": 3 untranslated message(s).
+"uk": 3 untranslated message(s).
+To see a detailed report, use the untranslated-messages-file 
+option in the l10n.yaml file:
+untranslated-messages-file: desiredFileName.txt
+<other option>: <other selection> 
+
+
+This will generate a JSON format file containing all messages that 
+need to be translated.

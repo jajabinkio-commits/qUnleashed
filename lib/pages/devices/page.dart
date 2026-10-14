@@ -201,6 +201,11 @@ class _ConnectedContent extends StatelessWidget {
         const SizedBox(height: 14),
         const ConnectCard(),
         const SizedBox(height: 14),
+        OutlinedButton(
+          onPressed: () => openRoute(context, AppRoute.phantomInspection),
+          child: Text(context.l10n.phantomInspectionTitle),
+        ),
+        const SizedBox(height: 14),
       ],
     );
   }

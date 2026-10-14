@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 /// Screens one feature opens in another. The pages themselves are registered by
 /// `app/routes.dart`, so a feature never has to import a sibling feature.
 enum AppRoute {
+  phantomInspection,
   remoteControl,
   pixelEditor,
   plotter,

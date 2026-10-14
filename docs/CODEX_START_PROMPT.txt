@@ -1,0 +1,9 @@
+PHANTOM — FIRST CODEX EXECUTION PROMPT
+
+You are the lead developer for PHANTOM, an iPhone-first AI-controlled Flipper Zero application. The repository contains AGENTS.md and docs/MASTER_PLAN.md, docs/FEATURE_MATRIX.md, docs/ACCEPTANCE_TESTS.md. Read them IN FULL. They are binding project specifications.
+
+Use `https://github.com/DarkFlippers/qUnleashed` as the existing application foundation, not a greenfield rewrite. Verify current code, license, dependencies, submodules, actual RPC methods, and the build environment. Keep known-working components intact; do not suggest replacing a functional `.fap` or firmware based on similar version names.
+
+EXECUTE M0 and the smallest testable M1 vertical slice NOW. Create the real repository structure, evidence ledger and capability matrix, run whatever build/static/tests the available environment supports, and implement the typed device-operation adapter around the real upstream client. Do not stop after writing a plan. Do not invent successful hardware tests or signed iPhone builds. When missing physical hardware, add mocks and an explicit device test procedure.
+
+For the first iteration, output exact files modified, commands and actual results, source/commit references, supported and blocked capabilities, and the next executable task. After the first iteration continue in gated milestones, keeping AI action execution policy separate from model prompts. The end-state includes live remote screen/buttons, storage/archives, app catalog, normal firmware update, API-based AI chat/voice/vision, supervised tool execution, Shortcuts, automations, modules and an optional authenticated USB CLI/DFU recovery bridge.

@@ -8342,5 +8342,77 @@
   "seedEngineBrokenHint": "Nothing you do with this capture will help: the recovery engine in this build is not working. Please report it.",
   "@seedEngineBrokenHint": {
     "description": "Hint shown when the recovery engine in this build is not working: it failed its own checks, is missing from the build, or answered something this build cannot read. TRANSLATORS: the point is that nothing the user does with this capture will help."
+  },
+  "phantomInspectionTitle": "PHANTOM inspection",
+  "@phantomInspectionTitle": {
+    "description": "PHANTOM local device inspection: phantomInspectionTitle"
+  },
+  "phantomInspectionPrivacy": "Inspect device status locally. No AI account or internet connection is needed.",
+  "@phantomInspectionPrivacy": {
+    "description": "PHANTOM local device inspection: phantomInspectionPrivacy"
+  },
+  "phantomInspectionConnect": "Connect a Flipper in the Device tab to inspect it.",
+  "@phantomInspectionConnect": {
+    "description": "PHANTOM local device inspection: phantomInspectionConnect"
+  },
+  "phantomInspectionRead": "Read status",
+  "@phantomInspectionRead": {
+    "description": "PHANTOM local device inspection: phantomInspectionRead"
+  },
+  "phantomInspectionStop": "Stop inspection",
+  "@phantomInspectionStop": {
+    "description": "PHANTOM local device inspection: phantomInspectionStop"
+  },
+  "phantomInspectionFailed": "Inspection did not finish. Check the connection and try again.",
+  "@phantomInspectionFailed": {
+    "description": "PHANTOM local device inspection: phantomInspectionFailed"
+  },
+  "phantomInspectionProtocol": "Observed RPC protocol",
+  "@phantomInspectionProtocol": {
+    "description": "PHANTOM local device inspection: phantomInspectionProtocol"
+  },
+  "phantomInspectionStorage": "{freeBytes} bytes free of {totalBytes} bytes",
+  "@phantomInspectionStorage": {
+    "description": "PHANTOM local device inspection: phantomInspectionStorage",
+    "placeholders": {
+      "freeBytes": {
+        "type": "int"
+      },
+      "totalBytes": {
+        "type": "int"
+      }
+    }
+  },
+  "phantomInspectionBridge": "USB terminal and DFU recovery require a companion bridge.",
+  "@phantomInspectionBridge": {
+    "description": "PHANTOM local device inspection: phantomInspectionBridge"
+  },
+  "phantomUnsupported": "Device reports this operation is unsupported",
+  "@phantomUnsupported": {
+    "description": "PHANTOM local device inspection: phantomUnsupported"
+  },
+  "phantomUnavailable": "Reading unavailable; support is unverified",
+  "@phantomUnavailable": {
+    "description": "PHANTOM local device inspection: phantomUnavailable"
+  },
+  "phantomTimedOut": "Reading timed out; support is unverified",
+  "@phantomTimedOut": {
+    "description": "PHANTOM local device inspection: phantomTimedOut"
+  },
+  "phantomInvalidResponse": "Invalid or missing response; support is unverified",
+  "@phantomInvalidResponse": {
+    "description": "PHANTOM local device inspection: phantomInvalidResponse"
+  },
+  "phantomObserved": "RPC response observed in this session",
+  "@phantomObserved": {
+    "description": "PHANTOM local device inspection: phantomObserved"
+  },
+  "phantomUnverified": "Unverified on this device",
+  "@phantomUnverified": {
+    "description": "PHANTOM local device inspection: phantomUnverified"
+  },
+  "phantomExtensionRequired": "Requires a verified extension adapter",
+  "@phantomExtensionRequired": {
+    "description": "PHANTOM local device inspection: phantomExtensionRequired"
   }
 }
