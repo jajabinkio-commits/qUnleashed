@@ -8482,5 +8482,85 @@
   "phantomAiEraseChat": "Erase conversation",
   "@phantomAiEraseChat": {
     "description": "PHANTOM read-only AI chat: phantomAiEraseChat"
+  },
+  "phantomObservedTitle": "Reported by your Flipper",
+  "@phantomObservedTitle": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomObservedAt": "Read at {time}",
+  "@phantomObservedAt": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation.",
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "phantomObservedUnknown": "Unknown",
+  "@phantomObservedUnknown": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomObservedBattery": "Battery: {value}",
+  "@phantomObservedBattery": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation.",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "phantomObservedStorage": "Free / total storage in bytes: {value}",
+  "@phantomObservedStorage": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation.",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "phantomObservedProtocol": "Device protocol: {value}",
+  "@phantomObservedProtocol": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation.",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "phantomObservedPartial": "Some readings could not be retrieved. Missing values remain unknown.",
+  "@phantomObservedPartial": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomObservedCapabilities": "{supported} of {total} capabilities have supporting observations.",
+  "@phantomObservedCapabilities": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation.",
+    "placeholders": {
+      "supported": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "phantomObservedCapabilitiesNote": "A supported reading does not confirm every device feature works.",
+  "@phantomObservedCapabilitiesNote": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomAiExplanation": "AI explanation",
+  "@phantomAiExplanation": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomNoObservations": "No device readings were retrieved for this answer.",
+  "@phantomNoObservations": {
+    "description": "PHANTOM chat: locally observed evidence, separate from AI interpretation."
+  },
+  "phantomNoAiExplanation": "AI explanation unavailable",
+  "@phantomNoAiExplanation": {
+    "description": "Chat heading when the provider failed but actual device observations are available."
+  },
+  "phantomCapabilityEvidence": "Device capability evidence",
+  "@phantomCapabilityEvidence": {
+    "description": "Heading for a local capability report, which may contain unverified or bridge-required entries."
   }
 }

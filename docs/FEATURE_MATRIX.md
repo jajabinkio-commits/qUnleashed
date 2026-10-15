@@ -1,6 +1,6 @@
 # PHANTOM capability matrix
 
-Cycle 02: iPhone-only priority. All 31 supplied capabilities remain tracked. Source implementation and simulated checks do not pass physical gates. Original contract CSV: SPEC_FEATURE_MATRIX.csv.
+Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Source implementation and simulated checks do not pass physical gates. Original contract CSV: SPEC_FEATURE_MATRIX.csv.
 
 | ID | Feature | Execution Mode | Priority | Evidence Source | Test Method | Current Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@ Cycle 02: iPhone-only priority. All 31 supplied capabilities remain tracked. Sou
 | FW02 | Full USB DFU repair | Bridge required | P2 | flipperlib src/dfu; new bridge capability label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
 | CLI01 | Flipper USB terminal | Bridge required | P2 | flipperlib USB transport; tools overview excludes iOS CLI; new bridge label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
 | AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart | Mock + provider | IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED |
-| AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two read-only tools, strict allowlist/args/consent, bounded loop/STOP; no mutations or persisted audit yet |
+| AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two validated read-only tools with consent/budgets/STOP; local observed readings displayed separately from AI text; no mutations/persisted audit |
 | AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | iOS permissions | iPhone | NOT IMPLEMENTED |
 | AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | provider multimodal | Provider tests | NOT IMPLEMENTED |
 | AI05 | Local Ollama endpoint | Bridge or LAN server | P2 | Ollama compatible service | Host integration | NOT IMPLEMENTED; external LAN/bridge service required |

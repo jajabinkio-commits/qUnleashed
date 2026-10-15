@@ -422,4 +422,32 @@ void main() {
       real.close();
     },
   );
+
+  test(
+    'controller evidence is immutable and belongs only to its request',
+    () async {
+      provider = ScriptedProvider(
+        (index) async =>
+            index == 0 ? toolReply('device_status') : textReply('Done.'),
+      );
+      await ask();
+      final observations = agent.observations;
+      expect(observations.single.batteryPercent, 73);
+      expect(() => observations.clear(), throwsUnsupportedError);
+      agent.stop();
+      expect(agent.observations, isEmpty);
+      expect(observations.single.batteryPercent, 73);
+      provider = ScriptedProvider((_) async => textReply('Ordinary chat.'));
+      await ask(consent: false);
+      expect(agent.observations, isEmpty);
+    },
+  );
+
+  test('a model cannot populate local evidence with invented text', () async {
+    provider = ScriptedProvider(
+      (_) async => textReply('Observed 99 percent battery.'),
+    );
+    await ask(consent: false);
+    expect(agent.observations, isEmpty);
+  });
 }

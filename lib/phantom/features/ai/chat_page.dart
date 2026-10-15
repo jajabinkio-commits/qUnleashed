@@ -7,7 +7,9 @@ import '../../../services/localization/l10n.dart';
 import '../../ai/credentials.dart';
 import '../../ai/openrouter.dart';
 import '../../ai/read_only_agent.dart';
+import '../../ai/observation.dart';
 import '../../device/device_gateway.dart';
+import 'observation_card.dart';
 
 class PhantomChatPage extends StatefulWidget {
   const PhantomChatPage({
@@ -31,7 +33,8 @@ class _PhantomChatPageState extends State<PhantomChatPage>
   late final ReadOnlyAgent _agent;
   final _key = TextEditingController();
   final _input = TextEditingController();
-  final _messages = <({bool user, String text})>[];
+  final _messages =
+      <({bool user, String text, List<AgentObservation> observations})>[];
   List<ModelChoice> _models = [];
   String? _model;
   bool _saved = false;
@@ -135,7 +138,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
       _busy = true;
       _shareStatus = false;
       _error = null;
-      _messages.add((user: true, text: text));
+      _messages.add((user: true, text: text, observations: const []));
     });
     try {
       final answer = await _agent.send(
@@ -145,13 +148,24 @@ class _PhantomChatPageState extends State<PhantomChatPage>
       );
       if (mounted && generation == _generation) {
         setState(() {
-          _messages.add((user: false, text: answer));
+          _messages.add((
+            user: false,
+            text: answer,
+            observations: _agent.observations,
+          ));
           _busy = false;
         });
       }
     } catch (_) {
       if (mounted && generation == _generation) {
         setState(() {
+          if (_agent.observations.isNotEmpty) {
+            _messages.add((
+              user: false,
+              text: '',
+              observations: _agent.observations,
+            ));
+          }
           _error = context.l10n.phantomAiFailed;
           _busy = false;
         });
@@ -265,10 +279,18 @@ class _PhantomChatPageState extends State<PhantomChatPage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    message.user ? l10n.phantomAiYou : 'PHANTOM',
+                    message.user
+                        ? l10n.phantomAiYou
+                        : message.text.isEmpty
+                        ? l10n.phantomNoAiExplanation
+                        : l10n.phantomAiExplanation,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  SelectableText(message.text),
+                  if (message.text.isNotEmpty) SelectableText(message.text),
+                  for (final observation in message.observations)
+                    ObservationCard(observation: observation),
+                  if (!message.user && message.observations.isEmpty)
+                    Text(l10n.phantomNoObservations),
                 ],
               ),
             ),

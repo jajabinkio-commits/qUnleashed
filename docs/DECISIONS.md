@@ -43,3 +43,11 @@ Use iOS Security.framework Keychain in the existing implicit-engine registration
 ## D011 — Cloud compilation is distinct from installation
 
 Prepare a manual macOS-15 GitHub Actions compile check using pinned Flutter and recursive submodules. It builds an unsigned debug app with the test Firebase placeholder, does not publish and requires no Apple signing key. Lint locally; mark remote execution unverified until observed. Signed installation still requires an authorized Apple/app identity/distribution workflow and user account sign-in.
+
+## D012 — Separate generated explanations from observations
+
+Controller-owned immutable evidence accompanies a chat turn. Only completed gateway status/capability reads populate it; model text is never parsed into a reading card. Observed battery/storage/protocol and missing-value markers are presented separately from AI narrative, which is labelled as an explanation. A no-observation message appears if no tool returned data, and already completed reads survive provider-reply failure. Numeric battery values outside 0–100/nonfinite data remain unknown. Timestamped cards are historical chat evidence, not a live dashboard. Evidence is memory-only, bounded with the conversation, cleared for each request/STOP and erased with local chat; it is never added to provider history.
+
+## D013 — Use the supplied fork after authorization is verified
+
+The supplied destination `jajabinkio-commits/qUnleashed` exists publicly with default branch main. The connected account `jssanderson93-svg` has pull=true, push=false, admin=false; collaborator-permission lookup returned HTTP 403 due to integration access restrictions. Remote upload and macOS Actions execution remain blocked until the owner connects GitHub with repository write access. Recheck permissions before writing. The separate pocketpal-ai project was not modified. No publishing or signing credential was used.

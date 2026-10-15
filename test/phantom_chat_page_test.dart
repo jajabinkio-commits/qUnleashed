@@ -116,4 +116,63 @@ void main() {
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
     tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
   });
+
+  testWidgets('device readings remain distinct from conflicting AI narrative', (
+    tester,
+  ) async {
+    provider = ScriptedProvider(
+      (index) async => index == 0
+          ? toolReply('device_status')
+          : textReply('The battery might be 95%.'),
+    );
+    await open(tester);
+    await chooseModel(tester);
+    await tester.tap(find.byType(SwitchListTile));
+    await tester.enterText(find.byType(TextField).last, 'Read battery');
+    await tester.tap(find.text('Send'));
+    await tester.pumpAndSettle();
+    expect(find.text('AI explanation'), findsOneWidget);
+    expect(find.text('The battery might be 95%.'), findsOneWidget);
+    expect(find.text('Reported by your Flipper'), findsOneWidget);
+    expect(find.text('Battery: 73%'), findsOneWidget);
+    await tester.tap(find.text('Erase conversation'));
+    await tester.pumpAndSettle();
+    expect(find.text('Battery: 73%'), findsNothing);
+  });
+
+  testWidgets('model text cannot invent an observed device reading', (
+    tester,
+  ) async {
+    provider = ScriptedProvider(
+      (_) async => textReply('Observed battery: 99%.'),
+    );
+    await open(tester);
+    await chooseModel(tester);
+    await tester.enterText(find.byType(TextField).last, 'What is the battery?');
+    await tester.tap(find.text('Send'));
+    await tester.pumpAndSettle();
+    expect(
+      find.text('No device readings were retrieved for this answer.'),
+      findsOneWidget,
+    );
+    expect(find.text('Reported by your Flipper'), findsNothing);
+    expect(client.requests, isEmpty);
+  });
+
+  testWidgets('provider failure preserves already observed device readings', (
+    tester,
+  ) async {
+    provider = ScriptedProvider((index) async {
+      if (index == 0) return toolReply('device_status');
+      throw const AiFailure('network');
+    });
+    await open(tester);
+    await chooseModel(tester);
+    await tester.tap(find.byType(SwitchListTile));
+    await tester.enterText(find.byType(TextField).last, 'Read battery');
+    await tester.tap(find.text('Send'));
+    await tester.pumpAndSettle();
+    expect(find.text('AI explanation unavailable'), findsOneWidget);
+    expect(find.text('Battery: 73%'), findsOneWidget);
+  });
 }

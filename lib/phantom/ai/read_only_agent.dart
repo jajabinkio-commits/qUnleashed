@@ -4,6 +4,7 @@ import 'dart:async';
 import '../device/device_gateway.dart';
 import 'credentials.dart';
 import 'openrouter.dart';
+import 'observation.dart';
 
 /// First read-only AI slice. The model never receives a FlipperClient, RPC
 /// executor or mutation method. Tool arguments/consent/budgets are local policy.
@@ -21,6 +22,8 @@ class ReadOnlyAgent {
   int _generation = 0;
   bool _busy = false;
   bool get busy => _busy;
+  final List<AgentObservation> _observations = [];
+  List<AgentObservation> get observations => List.unmodifiable(_observations);
 
   Future<String> send(
     String text, {
@@ -53,6 +56,7 @@ class ReadOnlyAgent {
       throw const AiFailure('message_size');
     }
     final generation = ++_generation;
+    _observations.clear();
     _busy = true;
     AiProvider? provider;
     void check() {
@@ -161,6 +165,7 @@ class ReadOnlyAgent {
             if (status.deviceId != initial.deviceId) {
               throw const AiFailure('device_changed');
             }
+            _observations.add(AgentObservation.status(status));
             result = {
               'evidence': 'observed',
               'observed_at': status.observedAt.toIso8601String(),
@@ -198,6 +203,7 @@ class ReadOnlyAgent {
               },
             };
           } else {
+            _observations.add(AgentObservation.capabilities(now));
             result = {
               'evidence': 'observed_capability_report',
               'capabilities': {
@@ -232,6 +238,7 @@ class ReadOnlyAgent {
   void stop() {
     _generation++;
     _busy = false;
+    _observations.clear();
     _provider?.close();
     _provider = null;
     gateway.cancelPending();

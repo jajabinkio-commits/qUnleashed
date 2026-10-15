@@ -49,3 +49,10 @@ User confirmed iPhone-only operation and asked engineering to carry out implemen
 Final full-regression/build results are recorded in IMPLEMENTATION_CYCLE_02.md. No physical BLE, native iOS Keychain/APNs/replay, signed build, private/paid provider call, voice, screen interpretation or supervised write action is marked verified.
 
 Final observed cycle 02 results: **1,906 application tests passed / five prerequisite-dependent tests skipped** (seed 20261015); analyzer no issues; format checked 551 files unchanged; quiet logging 51 passed; final Linux-target Dart kernel/assets bundle compiled. Logs: `cycle02-regression-final.log`, `cycle02-analyze-final.log`, `cycle02-format-final.log`, `cycle02-quiet-test.log`, `cycle02-bundle-final.log`. No native iOS, private inference or physical gate was passed.
+
+## Cycle 03 — 2026-10-15
+
+- Earlier PHANTOM-name checks returned 404. The user then supplied `jajabinkio-commits/qUnleashed`, which exists publicly (main). Connected account `jssanderson93-svg` has pull=true, push=false, admin=false. Collaborator-permission query returned HTTP 403, integration restriction. No remote mutations occurred; account authorization remains required.
+- Local AI observation separation: new `AgentObservation` and `ObservationCard` use actual controller/gateway results, independent of model narrative. Unknown values are not converted into fabricated readings. Observations are immutable snapshots bound to a request and local chat turn.
+- Focused simulated checks: **31 passed** (`evidence/cycle03-focused-final.log`), covering contradictory AI narrative versus observed battery, invented model readings, provider-failure evidence, erase, per-request evidence boundaries, invalid battery data, unknown values and hidden device identifiers.
+- Final frozen-source verification: 1,914 tests passed / five skipped; analyzer no issues; format checked 554 files unchanged; Linux-target Dart kernel/assets bundle exit 0. Results/log paths are recorded in IMPLEMENTATION_CYCLE_03.md. Native/signing/hardware/private-provider gates remain unverified.
