@@ -1,0 +1,23 @@
+{
+  "ios/Runner/AppDelegate.swift": "eddd524c9c29a1f0ea6afc37427497ccac605fc90525e950eb188e15b1bd8a6f",
+  "ios/Runner/Info.plist": "dd3ac9e4a6b870d4333dd27e40d4f0a30c9b5b7f8ca6bd12a003bbdb71f8d6a9",
+  "lib/phantom/ai/credentials.dart": "e6437a5dc2a0849034eb5781645d94e870029d9a68a535a29972823903969d5c",
+  "lib/phantom/ai/openrouter.dart": "ee5eee636e338925869280eb0b8a3fe17809b95fbca2ca9d4c1ad4fda4565e09",
+  "lib/phantom/ai/read_only_agent.dart": "98aa24c394e5a9cd909654f6adbfa8d4f8c544947c1317e628ea16deec5d82c9",
+  "lib/phantom/core/device_snapshot.dart": "d27c837671b12c366906339a6ff120a05f3ffb830ce12075d372b80d610b150e",
+  "lib/phantom/device/device_gateway.dart": "b783fca442c5e6db2e64c0ab3d5b61da77a039a64532a718dad45dfb0efe7d1e",
+  "lib/phantom/device/flipper_gateway.dart": "b3086b246bddc6aae8dee102749960c7a9f8b95e94c1f82b02673a17a991c3e2",
+  "lib/phantom/features/ai/chat_page.dart": "5a2c1a2845b06bf33104b30803faf70fd727a4a1619a7faa9019377bfbd34a21",
+  "lib/phantom/features/devices/inspection_page.dart": "05622b976677516f999e56f0c55f4c164c1c01f46db18ba825145fb180ecb48c",
+  "lib/services/notifications/push_service.dart": "0139d3eac0fd8807a2b0f8360c6207732174ce3d3e55be1497ab00de3ec19bc0",
+  "lib/services/telemetry/settings.dart": "49712bfcfce2f8129e118d542ab1a321c6279b7637d105ec7cc5cbaa6aa714cb",
+  "lib/services/telemetry/telemetry.dart": "99737df1cdc3876e79af052057b28a82fad604c7cb741f1c19562e5ba8070d42",
+  "test/app_shutdown_test.dart": "057611b7fd83b5f6d771378078d8d1a07ae3a3a81ab7510e6b4b9931565f503d",
+  "test/phantom_ai_fakes.dart": "89ecb5898d3cfeac109de6b2d99269de5958ec72b17e5c91713e0cdf4ed32894",
+  "test/phantom_ai_test.dart": "bec224efe150b9517e04bed2899807d6904e2dcd26c9e8e0095102197bb9425d",
+  "test/phantom_chat_page_test.dart": "efd12defec08c9a49c1d289f3565bf77451c621e0cc12805bcb3a7d242ce8154",
+  "test/phantom_fakes.dart": "8b6eb293a4997789610882a2e6771944d8dadb65cdbf64a96a085e495db9e29f",
+  "test/phantom_gateway_test.dart": "d86c51ca38684eb2cf619eae04d53250163041cbf2d1e106d1d9429d431caebf",
+  "test/phantom_inspection_page_test.dart": "7d4ac36180527c04c59f7673235238a1554a7d34c3aabcdb5fd83051ca235dd1",
+  "test/phantom_privacy_test.dart": "4cfda6798be3a107dc10b854378829255ea4152997a72a368394d2d9246bc19d"
+}

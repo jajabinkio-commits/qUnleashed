@@ -1,0 +1,36 @@
+name: PHANTOM iOS compile check
+
+# Compile only. Publishing/TestFlight requires a separately configured Apple
+# account, PHANTOM app identity, signing and explicit release workflow.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile-ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Check out pinned source and submodules
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - name: Set up pinned Flutter
+        uses: ./.github/actions/setup-flutter
+        with:
+          swift-package-manager: 'false'
+      - name: Generate test-only Firebase placeholder
+        run: .github/scripts/stub_firebase_config.sh
+      - name: Check Dart
+        run: flutter analyze --no-pub
+      - name: Compile unsigned iPhone application
+        run: flutter build ios --debug --no-codesign --no-pub
+      - name: Upload compile artifact (not installable)
+        uses: actions/upload-artifact@v4
+        with:
+          name: phantom-ios-unsigned-compile
+          path: build/ios/iphoneos/Runner.app
+          if-no-files-found: error
+          retention-days: 7

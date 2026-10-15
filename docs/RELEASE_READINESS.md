@@ -2,20 +2,22 @@
 
 **NOT RELEASE READY. No signed IPA or TestFlight build exists.**
 
-M0 source audit and baseline verification are recorded. First M1 read-only adapter/UI slice has simulated tests; M1's physical connect → remote → files → apps gate remains blocked. M2–M7 remain pending.
+M0 source audit and baseline verification are recorded. M1 read-only adapter/UI and first M2 read-only chat slices have simulated tests. M1 physical connect → remote → files → apps gate and full M2 acceptance remain blocked; M3–M7 remain pending.
 
 | Gate | State | Required next evidence |
 | --- | --- | --- |
 | Pinned recursive source / GPL notices | Source preserved | Full hosted/native dependency notices and source-distribution review |
 | Dart/Flutter validation | See final cycle report | Bundle compilation does not verify native iOS plugins |
-| iOS native build | BLOCKED on Linux | macOS/Xcode build, CocoaPods/native dependencies, real bundle identity |
+| iOS native build | BLOCKED on Linux | Manual macOS compile workflow prepared/linted, not run; native Keychain and CocoaPods compilation need observed CI/macOS results |
 | Signing/install | BLOCKED | Appropriate signing/provisioning workflow; Apple Developer membership for TestFlight |
 | Physical BLE/manual regressions | BLOCKED | Actual iPhone/Flipper/firmware versions and M1 operator log |
-| Provider keys/AI controller | NOT IMPLEMENTED | Keychain, consent, typed schemas, authorization, tool budgets, audit/redaction, STOP tests |
-| Default privacy | BLOCKER | Opt-in diagnostics/replay/push and migration; upstream defaults are enabled |
+| Provider keys/read-only AI | PARTIAL | Keychain source/channel tests, model catalog and read-only loop implemented; native Keychain and live private provider verification pending; writes excluded |
+| Default privacy | IMPLEMENTED / NATIVE UNVERIFIED | New explicit consent keys/defaults and revocation tested with mocks; native token migration/replay behavior needs physical validation |
 | Partial writes/retry policy | BLOCKER for M3 | Disconnect/read-back/conflict tests before gateway mutations |
 | USB host bridge | NOT IMPLEMENTED | Authenticated pairing/replay protections, real CLI, separate approved DFU tests |
 | External modules | UNVERIFIED | Exact hardware/firmware/.fap/API evidence; no version-name replacement |
 | App branding/identity | PENDING | PHANTOM bundle and build identity; upstream qUnleashed release metadata is retained |
 
 Builds in this workspace use upstream's gitignored Firebase CI placeholder, no real Firebase config, no Sentry DSN and no provider keys. This placeholder supports testing and Dart compilation, not functioning push or a release. Retain root GPL-3.0 LICENSE and all submodule/third-party notices; make corresponding source available when distributing a derivative. No remote push, publishing, flashing, RF operation or signing credentials were used.
+
+Cycle 02: Apple Developer membership is not established (user unsure/not yet). No Apple/GitHub login or signing identities were requested or used. Cloud workflow prepares compilation only, not installation or TestFlight. Public OpenRouter model/schema endpoints were checked without a key; no private/paid model request was made. See IMPLEMENTATION_CYCLE_02.md for precise current evidence.

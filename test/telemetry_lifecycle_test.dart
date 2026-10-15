@@ -173,7 +173,10 @@ void main() {
   late DiagnosticsSettings settings;
 
   setUp(() {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
+    SharedPreferences.setMockInitialValues(<String, Object>{
+      'phantom.diagnostics.share_logs.v1': true,
+      'phantom.diagnostics.share_replay.v1': true,
+    });
     sdk = _FakeSdk();
     settings = DiagnosticsSettings();
   });
@@ -225,7 +228,7 @@ void main() {
 
     test('the switch being off installs nothing', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_logs': false,
+        'phantom.diagnostics.share_logs.v1': false,
       });
       final telemetry = build();
       await quietlyAsync(telemetry.start);
@@ -282,7 +285,8 @@ void main() {
 
     test('the replay switch off leaves the error rate at zero', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_replay': false,
+        'phantom.diagnostics.share_logs.v1': true,
+        'phantom.diagnostics.share_replay.v1': false,
       });
 
       await build().start();
@@ -299,7 +303,8 @@ void main() {
       // move while the app runs, and a rule added only on the recording path
       // would be the one missing from the build that starts recording.
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_replay': false,
+        'phantom.diagnostics.share_logs.v1': true,
+        'phantom.diagnostics.share_replay.v1': false,
       });
 
       await build().start();
@@ -477,7 +482,8 @@ void main() {
       // The other direction, which is the one that *starts* recording - and
       // the only one a user who switched replay off ever exercises again.
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_replay': false,
+        'phantom.diagnostics.share_logs.v1': true,
+        'phantom.diagnostics.share_replay.v1': false,
       });
       final telemetry = build();
       await telemetry.start();
@@ -559,8 +565,8 @@ void main() {
       // separate guards each make it a no-op and the case passed with the whole
       // replay branch deleted.
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_logs': false,
-        'diagnostics.share_replay': false,
+        'phantom.diagnostics.share_logs.v1': false,
+        'phantom.diagnostics.share_replay.v1': false,
       });
       final telemetry = build();
       await telemetry.start();
@@ -578,7 +584,7 @@ void main() {
       // registered, so for a user who opted out last session the switch was
       // inert for the whole of the next one.
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_logs': false,
+        'phantom.diagnostics.share_logs.v1': false,
       });
       final telemetry = build();
       await telemetry.start();

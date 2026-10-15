@@ -246,7 +246,7 @@
     "description": "Label of the switch that decides whether errors and crashes are sent to the developers. On by default. Phrased as what the user gets rather than as the name of a service, because the service is an implementation detail that may change."
   },
 
-  "diagnosticsShareSubtitle": "Errors and crashes are sent automatically so they can be fixed. No card data, keys or captures are ever sent.",
+  "diagnosticsShareSubtitle": "Off unless you choose to share error reports with the developers. Card data, keys, captures and location are never sent in diagnostics.",
   "@diagnosticsShareSubtitle": {
     "description": "Explains the switch above it. Two facts, in the order a user asks them: that sending needs no action from them, and what is never included. The second half matters because this app handles card dumps, keys and radio captures, and the user has no way to verify the claim themselves."
   },
@@ -256,22 +256,22 @@
     "description": "Label of the second switch on the Diagnostics screen, below the sharing switch and shown only while sharing is on. Decides whether a recording of the screen is kept and sent when something fails. On by default, and only ever active on Android and iOS. \"Replay\" is what the service calls it; the label says what it is instead, because the user has no reason to know the term."
   },
 
-  "diagnosticsReplaySubtitle": "Recording runs the whole time the app is open, and leaves your device only when something goes wrong. Card bytes, signal plots and the Flipper screen are hidden from it.",
+  "diagnosticsReplaySubtitle": "Off unless you enable it separately. When enabled, a masked recording runs while the app is open and is uploaded only after an error. Card bytes, signal plots and the Flipper screen are hidden.",
   "@diagnosticsReplaySubtitle": {
     "description": "Explains the switch above it. Three facts in the order a user asks them: that recording is continuous, that the recording only leaves the device on a failure, and what stays hidden even then. The first is deliberate and must survive translation - the sample rate gates the upload, not the capture, so a user reading only the switch label would think nothing is recorded until something breaks. The third is a promise three masking rules keep rather than a reassurance. Renders at up to six lines and ellipsises after that, so if the translation runs long, keep the first and third facts ahead of the second. \"Hidden\" rather than \"blacked out\": the mask is painted in the theme's primary colour, not black."
   },
 
-  "diagnosticsNoticeTitle": "Failures are shared with the developers",
+  "diagnosticsNoticeTitle": "Diagnostics are optional",
   "@diagnosticsNoticeTitle": {
     "description": "Heading of the one-time notice shown on the first launch, and once more for people already using the app when sharing was added. States the fact rather than asking a question, because reporting is already on while the notice is on screen - it is a notice, not a consent prompt."
   },
 
-  "diagnosticsNoticeBody": "When something goes wrong, the error and the crash are sent by themselves, with the app version and the build it came from. On Android and iOS a recording of the screen goes with them. Card data, keys, captures and your location are hidden from that recording and are never sent. You can turn this off now or at any time in Settings \u2192 Diagnostics.",
+  "diagnosticsNoticeBody": "Error reports and screen recordings are off. You can enable error reports in Settings → Diagnostics, and choose screen replay separately. Card data, keys, captures and your location are never sent in diagnostics. Dismissing this message does not enable sharing.",
   "@diagnosticsNoticeBody": {
     "description": "Body of the one-time notice. Four things in the order a user asks them: what is sent, that a screen recording is part of it, what never is, and how to stop it. The recording sentence names the two platforms because replay is native-backed and does nothing on desktop, so saying it unconditionally would be false for most desktop users. \"Hidden from that recording\" is a claim five masking rules keep, not a reassurance - keep it attached to the recording sentence in translation, because apart they read as two unrelated promises. No link to a privacy policy, because the project has none yet; the text carries the substance instead."
   },
 
-  "diagnosticsNoticeTurnOff": "Turn it off",
+  "diagnosticsNoticeTurnOff": "Keep sharing off",
   "@diagnosticsNoticeTurnOff": {
     "description": "The dismissing action on the one-time notice that also turns sharing off. Present so that opting out costs one tap at the moment the user is being told, rather than a hunt through Settings afterwards."
   },
@@ -351,7 +351,7 @@
     "description": "Subtitle under the Flibler tile on the Settings screen. Flibler is a product name, keep it as is."
   },
 
-  "pushUnsignedBuild": "This build is not signed for push notifications, nothing will arrive.",
+  "pushUnsignedBuild": "Notifications could not be enabled. Check this build’s notification configuration and your connection, then try again.",
   "@pushUnsignedBuild": {
     "description": "Warning on the notification settings screen when the app build lacks push credentials."
   },
@@ -8414,5 +8414,73 @@
   "phantomExtensionRequired": "Requires a verified extension adapter",
   "@phantomExtensionRequired": {
     "description": "PHANTOM local device inspection: phantomExtensionRequired"
+  },
+  "phantomAiTitle": "PHANTOM AI",
+  "@phantomAiTitle": {
+    "description": "PHANTOM read-only AI chat: phantomAiTitle"
+  },
+  "phantomAiPrivacy": "Your messages go to OpenRouter and the selected model provider. Device status is shared only when you enable the switch below. Files and screens are not shared by this version.",
+  "@phantomAiPrivacy": {
+    "description": "PHANTOM read-only AI chat: phantomAiPrivacy"
+  },
+  "phantomAiStorageFailed": "Secure key storage could not be confirmed. Unlock the iPhone and try again.",
+  "@phantomAiStorageFailed": {
+    "description": "PHANTOM read-only AI chat: phantomAiStorageFailed"
+  },
+  "phantomAiFailed": "AI could not finish. Check your connection, model, API key and account credit. Manual Flipper controls remain available.",
+  "@phantomAiFailed": {
+    "description": "PHANTOM read-only AI chat: phantomAiFailed"
+  },
+  "phantomAiKeySaved": "API key stored securely on this iPhone.",
+  "@phantomAiKeySaved": {
+    "description": "PHANTOM read-only AI chat: phantomAiKeySaved"
+  },
+  "phantomAiKey": "OpenRouter API key",
+  "@phantomAiKey": {
+    "description": "PHANTOM read-only AI chat: phantomAiKey"
+  },
+  "phantomAiSaveKey": "Save key",
+  "@phantomAiSaveKey": {
+    "description": "PHANTOM read-only AI chat: phantomAiSaveKey"
+  },
+  "phantomAiEraseKey": "Erase key",
+  "@phantomAiEraseKey": {
+    "description": "PHANTOM read-only AI chat: phantomAiEraseKey"
+  },
+  "phantomAiLoadModels": "Load available models",
+  "@phantomAiLoadModels": {
+    "description": "PHANTOM read-only AI chat: phantomAiLoadModels"
+  },
+  "phantomAiModel": "Choose a model",
+  "@phantomAiModel": {
+    "description": "PHANTOM read-only AI chat: phantomAiModel"
+  },
+  "phantomAiShareStatus": "Allow AI to read and share basic device status for this request",
+  "@phantomAiShareStatus": {
+    "description": "PHANTOM read-only AI chat: phantomAiShareStatus"
+  },
+  "phantomAiBudget": "Read-only assistant: up to 3 model requests, 4 status queries and 512 output tokens per request. Provider charges apply; no hard dollar cap yet. Stop cancels future work but cannot undo a request already sent.",
+  "@phantomAiBudget": {
+    "description": "PHANTOM read-only AI chat: phantomAiBudget"
+  },
+  "phantomAiYou": "You",
+  "@phantomAiYou": {
+    "description": "PHANTOM read-only AI chat: phantomAiYou"
+  },
+  "phantomAiMessage": "Message",
+  "@phantomAiMessage": {
+    "description": "PHANTOM read-only AI chat: phantomAiMessage"
+  },
+  "phantomAiSend": "Send",
+  "@phantomAiSend": {
+    "description": "PHANTOM read-only AI chat: phantomAiSend"
+  },
+  "phantomAiStop": "Stop",
+  "@phantomAiStop": {
+    "description": "PHANTOM read-only AI chat: phantomAiStop"
+  },
+  "phantomAiEraseChat": "Erase conversation",
+  "@phantomAiEraseChat": {
+    "description": "PHANTOM read-only AI chat: phantomAiEraseChat"
   }
 }

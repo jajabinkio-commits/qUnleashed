@@ -5,27 +5,8 @@ import '../../services/localization/l10n.dart';
 import '../../services/telemetry/settings.dart';
 import '../../theme/theme.dart';
 
-/// Tells the user once that failures are shared, and offers to stop.
-///
-/// [ADR 0013 §1](../../../docs/adr/0013-observability-with-sentry.md): a
-/// notice and **not** a gate. Reporting is already running while this is on
-/// screen, which is what makes it one — the app is usable behind it, and
-/// dismissing it means the same as **Got it**.
-///
-/// Two actions. **Got it** closes it, and **Turn it off** closes it with the
-/// switch off, because turning it off should take one tap at the moment the
-/// user is being told rather than a hunt through Settings later.
-///
-/// No policy link. The repository has no privacy policy and this decision is
-/// not waiting on one being written, so the notice carries the substance
-/// instead: what is sent, what never is, and how to stop it. It gains the link
-/// when there is one.
-///
-/// There is no onboarding flow to hang this on, so it is a sheet of its own.
-/// Raised from `AppShell`'s first frame: not from `_initCore`, which must
-/// never throw and has no UI, and not from `widgetMain()`, which has no window
-/// at all — a headless isolate marking the notice shown is a user who never
-/// sees it.
+/// Explains the opt-in controls once. Dismissal never enables diagnostics;
+/// the user must separately enable reports/replay in Settings.
 Future<void> showDiagnosticsNoticeIfDue(
   BuildContext context,
   DiagnosticsSettings settings,
@@ -37,16 +18,7 @@ Future<void> showDiagnosticsNoticeIfDue(
   if (settings.noticeShown) return;
   if (!context.mounted) return;
 
-  // Marked before it is shown, not after. §1 records it as shown either way,
-  // and a swipe-dismiss returns the same `null` as a lost route — so waiting
-  // for an answer is how this comes back at every launch for anyone who swipes
-  // it away.
-  //
-  // Awaited, and it costs nothing: `load` above has already opened the
-  // preference store, so the write finds it memoised. `guarded` rather than a
-  // bare call because `persistSetting` catching everything is a property of
-  // another file, and depending on it from here is how an unlabelled
-  // `[uncaught]` gets added later. #23.
+  // Recording a notice as shown is separate from granting consent.
   await guarded(
     '[Diagnostics] recording that the notice was shown',
     settings.markNoticeShown,

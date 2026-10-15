@@ -11,11 +11,16 @@ import '../pages/tools/plotter/page.dart';
 import '../pages/tools/remote/desktop/page.dart';
 import '../pages/devices/device_scope.dart';
 import '../phantom/device/flipper_gateway.dart';
+import '../phantom/features/ai/chat_page.dart';
 import '../phantom/features/devices/inspection_page.dart';
 
 /// Binds every cross-feature route to the page that implements it. This is the
 /// only place that knows about all feature pages at once.
 void registerAppRoutes() {
+  registerRoute(AppRoute.phantomAi, (context, _) {
+    final client = DeviceScope.of(context).client;
+    return PhantomChatPage(createGateway: () => FlipperGateway(client: client));
+  });
   registerRoute(AppRoute.phantomInspection, (context, _) {
     final client = DeviceScope.of(context).client;
     return PhantomInspectionPage(

@@ -202,52 +202,55 @@ void main() {
       SharedPreferences.setMockInitialValues(<String, Object>{});
     });
 
-    test('is on before anything has been read', () {
+    test('is off before anything has been read', () {
       // The value a build starts with, which is the one that holds when the
       // store will not open at all.
-      expect(DiagnosticsSettings().shareLogs, isTrue);
+      expect(DiagnosticsSettings().shareLogs, isFalse);
     });
 
-    test('is on after a read of a store that has never been written', () async {
-      final settings = DiagnosticsSettings();
-      await settings.load();
-      expect(settings.loaded, isTrue);
-      expect(settings.shareLogs, isTrue);
-    });
+    test(
+      'is off after a read of a store that has never been written',
+      () async {
+        final settings = DiagnosticsSettings();
+        await settings.load();
+        expect(settings.loaded, isTrue);
+        expect(settings.shareLogs, isFalse);
+      },
+    );
 
     test('reads back what was turned off', () async {
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_logs': false,
+        'phantom.diagnostics.share_logs.v1': false,
       });
       final settings = DiagnosticsSettings();
       await settings.load();
       expect(settings.shareLogs, isFalse);
     });
 
-    test('a stored value of the wrong type leaves reporting on', () async {
+    test('a stored value of the wrong type leaves reporting off', () async {
       // PrefsReader's whole reason for existing: one key stored as the wrong
       // type must not decide the setting. The direction matters here - the
-      // fallback is on, so a corrupt store does not silently stop reporting.
+      // fallback is off, so corrupt consent never starts reporting.
       SharedPreferences.setMockInitialValues(<String, Object>{
-        'diagnostics.share_logs': 'nope',
+        'phantom.diagnostics.share_logs.v1': 'nope',
       });
       final settings = DiagnosticsSettings();
       await settings.load();
-      expect(settings.shareLogs, isTrue);
+      expect(settings.shareLogs, isFalse);
     });
 
-    test('turning it off notifies, and persists', () async {
+    test('turning it on notifies, and persists', () async {
       final settings = DiagnosticsSettings();
       await settings.load();
       var notified = 0;
       settings.addListener(() => notified += 1);
 
-      await settings.setShareLogs(false);
+      await settings.setShareLogs(true);
       expect(notified, 1);
-      expect(settings.shareLogs, isFalse);
+      expect(settings.shareLogs, isTrue);
 
       final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool('diagnostics.share_logs'), isFalse);
+      expect(prefs.getBool('phantom.diagnostics.share_logs.v1'), isTrue);
     });
 
     test('setting it to what it already is notifies nobody', () async {
@@ -257,7 +260,7 @@ void main() {
       await settings.load();
       var notified = 0;
       settings.addListener(() => notified += 1);
-      await settings.setShareLogs(true);
+      await settings.setShareLogs(false);
       expect(notified, 0);
     });
   });

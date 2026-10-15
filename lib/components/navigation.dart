@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 /// `app/routes.dart`, so a feature never has to import a sibling feature.
 enum AppRoute {
   phantomInspection,
+  phantomAi,
   remoteControl,
   pixelEditor,
   plotter,

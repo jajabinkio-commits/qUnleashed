@@ -1,6 +1,6 @@
 # PHANTOM capability matrix
 
-Cycle 01: all 31 supplied capabilities retained in scope. Source presence is not hardware acceptance. Exact source revisions are in UPSTREAM_AUDIT.md. Initial CSV is retained verbatim in SPEC_FEATURE_MATRIX.csv.
+Cycle 02: iPhone-only priority. All 31 supplied capabilities remain tracked. Source implementation and simulated checks do not pass physical gates. Original contract CSV: SPEC_FEATURE_MATRIX.csv.
 
 | ID | Feature | Execution Mode | Priority | Evidence Source | Test Method | Current Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -21,8 +21,8 @@ Cycle 01: all 31 supplied capabilities retained in scope. Source presence is not
 | FW01 | Normal firmware update via BLE | iOS direct | P1 | lib/pages/devices/firmware/installer.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
 | FW02 | Full USB DFU repair | Bridge required | P2 | flipperlib src/dfu; new bridge capability label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
 | CLI01 | Flipper USB terminal | Bridge required | P2 | flipperlib USB transport; tools overview excludes iOS CLI; new bridge label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
-| AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | OpenRouter tools | Mock + provider | NOT IMPLEMENTED |
-| AI02 | Typed tool policy/audit | iOS direct | P0 | Local deterministic | Unit + redteam | NOT IMPLEMENTED |
+| AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart | Mock + provider | IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED |
+| AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two read-only tools, strict allowlist/args/consent, bounded loop/STOP; no mutations or persisted audit yet |
 | AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | iOS permissions | iPhone | NOT IMPLEMENTED |
 | AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | provider multimodal | Provider tests | NOT IMPLEMENTED |
 | AI05 | Local Ollama endpoint | Bridge or LAN server | P2 | Ollama compatible service | Host integration | NOT IMPLEMENTED; external LAN/bridge service required |
@@ -33,11 +33,7 @@ Cycle 01: all 31 supplied capabilities retained in scope. Source presence is not
 | TOOL01 | Pixel Draw / IRDB / Pulse plot / map | iOS direct conditional | P2 | lib/pages/tools/paint,infrared,plotter; lib/pages/archive/map | Regression | Retained upstream implementation; physical behavior UNVERIFIED |
 | BR01 | Authenticated local USB bridge | Bridge required | P2 | Custom daemon + RPC | Host integration | NOT IMPLEMENTED |
 | BR02 | Remote bridge via secured tunnel | Optional bridge | P3 | Authenticated TLS/VPN | Security integration | NOT IMPLEMENTED |
-| SEC01 | Keychain secrets/redacted audit | iOS direct | P0 | Keychain + policy | Unit + security | NOT IMPLEMENTED; upstream default telemetry privacy blocker documented |
-| SEC02 | Model prompt-injection defenses | iOS direct | P0 | Typed tool registry | Unit + redteam | NOT IMPLEMENTED |
+| SEC01 | Keychain secrets/redacted audit | iOS direct | P0 | iOS AppDelegate Keychain channel; credentials.dart; diagnostics/settings.dart; notifications/push_service.dart | Unit + security | PARTIAL: opt-in defaults/migration and redaction tested; iOS Keychain source + channel tests; native security UNVERIFIED |
+| SEC02 | Model prompt-injection defenses | iOS direct | P0 | test/phantom_ai_test.dart; read_only_agent.dart | Unit + redteam | PARTIAL: hostile tool/arg and mixed-batch tests; file/screen inputs excluded, broader red-team pending |
 
-## First-slice verification
-
-`test/phantom_gateway_test.dart`: observed status, per-field failures, unsupported versus unverified, path traversal rejection, STOP, same-device reconnect and warm-device changes (simulated). `test/phantom_inspection_page_test.dart`: local manual UI, STOP, background cancellation, disconnected guard (simulated). See IMPLEMENTATION_CYCLE_01.md for actual final results.
-
-M0 audited baseline established. M1 first read-only slice implemented; full M1 hardware gate blocked. M2–M7 remain pending.
+M0 baseline established; M1 first slice retained, physical gate still blocked. First M2 read-only source slice now exists; full M2 (including voice/screen/files/cost controls/live provider and native Keychain verification) is not complete. M3–M7 remain pending. USB-only functions stay bridge-required and are outside direct iPhone functionality.

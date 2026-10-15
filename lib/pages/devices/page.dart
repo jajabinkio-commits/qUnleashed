@@ -54,6 +54,12 @@ class DeviceTab extends StatelessWidget {
                 padding: EdgeInsets.only(top: headerHeight + 14, bottom: 14),
                 children: [
                   Center(
+                    child: TextButton(
+                      onPressed: () => openRoute(context, AppRoute.phantomAi),
+                      child: Text(context.l10n.phantomAiTitle),
+                    ),
+                  ),
+                  Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(
                         maxWidth: _contentMaxWidth,

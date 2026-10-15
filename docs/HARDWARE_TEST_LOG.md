@@ -21,3 +21,15 @@ Each record requires: Test ID; platform/transport; source, firmware and host ver
 | T01 | physical iPhone/BLE | not supplied | Actual Flipper discovered | Not run: hardware unavailable | Physical | BLOCKED | none |
 
 All 50 current statuses are enumerated in `ACCEPTANCE_STATUS.md`. No hardware acceptance gate is marked PASS.
+
+## Cycle 02 additional procedures (not run)
+
+After a real signed build exists, record iOS/Flipper/source versions and test:
+
+- First install and legacy preference migration: diagnostics/replay/notification switches off, no permission prompts or Firebase initialization before opt-in. Test denied notification permission, fresh consent, revocation and old native token cleanup; verify no unexpected replay recorder starts.
+- Save/read/update/erase a test OpenRouter credential through the real iPhone Keychain; ensure no preferences/plaintext copy or iCloud synchronization and verify behavior when locked. Never record the key in screenshots or logs.
+- Public model discovery, approved live provider round-trip, offline/provider failure while manual BLE controls continue. Record provider/model/usage; use an explicitly approved account budget. No hard dollar-cap enforcement is claimed by this slice.
+- Default chat sends no device data. Each status-consented Send resets the switch off. Compare returned battery/storage to device observation; switch Flippers during a tool read; background/STOP must prevent later tool steps and late answers.
+- Read-only AI must reject every mutation, RF, CLI, firmware or invented tool. File/screen/voice inputs are absent from this slice; their acceptance remains pending.
+
+All remain BLOCKED/UNVERIFIED until performed on hardware. The manual Mac workflow has not executed and its unsigned artifact would not itself qualify installation/signing acceptance.

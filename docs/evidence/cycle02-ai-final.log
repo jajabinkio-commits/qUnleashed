@@ -1,0 +1,21 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:00 +0: no consent offers no tools and performs no device RPC
+00:00 +1: hallucinated read without consent is rejected before RPC
+00:00 +2: validated status query sends observed minimized values only
+00:00 +3: mutation name cannot execute even with consent
+00:00 +4: entire mixed batch is rejected before an accepted read
+00:00 +5: model confirmation and injection arguments never alter policy
+00:00 +6: switching selected Flipper rejects tool result path
+00:00 +7: three-completion budget stops endless model tool requests
+00:00 +8: missing key prevents model requests and device RPC
+00:00 +9: STOP closes provider and discards a late tool proposal
+00:00 +10: consented device answers are not resent on an unconsented turn
+00:00 +11: erasing conversation removes prior text from future provider requests
+00:00 +12: OpenRouter request uses bearer header and bounded custom tools
+00:00 +13: provider error body is never exposed as an exception or key leak
+00:00 +14: oversized provider response is rejected
+00:00 +15: public model discovery filters tool support and sends no authorization
+00:00 +16: credential method channel has fixed operations and no plaintext fallback
+00:00 +17: a pasted active API key is rejected before any HTTP request
+00:00 +18: a provider-echoed credential is redacted before display or history
+00:00 +19: All tests passed!

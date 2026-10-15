@@ -1,0 +1,6 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:00 +0: opening AI sends no provider request or device RPC; sharing defaults off
+00:00 +1: save key clears the obscured input
+00:01 +2: selected model and send show response without granting device access
+00:01 +3: backgrounding cancels AI and discards a late tool call
+00:01 +4: All tests passed!

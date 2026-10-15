@@ -1,0 +1,370 @@
+00:00 +0: loading /workspace/PHANTOM/test/app_shutdown_test.dart
+00:00 +0: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown holds the window open and listens for the close
+00:00 +1: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown releases the link, then destroys the window, in that order
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +2: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown suspends the keeper before anything disconnects
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [error] [Shutdown] disconnect every link failed: TimeoutException after 0:00:04.000000: Future not completed
+[05:23:04] #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)
+[05:23:04] #1      StackZoneSpecification._run (package:stack_trace/src/stack_zone_specification.dart:207:15)
+[05:23:04] #2      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:48)
+[05:23:04] #3      _rootRun (dart:async/zone_root.dart:27:47)
+[05:23:04] #4      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #5      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #6      _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:743:23)
+[05:23:04] #7      _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #8      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #9      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #10     FakeTimer._fire (package:fake_async/fake_async.dart:364:13)
+[05:23:04] #11     FakeAsync._fireTimersWhile (package:fake_async/fake_async.dart:247:13)
+[05:23:04] #12     FakeAsync.elapse (package:fake_async/fake_async.dart:141:5)
+[05:23:04] #13     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2254:28)
+[05:23:04] #14     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #15     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #16     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #17     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+[05:23:04] #18     WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+[05:23:04] #19     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #20     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #21     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #22     WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+[05:23:04] #23     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:227:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #24     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #25     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #26     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +3: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown a disconnect that never answers still reaches the window
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [error] [Shutdown] disconnect every link failed: TimeoutException after 0:00:04.000000: Future not completed
+[05:23:04] #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)
+[05:23:04] #1      StackZoneSpecification._run (package:stack_trace/src/stack_zone_specification.dart:207:15)
+[05:23:04] #2      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:48)
+[05:23:04] #3      _rootRun (dart:async/zone_root.dart:27:47)
+[05:23:04] #4      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #5      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #6      _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:743:23)
+[05:23:04] #7      _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #8      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #9      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #10     FakeTimer._fire (package:fake_async/fake_async.dart:364:13)
+[05:23:04] #11     FakeAsync._fireTimersWhile (package:fake_async/fake_async.dart:247:13)
+[05:23:04] #12     FakeAsync.elapse (package:fake_async/fake_async.dart:141:5)
+[05:23:04] #13     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2254:28)
+[05:23:04] #14     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #15     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #16     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #17     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+[05:23:04] #18     WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+[05:23:04] #19     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #20     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #21     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #22     WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+[05:23:04] #23     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:244:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #24     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #25     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #26     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +4: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown exits itself when the window survives being destroyed
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [error] [Shutdown] destroy the window failed: TimeoutException after 0:00:02.000000: Future not completed
+[05:23:04] #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)
+[05:23:04] #1      StackZoneSpecification._run (package:stack_trace/src/stack_zone_specification.dart:207:15)
+[05:23:04] #2      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:48)
+[05:23:04] #3      _rootRun (dart:async/zone_root.dart:27:47)
+[05:23:04] #4      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #5      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #6      _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:743:23)
+[05:23:04] #7      _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #8      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #9      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #10     FakeTimer._fire (package:fake_async/fake_async.dart:364:13)
+[05:23:04] #11     FakeAsync._fireTimersWhile (package:fake_async/fake_async.dart:247:13)
+[05:23:04] #12     FakeAsync.elapse (package:fake_async/fake_async.dart:141:5)
+[05:23:04] #13     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2254:28)
+[05:23:04] #14     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #15     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #16     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #17     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+[05:23:04] #18     WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+[05:23:04] #19     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #20     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #21     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #22     WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+[05:23:04] #23     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:261:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #24     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #25     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #26     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +5: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown drains the reports before the window goes
+[05:23:04] [caught] [Build] version unavailable: MissingPluginException(No implementation found for method getAll on channel dev.fluttercommunity.plus/package_info)
+[05:23:04] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #1      MethodChannel.invokeMapMethod (package:flutter/src/services/platform_channel.dart:566:43)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #2      MethodChannelPackageInfo.getAll (package:package_info_plus_platform_interface/method_channel_package_info.dart:13:17)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #3      PackageInfo.fromPlatform (package:package_info_plus/package_info_plus.dart:82:26)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #4      BuildIdentity._read (package:qunleashed/services/build_identity.dart:229:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #5      BuildIdentity.resolve (package:qunleashed/services/build_identity.dart:214:60)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #6      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:266:16)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #7      startReporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:91:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #8      _AsyncCompleter.complete (dart:async/future_impl.dart:96:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #9      main.<anonymous closure>.reporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:165:18)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #10     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:273:25)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #11     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #12     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #13     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [caught] [Telemetry] no crash database path, using the default beside the executable: MissingPluginException(No implementation found for method getApplicationSupportDirectory on channel plugins.flutter.io/path_provider)
+[05:23:04] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #1      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:24)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #2      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:23)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #3      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:29)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #4      startReporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:91:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #5      _AsyncCompleter.complete (dart:async/future_impl.dart:96:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #6      main.<anonymous closure>.reporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:165:18)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #7      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:273:25)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #10     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +6: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown a flush that never answers still reaches the window
+[05:23:04] [caught] [Telemetry] no crash database path, using the default beside the executable: MissingPluginException(No implementation found for method getApplicationSupportDirectory on channel plugins.flutter.io/path_provider)
+[05:23:04] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #1      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:24)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #2      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:23)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #3      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:29)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #4      startReporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:91:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #5      _AsyncCompleter.complete (dart:async/future_impl.dart:96:3)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #6      main.<anonymous closure>.reporting (file:///workspace/PHANTOM/test/app_shutdown_test.dart:165:18)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #7      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:307:25)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #8      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #9      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #10     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [error] [Shutdown] flush the reports failed: TimeoutException after 0:00:02.000000: Future not completed
+[05:23:04] #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)
+[05:23:04] #1      StackZoneSpecification._run (package:stack_trace/src/stack_zone_specification.dart:207:15)
+[05:23:04] #2      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:48)
+[05:23:04] #3      _rootRun (dart:async/zone_root.dart:27:47)
+[05:23:04] #4      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #5      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #6      _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:743:23)
+[05:23:04] #7      _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #8      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #9      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #10     FakeTimer._fire (package:fake_async/fake_async.dart:364:13)
+[05:23:04] #11     FakeAsync._fireTimersWhile (package:fake_async/fake_async.dart:247:13)
+[05:23:04] #12     FakeAsync.elapse (package:fake_async/fake_async.dart:141:5)
+[05:23:04] #13     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2254:28)
+[05:23:04] #14     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #15     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #16     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #17     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+[05:23:04] #18     WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+[05:23:04] #19     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #20     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #21     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #22     WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+[05:23:04] #23     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:317:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #24     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #25     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #26     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +7: /workspace/PHANTOM/test/app_shutdown_test.dart: AppShutdown a second click on the X does not disconnect twice
+[05:23:04] [warning] [Shutdown] releasing the link before exit
+[05:23:04] [error] [Shutdown] disconnect every link failed: TimeoutException after 0:00:04.000000: Future not completed
+[05:23:04] #0      Future.timeout.<anonymous closure> (dart:async/future_impl.dart:1042:24)
+[05:23:04] #1      StackZoneSpecification._run (package:stack_trace/src/stack_zone_specification.dart:207:15)
+[05:23:04] #2      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:48)
+[05:23:04] #3      _rootRun (dart:async/zone_root.dart:27:47)
+[05:23:04] #4      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #5      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #6      _CustomZone.bindCallbackGuarded.<anonymous closure> (dart:async/zone.dart:743:23)
+[05:23:04] #7      _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #8      _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #9      _CustomZone.runGuarded (dart:async/zone.dart:702:7)
+[05:23:04] #10     FakeTimer._fire (package:fake_async/fake_async.dart:364:13)
+[05:23:04] #11     FakeAsync._fireTimersWhile (package:fake_async/fake_async.dart:247:13)
+[05:23:04] #12     FakeAsync.elapse (package:fake_async/fake_async.dart:141:5)
+[05:23:04] #13     AutomatedTestWidgetsFlutterBinding.pump.<anonymous closure> (package:flutter_test/src/binding.dart:2254:28)
+[05:23:04] #14     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #15     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #16     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #17     AutomatedTestWidgetsFlutterBinding.pump (package:flutter_test/src/binding.dart:2250:27)
+[05:23:04] #18     WidgetTester.pump.<anonymous closure> (package:flutter_test/src/widget_tester.dart:652:53)
+[05:23:04] #19     _rootRun (dart:async/zone_root.dart:35:13)
+[05:23:04] #20     _CustomZone.run (dart:async/zone.dart:810:35)
+[05:23:04] #21     TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+[05:23:04] #22     WidgetTester.pump (package:flutter_test/src/widget_tester.dart:652:27)
+[05:23:04] #23     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/app_shutdown_test.dart:344:20)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #24     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #25     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+[05:23:04] <asynchronous suspension>
+[05:23:04] #26     StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+[05:23:04] <asynchronous suspension>
+[05:23:04] 
+[05:23:04] [Shutdown] still running after destroy; exiting
+00:00 +8: loading /workspace/PHANTOM/test/phantom_privacy_test.dart
+00:01 +8: /workspace/PHANTOM/test/phantom_privacy_test.dart: legacy log/replay choices are not PHANTOM consent
+00:01 +9: /workspace/PHANTOM/test/phantom_privacy_test.dart: fresh install with a real-shaped DSN never initializes the SDK
+[05:23:05] [caught] [Build] version unavailable: MissingPluginException(No implementation found for method getAll on channel dev.fluttercommunity.plus/package_info)
+[05:23:05] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #1      MethodChannel.invokeMapMethod (package:flutter/src/services/platform_channel.dart:566:43)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #2      MethodChannelPackageInfo.getAll (package:package_info_plus_platform_interface/method_channel_package_info.dart:13:17)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #3      PackageInfo.fromPlatform (package:package_info_plus/package_info_plus.dart:82:26)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #4      BuildIdentity._read (package:qunleashed/services/build_identity.dart:229:20)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #5      BuildIdentity.resolve (package:qunleashed/services/build_identity.dart:214:60)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #6      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:266:16)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #7      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_privacy_test.dart:61:7)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #8      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #9      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #10     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:23:05] <asynchronous suspension>
+[05:23:05] 
+[05:23:05] [caught] [Telemetry] no crash database path, using the default beside the executable: MissingPluginException(No implementation found for method getApplicationSupportDirectory on channel plugins.flutter.io/path_provider)
+[05:23:05] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #1      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:24)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #2      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:23)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #3      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:29)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #4      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_privacy_test.dart:61:7)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:23:05] <asynchronous suspension>
+[05:23:05] 
+[05:23:05] [caught] [Telemetry] not reporting: sharing is off in Settings
+00:01 +10: /workspace/PHANTOM/test/phantom_privacy_test.dart: unreadable preferences cannot authorize reporting
+[05:23:05] [warning] [Diagnostics] consent could not be read; sharing remains off: PlatformException
+[05:23:05] [caught] [Telemetry] no crash database path, using the default beside the executable: MissingPluginException(No implementation found for method getApplicationSupportDirectory on channel plugins.flutter.io/path_provider)
+[05:23:05] #0      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:364:7)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #1      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:24)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #2      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:23)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #3      Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:29)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #4      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_privacy_test.dart:78:5)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #5      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #6      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:23:05] <asynchronous suspension>
+[05:23:05] #7      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:23:05] <asynchronous suspension>
+[05:23:05] 
+[05:23:05] [caught] [Telemetry] not reporting: sharing is off in Settings
+00:01 +11: /workspace/PHANTOM/test/phantom_privacy_test.dart: log consent does not grant screen replay consent
+00:01 +12: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent fresh startup never initializes Firebase, permission or token path
+00:01 +13: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent legacy enabled preferences are ignored
+00:01 +14: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent malformed consent is off
+00:01 +15: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent unreadable preferences never initialize Firebase
+[05:23:05] [warning] [Push] consent could not be read; notifications remain off: PlatformException
+[05:23:05] [warning] [Push] consent could not be read; notifications remain off: PlatformException
+00:01 +16: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent explicit choice initializes once and subscribes only selected category
+00:01 +17: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent revoking last category disables token refresh and deletes token
+00:01 +18: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent dev preference alone cannot start push
+00:01 +19: /workspace/PHANTOM/test/phantom_privacy_test.dart: push consent revocation during native initialization cannot enable automatic tokens
+00:01 +20: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:01 +20: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:01 +21: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:01 +22: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:01 +23: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:01 +24: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:01 +25: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:01 +26: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:01 +27: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:01 +28: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:01 +29: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:01 +30: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:01 +31: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:01 +32: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:01 +33: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:01 +34: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:01 +35: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:01 +36: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:01 +37: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:01 +38: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:01 +39: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:02 +39: /workspace/PHANTOM/test/phantom_chat_page_test.dart: opening AI sends no provider request or device RPC; sharing defaults off
+00:03 +40: /workspace/PHANTOM/test/phantom_chat_page_test.dart: save key clears the obscured input
+00:03 +41: /workspace/PHANTOM/test/phantom_chat_page_test.dart: selected model and send show response without granting device access
+00:03 +42: /workspace/PHANTOM/test/phantom_chat_page_test.dart: backgrounding cancels AI and discards a late tool call
+00:04 +43: All tests passed!

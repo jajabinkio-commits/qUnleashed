@@ -23,3 +23,23 @@ Mock tests replace wire response frames while retaining real API extension decod
 ## D006 — Privacy and retry behavior require a focused next slice
 
 FACT: upstream default diagnostics/replay and startup Firebase differ from PHANTOM's privacy contract; upstream uploads may restart on reconnect. Those findings are explicit release/M2/M3 blockers, not silent omissions. Preserve the audited baseline in this cycle. Next implementation changes defaults and consent behavior with regression evidence before provider secrets are introduced. No dependency versions or cloud account settings are guessed.
+
+## D007 — iPhone-only scope and privacy consent
+
+User confirmed iPhone-only operation and asked engineering to handle implementation. Retain direct BLE/manual functions; USB CLI/DFU remain explicitly bridge-required. Signing and hardware tests cannot be fabricated. Apple membership is not yet established. New PHANTOM preference keys intentionally ignore legacy diagnostics/replay/push choices, default false and fail closed on unreadable/malformed preferences. Replay requires separate opt-in. The notification backend initializes only after an explicit category opt-in; revocation disables auto-init, unsubscribes topics and deletes the token. Native migration/revocation still needs device validation.
+
+## D008 — Implement source despite unavailable hardware, preserve gates
+
+The user's instruction and AGENTS require real implementation even when iOS signing/hardware is absent. Implement a first M2 read-only source slice with simulated tests while keeping M1 and full M2 hardware gates unpassed. Do not represent the first slice as the complete AI subsystem. No write or radio tool is exposed.
+
+## D009 — Verified OpenRouter wire contract and least data
+
+Read OpenRouter's public OpenAPI and public model catalog on 2026-10-15. Function names permit letters/digits/underscores/dashes, not dots, so map local `device.status`/`device.capabilities` to wire `device_status`/`device_capabilities`. Offer only these two custom functions. Validate the entire batch, empty arguments, device continuity, consent and budgets before reading; no general model-selected executor exists. One-send status consent resets after Send. Exclude identities, filenames, files, screens and arbitrary raw info fields; don't retain status results/derived answers as later provider context. Normal text history is memory-only and erasable.
+
+## D010 — Native credentials and bounded provider behavior
+
+Use iOS Security.framework Keychain in the existing implicit-engine registration path, with a fixed account/service, non-synchronizing and WhenUnlockedThisDeviceOnly accessibility. No preferences/plaintext credential fallback. Native code is not yet compiled on macOS. Requests use fixed HTTPS OpenRouter endpoints and bearer headers; no AppHttp telemetry hook, raw provider error body or key-bearing exception is logged. Reject a known key pasted into prompts and redact an echoed key. Bounds: 3 completions, 4 tools, 512 output tokens/completion, 25-second HTTP completion timeout, 45-second workflow deadline, request/response byte limits. These do not constitute a hard dollar cap; provider credit/cost verification remains pending.
+
+## D011 — Cloud compilation is distinct from installation
+
+Prepare a manual macOS-15 GitHub Actions compile check using pinned Flutter and recursive submodules. It builds an unsigned debug app with the test Firebase placeholder, does not publish and requires no Apple signing key. Lint locally; mark remote execution unverified until observed. Signed installation still requires an authorized Apple/app identity/distribution workflow and user account sign-in.

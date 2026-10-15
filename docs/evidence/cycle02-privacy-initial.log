@@ -1,0 +1,378 @@
+00:00 +0: loading /workspace/PHANTOM/test/telemetry_test.dart
+00:00 +0: /workspace/PHANTOM/test/telemetry_test.dart: whether anything is sent a DSN and the switch on is the only combination that reports
+00:00 +1: /workspace/PHANTOM/test/telemetry_test.dart: whether anything is sent no DSN compiled in says so rather than failing
+00:00 +2: /workspace/PHANTOM/test/telemetry_test.dart: whether anything is sent the switch off is reported as the switch, not as a missing DSN
+00:00 +3: /workspace/PHANTOM/test/telemetry_test.dart: whether anything is sent no DSN wins over the switch, because it is the cheaper answer
+00:00 +4: /workspace/PHANTOM/test/telemetry_test.dart: what the build calls itself release, dist and environment come off the stamp
+00:00 +5: /workspace/PHANTOM/test/telemetry_test.dart: what the build calls itself the channel reaches the environment, not only the version
+00:00 +6: /workspace/PHANTOM/test/telemetry_test.dart: the navigator observer a build with no DSN carries none at all
+00:00 +7: /workspace/PHANTOM/test/telemetry_test.dart: the navigator observer a configured build carries one
+00:00 +8: /workspace/PHANTOM/test/telemetry_test.dart: the navigator observer and builds it once, however often the list is read
+00:00 +9: /workspace/PHANTOM/test/telemetry_test.dart: where undelivered crashes are kept the plan carries the path it was given
+00:00 +10: /workspace/PHANTOM/test/telemetry_test.dart: where undelivered crashes are kept null is a producible state, and means the SDK default
+00:00 +11: /workspace/PHANTOM/test/telemetry_test.dart: the tags 0014 §3 asks for three commits when all three are known
+00:00 +12: /workspace/PHANTOM/test/telemetry_test.dart: the tags 0014 §3 asks for an unknown commit is absent rather than blank
+00:00 +13: /workspace/PHANTOM/test/telemetry_test.dart: the tags 0014 §3 asks for a build nothing told says nothing
+00:00 +14: /workspace/PHANTOM/test/telemetry_test.dart: the switch is off before anything has been read
+00:00 +15: /workspace/PHANTOM/test/telemetry_test.dart: the switch is off after a read of a store that has never been written
+00:00 +16: /workspace/PHANTOM/test/telemetry_test.dart: the switch reads back what was turned off
+00:00 +17: /workspace/PHANTOM/test/telemetry_test.dart: the switch a stored value of the wrong type leaves reporting off
+[05:08:07] [warning] [Diagnostics] ignored 1 stored preference(s) of the wrong type: phantom.diagnostics.share_logs.v1
+00:00 +18: /workspace/PHANTOM/test/telemetry_test.dart: the switch turning it on notifies, and persists
+00:00 +19: /workspace/PHANTOM/test/telemetry_test.dart: the switch setting it to what it already is notifies nobody
+00:00 +20: /workspace/PHANTOM/test/telemetry_test.dart: the scrubber in front of every event takes the account name out of an event message
+00:00 +21: /workspace/PHANTOM/test/telemetry_test.dart: the scrubber in front of every event takes it out of every exception value
+00:00 +22: /workspace/PHANTOM/test/telemetry_test.dart: the scrubber in front of every event takes it out of a breadcrumb message and its string data
+00:00 +23: /workspace/PHANTOM/test/telemetry_test.dart: the scrubber in front of every event an event with none of the four carriers survives untouched
+00:00 +24: /workspace/PHANTOM/test/telemetry_test.dart: the scrubber in front of every event nothing is dropped: the scrubber edits, it does not filter
+00:00 +25: /workspace/PHANTOM/test/telemetry_test.dart: the other two hooks a Sentry log body is scrubbed
+00:00 +26: /workspace/PHANTOM/test/telemetry_test.dart: the other two hooks a log with nothing to redact comes back as it went in
+00:00 +27: /workspace/PHANTOM/test/telemetry_test.dart: the other two hooks a span's description is scrubbed, and its string data with it
+00:00 +28: /workspace/PHANTOM/test/telemetry_test.dart: where replay can record is the two platforms the recorder exists on
+00:00 +29: /workspace/PHANTOM/test/telemetry_test.dart: where replay can record and nowhere else
+00:00 +30: loading /workspace/PHANTOM/test/telemetry_lifecycle_test.dart
+00:00 +30: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up installs all four hooks and raises the library pin
+[05:08:08] [caught] [Build] version unavailable: Binding has not yet been initialized.
+[05:08:08] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[05:08:08] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[05:08:08] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[05:08:08] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[05:08:08] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[05:08:08] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[05:08:08] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[05:08:08] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[05:08:08] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[05:08:08] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[05:08:08] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[05:08:08] #7      MethodChannel.invokeMapMethod (package:flutter/src/services/platform_channel.dart:566:49)
+[05:08:08] #8      MethodChannelPackageInfo.getAll (package:package_info_plus_platform_interface/method_channel_package_info.dart:13:32)
+[05:08:08] #9      PackageInfo.fromPlatform (package:package_info_plus/package_info_plus.dart:82:61)
+[05:08:08] #10     BuildIdentity._read (package:qunleashed/services/build_identity.dart:229:38)
+[05:08:08] #11     BuildIdentity.resolve (package:qunleashed/services/build_identity.dart:214:66)
+[05:08:08] #12     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:36)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #13     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:203:7)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #14     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #15     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #16     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:08:08] <asynchronous suspension>
+[05:08:08] 
+[05:08:08] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[05:08:08] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[05:08:08] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[05:08:08] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[05:08:08] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[05:08:08] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[05:08:08] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[05:08:08] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[05:08:08] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[05:08:08] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[05:08:08] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[05:08:08] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[05:08:08] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[05:08:08] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[05:08:08] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:512:29)
+[05:08:08] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:268:35)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #11     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:203:7)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #12     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #13     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #14     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:08:08] <asynchronous suspension>
+[05:08:08] 
+00:00 +31: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up is idempotent
+[05:08:08] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[05:08:08] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[05:08:08] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[05:08:08] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[05:08:08] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[05:08:08] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[05:08:08] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[05:08:08] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[05:08:08] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[05:08:08] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[05:08:08] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[05:08:08] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[05:08:08] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[05:08:08] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[05:08:08] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:512:29)
+[05:08:08] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:268:35)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #11     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:214:7)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #12     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #13     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[05:08:08] <asynchronous suspension>
+[05:08:08] #14     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[05:08:08] <asynchronous suspension>
+[05:08:08] 
+00:00 +32: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up a build with no DSN installs nothing and says why once
+[05:08:08] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[05:08:08] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[05:08:08] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[05:08:08] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[05:08:08] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[05:08:08] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[05:08:08] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[05:08:08] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[05:08:08] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[05:08:08] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[05:08:08] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[05:08:08] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[05:08:08] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[05:08:08] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[05:08:08] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:512:29)
+[05:08:08] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:268:35)
+[05:08:08] <asynchronous suspension>
+[05:08:08] 
+[05:08:08] [caught] [Telemetry] not reporting: no DSN was compiled in
+00:00 +33: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up the switch being off installs nothing
+00:00 +34: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up §6 and §8 reach the options
+[05:08:08] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[05:08:08] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[05:08:08] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[05:08:08] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[05:08:08] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[05:08:08] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[05:08:08] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+00:00 +35: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up records a replay for an error and never a session
+00:00 +36: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up masks every surface §6.4 names, and masks rather than unmasks them
+00:00 +37: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up the replay switch off leaves the error rate at zero
+00:00 +38: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up masks every surface even with replay switched off
+00:00 +39: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: an init that fails part way closes the hub rather than leaving it up and unstoppable
+00:00 +40: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: an init that fails part way never throws, because _initCore awaits it unguarded
+00:00 +41: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: going down clears all four hooks and lowers the pin
+00:00 +42: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: going down a close that fails keeps running true, so the switch cannot lie
+00:00 +43: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: going down never throws
+00:00 +44: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: wrap puts the recorder above the app when there is a DSN
+00:00 +45: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: wrap is SentryScreenshotWidget and not SentryWidget
+00:00 +46: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: wrap hands the app back untouched with no DSN
+00:00 +47: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch turning it off stops the SDK
+00:00 +48: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch and turning it back on starts it again
+00:00 +49: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch the replay switch brings the SDK back up with the new rate
+00:00 +50: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch the replay switch brings it back up when switched back on
+00:00 +51: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch a replay switch whose shutdown fails stops rather than looping
+00:00 +52: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch a replay tap during a start is not dropped
+00:00 +52 -1: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch a replay tap during a start is not dropped [E]
+  Expected: <2>
+    Actual: <1>
+  the tap was picked up after the start
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/telemetry_lifecycle_test.dart 552:7            main.<fn>.<fn>
+  
+00:00 +52 -1: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch the replay switch does nothing while sharing is off
+00:00 +53 -1: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch a build that launched with it off can still turn it on
+00:00 +54 -1: /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: the switch a notify that changed nothing does not restart the SDK
+00:01 +55 -1: loading /workspace/PHANTOM/test/diagnostics_notice_test.dart
+00:01 +55 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: a fresh install is told what is sent and what never is
+00:02 +56 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: reporting stays off while the notice is on screen
+00:02 +57 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: Got it closes it and leaves sharing off
+00:02 +58 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: Turn it off closes it and turns sharing off
+00:02 +59 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: somebody who has seen it is not shown it again
+00:02 +60 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: it is recorded as shown before it is answered
+00:02 +61 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: dismissing it counts as Got it
+00:02 +62 -1: /workspace/PHANTOM/test/diagnostics_notice_test.dart: a store that will not open shows it rather than skipping it
+[05:08:10] [warning] [Diagnostics] consent could not be read; sharing remains off: PlatformException
+[05:08:10] [warning] [Settings] "the diagnostics notice has been shown" did not persist: PlatformException(prefs, the preferences store could not be opened, null, null)
+00:02 +63 -1: loading /workspace/PHANTOM/test/diagnostics_screen_test.dart
+00:03 +63 -1: /workspace/PHANTOM/test/diagnostics_screen_test.dart: is on, and says what is never sent
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: true
+  Actual: <false>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:77:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///workspace/PHANTOM/test/diagnostics_screen_test.dart line 77
+The test description was:
+  is on, and says what is never sent
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +63 -2: /workspace/PHANTOM/test/diagnostics_screen_test.dart: is on, and says what is never sent [E]
+  Test failed. See exception logs above.
+  The test description was: is on, and says what is never sent
+  
+00:04 +63 -2: /workspace/PHANTOM/test/diagnostics_screen_test.dart: turning it off moves the switch and the stored value
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:89:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///workspace/PHANTOM/test/diagnostics_screen_test.dart line 89
+The test description was:
+  turning it off moves the switch and the stored value
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +63 -3: /workspace/PHANTOM/test/diagnostics_screen_test.dart: turning it off moves the switch and the stored value [E]
+  Test failed. See exception logs above.
+  The test description was: turning it off moves the switch and the stored value
+  
+00:04 +63 -3: /workspace/PHANTOM/test/diagnostics_screen_test.dart: a value changed from elsewhere redraws the row
+00:04 +64 -3: /workspace/PHANTOM/test/diagnostics_screen_test.dart: tapping the row is the same as tapping the switch
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: false
+  Actual: <true>
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:122:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///workspace/PHANTOM/test/diagnostics_screen_test.dart line 122
+The test description was:
+  tapping the row is the same as tapping the switch
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +64 -4: /workspace/PHANTOM/test/diagnostics_screen_test.dart: tapping the row is the same as tapping the switch [E]
+  Test failed. See exception logs above.
+  The test description was: tapping the row is the same as tapping the switch
+  
+00:04 +64 -4: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row is on, and says what is blacked out of it
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Include a replay of the screen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:130:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///workspace/PHANTOM/test/diagnostics_screen_test.dart line 130
+The test description was:
+  is on, and says what is blacked out of it
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +64 -5: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row is on, and says what is blacked out of it [E]
+  Test failed. See exception logs above.
+  The test description was: is on, and says what is blacked out of it
+  
+00:04 +64 -5: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row turning it off stores the choice and leaves sharing on
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with type "Switch" descending from widgets with type "GroupedCard" that
+are ancestors of widgets with text "Include a replay of the screen": []" (used in a call to "tap()")
+could not find any matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:143:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  turning it off stores the choice and leaves sharing on
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +64 -6: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row turning it off stores the choice and leaves sharing on [E]
+  Test failed. See exception logs above.
+  The test description was: turning it off stores the choice and leaves sharing on
+  
+00:04 +64 -6: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row goes away when sharing is turned off
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "Include a replay of the screen": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:160:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///workspace/PHANTOM/test/diagnostics_screen_test.dart line 160
+The test description was:
+  goes away when sharing is turned off
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +64 -7: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row goes away when sharing is turned off [E]
+  Test failed. See exception logs above.
+  The test description was: goes away when sharing is turned off
+  
+00:04 +64 -7: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row comes back where the user left it
+00:04 +65 -7: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row tapping its row is the same as tapping its switch
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following assertion was thrown running a test:
+The finder "Found 0 widgets with text "Include a replay of the screen": []" (used in a call to
+"tap()") could not find any matching widgets.
+
+When the exception was thrown, this was the stack:
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2095:7)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1947:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1080:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/diagnostics_screen_test.dart:197:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  tapping its row is the same as tapping its switch
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +65 -8: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row tapping its row is the same as tapping its switch [E]
+  Test failed. See exception logs above.
+  The test description was: tapping its row is the same as tapping its switch
+  
+00:04 +65 -8: /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row is not offered where replay cannot record (variant: TargetPlatform.windows)
+00:04 +66 -8: /workspace/PHANTOM/test/diagnostics_screen_test.dart: nothing offers to copy or clear a log any more
+00:04 +67 -8: Some tests failed.
+
+Failing tests:
+  /workspace/PHANTOM/test/diagnostics_screen_test.dart: is on, and says what is never sent
+  /workspace/PHANTOM/test/diagnostics_screen_test.dart: tapping the row is the same as tapping the switch
+  /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row goes away when sharing is turned off
+  /workspace/PHANTOM/test/diagnostics_screen_test.dart: the replay row is on, and says what is blacked out of it
+  ... and 4 more

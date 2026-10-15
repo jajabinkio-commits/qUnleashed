@@ -1,0 +1,15 @@
+{
+  "schema_url": "https://openrouter.ai/openapi.json",
+  "schema_sha256": "99f94e7f921f3be4000bfdc5d970ad01c61dba0a0592b4ccaf6fdacca06ac248",
+  "api_server": "https://openrouter.ai/api/v1",
+  "chat_path": "/chat/completions",
+  "function_name_rule": "a-z, A-Z, 0-9, underscores, dashes, max 64 chars",
+  "internal_to_wire_tools": {
+    "device.status": "device_status",
+    "device.capabilities": "device_capabilities"
+  },
+  "models_url": "https://openrouter.ai/api/v1/models",
+  "public_catalog_models": 462,
+  "public_catalog_models_advertising_tools": 393,
+  "private_provider_calls": "NOT RUN; no API key used"
+}

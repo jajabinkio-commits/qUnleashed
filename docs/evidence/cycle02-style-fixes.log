@@ -1,0 +1,13 @@
+Computing fixes in phantom...
+Applying fixes...
+
+ai/openrouter.dart
+  curly_braces_in_flow_control_structures - 13 fixes
+
+ai/read_only_agent.dart
+  curly_braces_in_flow_control_structures - 8 fixes
+
+features/ai/chat_page.dart
+  curly_braces_in_flow_control_structures - 4 fixes
+
+25 fixes made in 3 files.

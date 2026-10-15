@@ -64,7 +64,7 @@ Future<AppCore> _initCore() async {
   await QLocaleController.instance.loadLocale();
   await AssemblerController.instance.loadSettings();
   // Both never throw, which is what lets them sit on a path that must not:
-  // the switch defaults to on when its store will not open, and `start`
+  // the switch defaults to off when its store will not open, and `start`
   // catches its own init. Here rather than in `_runApp` because the
   // home-screen widget's isolate never reaches `_runApp`, and a crash in a
   // cold BLE session is one of the failures this exists to catch.
