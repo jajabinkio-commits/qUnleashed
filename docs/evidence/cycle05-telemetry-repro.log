@@ -1,0 +1,153 @@
+Shuffling test order with --test-randomize-ordering-seed=1681970481
+00:00 +0: loading /workspace/PHANTOM/test/telemetry_lifecycle_test.dart
+00:00 +0: going down never throws
+[17:13:07] [caught] [Build] version unavailable: Binding has not yet been initialized.
+[17:13:07] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[17:13:07] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[17:13:07] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[17:13:07] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[17:13:07] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[17:13:07] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[17:13:07] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[17:13:07] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[17:13:07] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[17:13:07] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[17:13:07] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[17:13:07] #7      MethodChannel.invokeMapMethod (package:flutter/src/services/platform_channel.dart:566:49)
+[17:13:07] #8      MethodChannelPackageInfo.getAll (package:package_info_plus_platform_interface/method_channel_package_info.dart:13:32)
+[17:13:07] #9      PackageInfo.fromPlatform (package:package_info_plus/package_info_plus.dart:82:61)
+[17:13:07] #10     BuildIdentity._read (package:qunleashed/services/build_identity.dart:229:38)
+[17:13:07] #11     BuildIdentity.resolve (package:qunleashed/services/build_identity.dart:214:66)
+[17:13:07] #12     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:266:36)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #13     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:383:7)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #14     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #15     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #16     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[17:13:07] <asynchronous suspension>
+[17:13:07] 
+[17:13:07] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[17:13:07] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[17:13:07] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[17:13:07] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[17:13:07] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[17:13:07] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[17:13:07] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[17:13:07] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[17:13:07] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[17:13:07] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[17:13:07] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[17:13:07] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[17:13:07] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[17:13:07] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[17:13:07] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:29)
+[17:13:07] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:35)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #11     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:383:7)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #12     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #13     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #14     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[17:13:07] <asynchronous suspension>
+[17:13:07] 
+[17:13:07] [error] [Telemetry] shutdown failed, reporting may still be running: Bad state: nope
+[17:13:07] #0      _FakeSdk.close (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:99:53)
+[17:13:07] #1      Telemetry._tearDown (package:qunleashed/services/telemetry/telemetry.dart:450:22)
+[17:13:07] #2      Telemetry.stop (package:qunleashed/services/telemetry/telemetry.dart:380:13)
+[17:13:07] #3      main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:385:35)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #4      Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #5      Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #6      Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[17:13:07] <asynchronous suspension>
+[17:13:07] 
+00:00 +1: going down a close that fails keeps running true, so the switch cannot lie
+[17:13:07] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[17:13:07] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[17:13:07] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[17:13:07] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[17:13:07] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[17:13:07] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[17:13:07] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[17:13:07] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[17:13:07] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[17:13:07] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[17:13:07] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[17:13:07] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[17:13:07] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[17:13:07] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[17:13:07] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:29)
+[17:13:07] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:35)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #11     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:364:9)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #12     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #13     Declarer.test.<anonymous closure> (package:test_api/src/backend/declarer.dart:250:11)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #14     Invoker._waitForOutstandingCallbacks.<anonymous closure> (package:test_api/src/backend/invoker.dart:318:9)
+[17:13:07] <asynchronous suspension>
+[17:13:07] 
+00:00 +2: going down clears all four hooks and lowers the pin
+[17:13:07] [caught] [Telemetry] no crash database path, using the default beside the executable: Binding has not yet been initialized.
+[17:13:07] The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+[17:13:07] Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+[17:13:07] In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+[17:13:07] If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+[17:13:07] #0      BindingBase.checkInstance.<anonymous closure> (package:flutter/src/foundation/binding.dart:315:9)
+[17:13:07] #1      BindingBase.checkInstance (package:flutter/src/foundation/binding.dart:402:6)
+[17:13:07] #2      ServicesBinding.instance (package:flutter/src/services/binding.dart:74:54)
+[17:13:07] #3      _findBinaryMessenger (package:flutter/src/services/platform_channel.dart:178:25)
+[17:13:07] #4      MethodChannel.binaryMessenger (package:flutter/src/services/platform_channel.dart:319:56)
+[17:13:07] #5      MethodChannel._invokeMethod (package:flutter/src/services/platform_channel.dart:359:17)
+[17:13:07] #6      MethodChannel.invokeMethod (package:flutter/src/services/platform_channel.dart:539:12)
+[17:13:07] #7      MethodChannelPathProvider.getApplicationSupportPath (package:path_provider_platform_interface/src/method_channel_path_provider.dart:38:26)
+[17:13:07] #8      getApplicationSupportDirectory (package:path_provider/path_provider.dart:78:40)
+[17:13:07] #9      Telemetry._nativeDatabasePath (package:qunleashed/services/telemetry/telemetry.dart:511:29)
+[17:13:07] #10     Telemetry.start (package:qunleashed/services/telemetry/telemetry.dart:267:35)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #11     main.<anonymous closure>.<anonymous closure> (file:///workspace/PHANTOM/test/telemetry_lifecycle_test.dart:346:7)
+[17:13:07] <asynchronous suspension>
+[17:13:07] #12     Declarer.test.<anonymous closure>.<anonymous closure> (package:test_api/src/backend/declarer.dart:253:15)
+00:00 +3: coming up the switch being off installs nothing
+00:00 +3 -1: coming up the switch being off installs nothing [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/telemetry_lifecycle_test.dart 237:7            main.<fn>.<fn>
+  
+00:00 +3 -1: coming up the replay switch off leaves the error rate at zero
+00:00 +4 -1: coming up installs all four hooks and raises the library pin
+00:00 +5 -1: coming up is idempotent
+00:00 +6 -1: coming up masks every surface even with replay switched off
+00:00 +7 -1: coming up §6 and §8 reach the options
+00:00 +8 -1: coming up a build with no DSN installs nothing and says why once
+00:00 +9 -1: coming up records a replay for an error and never a session
+00:00 +10 -1: coming up masks every surface §6.4 names, and masks rather than unmasks them
+00:00 +11 -1: the switch the replay switch brings it back up when switched back on
+00:00 +12 -1: the switch a build that launched with it off can still turn it on
+00:00 +13 -1: the switch turning it off stops the SDK
+00:00 +14 -1: the switch and turning it back on starts it again
+00:00 +15 -1: the switch a notify that changed nothing does not restart the SDK
+00:00 +16 -1: the switch a replay switch whose shutdown fails stops rather than looping
+00:00 +17 -1: the switch the replay switch brings the SDK back up with the new rate
+00:00 +18 -1: the switch a replay tap during a start is not dropped
+00:00 +19 -1: the switch the replay switch does nothing while sharing is off
+00:00 +20 -1: an init that fails part way closes the hub rather than leaving it up and unstoppable
+00:00 +21 -1: an init that fails part way never throws, because _initCore awaits it unguarded
+00:00 +22 -1: wrap hands the app back untouched with no DSN
+00:00 +23 -1: wrap is SentryScreenshotWidget and not SentryWidget
+00:00 +24 -1: wrap puts the recorder above the app when there is a DSN
+00:00 +25 -1: Some tests failed.
+
+Failing tests:
+  /workspace/PHANTOM/test/telemetry_lifecycle_test.dart: coming up the switch being off installs nothing

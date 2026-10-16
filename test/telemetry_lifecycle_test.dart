@@ -186,12 +186,27 @@ void main() {
   Telemetry build({
     String dsn = 'https://key@o1.ingest.de.sentry.io/2',
     Future<void> Function(void Function(SentryFlutterOptions))? init,
-  }) => Telemetry(
-    settings: settings,
-    dsn: dsn,
-    init: init ?? sdk.init,
-    shutdown: sdk.close,
-  );
+  }) {
+    final ownedSettings = settings;
+    final ownedSdk = sdk;
+    final telemetry = Telemetry(
+      settings: ownedSettings,
+      dsn: dsn,
+      init: init ?? ownedSdk.init,
+      shutdown: ownedSdk.close,
+    );
+    addTearDown(() async {
+      // A direct stop while consent remains on can schedule reconciliation.
+      // Drain that work before resetting process-wide hooks for the next test.
+      ownedSdk.initThrows = null;
+      ownedSdk.closeThrows = null;
+      await ownedSettings.setShareLogs(false);
+      await pumpEventQueue();
+      await telemetry.stop();
+      ownedSettings.dispose();
+    });
+    return telemetry;
+  }
 
   group('coming up', () {
     test('installs all four hooks and raises the library pin', () async {
