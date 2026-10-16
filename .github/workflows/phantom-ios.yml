@@ -23,8 +23,18 @@ jobs:
         uses: ./.github/actions/setup-flutter
         with:
           swift-package-manager: 'false'
-      - name: Generate test-only Firebase placeholder
-        run: .github/scripts/stub_firebase_config.sh
+      - name: Generate test-only Firebase placeholders
+        run: |
+          .github/scripts/stub_firebase_config.sh
+          # Xcode copies this resource even when diagnostics/push stay off.
+          # An empty compile-only plist is not a functioning Firebase project.
+          python3 - <<'PYTHON'
+          import plistlib
+          from pathlib import Path
+          target = Path('ios/Runner/GoogleService-Info.plist')
+          with target.open('xb') as output:
+              plistlib.dump({'PHANTOM_COMPILE_ONLY': True}, output)
+          PYTHON
       - name: Check Dart
         run: flutter analyze --no-pub
       - name: Compile unsigned iPhone application

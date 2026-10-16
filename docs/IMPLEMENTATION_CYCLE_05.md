@@ -11,3 +11,7 @@ Exact files: test/telemetry_lifecycle_test.dart; docs/IMPLEMENTATION_CYCLE_05.md
 ## Native gate
 
 Unsigned Mac compile run 38937180677 is still compiling; no native success, hardware operation, signing or installation is claimed. Next task: push the cleanup, inspect the new cloud regression and native compile outcomes, fix observed failures and document results.
+
+## First native failure and compile-only correction
+
+Mac run 38937180677 completed with failure after CocoaPods and Xcode compilation: Xcode's resource copy requires ignored ios/Runner/GoogleService-Info.plist, which is absent without real Firebase secrets. The unsigned workflow now generates a valid plist containing only PHANTOM_COMPILE_ONLY=true. It uses exclusive creation so existing configuration is not overwritten, and creates no fake working Firebase account or credentials. This remains a non-installable compile artifact, not a release configuration. actionlint and plist parsing are checked locally; new Mac execution remains required. Additional exact changed files: .github/workflows/phantom-ios.yml and docs/evidence/cycle05-native-failure.log.
