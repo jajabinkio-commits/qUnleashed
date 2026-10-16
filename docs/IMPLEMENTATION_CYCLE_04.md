@@ -10,4 +10,12 @@ Local tested source remains bc96ccd, based on audited upstream 975e3ebd810091a31
 
 Prior frozen-source checks: 1,914 application tests passed, five skipped; analyzer and format clean; Linux Dart/assets bundle compiled (cycle 03). This cycle changes only workflow triggering and delivery documentation; workflow lint and whitespace checks are required. No native iOS compile, signing or hardware success is claimed until observed. Actions permission-settings lookup returned HTTP 403 (integration restriction); repository push permission is separately confirmed. An automatic PR check may still need GitHub's fork workflow approval.
 
-Exact changed files: .github/workflows/phantom-ios.yml, docs/IMPLEMENTATION_CYCLE_04.md. Next executable task: upload feature branch, open draft PR and inspect available checks for the unsigned Mac compile. Source workflow uses no Apple keys, private provider key or publishing step.
+Exact changed files: .github/workflows/phantom-ios.yml, docs/IMPLEMENTATION_CYCLE_04.md, docs/evidence-ledger.md, docs/RELEASE_READINESS.md. Next executable task: upload feature branch, open draft PR and inspect available checks for the unsigned Mac compile. Source workflow uses no Apple keys, private provider key or publishing step.
+
+## Observed delivery results
+
+- actionlint 1.7.12: workflow passed, exit 0. git diff --check passed.
+- Git HTTPS push of the new feature branch: HTTP 403, permission denied to jajabinkio-commits.
+- Independent connector create-branch call: HTTP 403, Resource not accessible by integration. No branch was created, no PR opened and no remote native build started. These are GitHub integration authorization errors, not local approval-review rejections.
+- The repository metadata push=true describes account permission, but actual authenticated write operations were denied. Do not treat metadata as proof of effective credential write scope. Inspect the GitHub app installation/repository authorization before retrying; platform connection support may be required if no write grant is offered.
+- Local code stays committed. Main is unchanged remotely. Source archive prepared at /workspace/PHANTOM-cycle-04.zip including recursive tracked source and an incremental commit patch series.
