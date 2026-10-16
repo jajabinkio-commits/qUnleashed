@@ -1,5 +1,7 @@
 # PHANTOM cycle 06 — consented screenshot interpretation
 
+**Final verified source: ebeb4acc710e1ded720e1d3c5de9f97ebfda6980 PR merge snapshot. Cloud CI and unsigned iPhone compilation passed. Physical iPhone, real screen recognition, native privacy runtime and signing remain unverified.**
+
 Base source b099da8 (prior native/CI pass), local evidence commit 988f166. BLE transport/protocol, submodule pins and dependencies unchanged. Read all contract files; reuse RemoteSession capture and PNG encoder rather than a new RPC implementation.
 
 ## Implemented
@@ -20,20 +22,51 @@ Next task: freeze this source, push the review branch, verify cloud tests and Ma
 
 Observed pre-upload checks: 57 focused simulated tests passed (including navigation guards) (cycle06-focused.log); analyzer no issues (cycle06-analyze.log); formatter checked 558 files unchanged (cycle06-format.log). Initial analyzer had three style findings, corrected before final verification. The initial added GIF-protection test used a tooltip finder as an IconButton; corrected the finder, then all 57 focused tests including navigation checks passed. Public schema evidence: cycle06-provider-schema.log.
 
-## Exact changed files
+
+A final review found the recording/preview interaction after the first upload; the GIF guard and its regression test are a justified source change. Earlier cycle 06 runs are superseded; final cloud checks must target the guard commit. Exact touched files unchanged.
+
+## First cloud result and navigation correction
+
+Run 38944294329 on 571009f: 1,940 tests passed, one navigation-budget test failed, five skipped; seed 1969671259. The new preview had a local duplicate-opening guard, but direct Navigator.push increased the tracked count. The preview now uses AppRoute.phantomScreen through the central registry with isTopRoute and the existing local guard, honoring ADR 0006 without raising the budget. Actual remote preview/return tests still pass in both layouts. Focused 57 tests pass with the failing cloud seed. Additional files: lib/app/routes.dart; lib/components/navigation.dart; docs/ACCEPTANCE_STATUS.md; docs/evidence/cycle06-cloud-navigation-failure.log.
+
+Native run 38944294342 on 571009f succeeded; the final navigation-adjusted source requires a new Mac result. Earlier runs 38943775322/38943775488 on 5af3863 were cancelled as superseded after the GIF guard. No other acceptance gate is inferred from these results.
+
+## Final source regression passed
+
+Run 38945364560 on ebeb4acc710e1ded720e1d3c5de9f97ebfda6980 PR merge snapshot succeeded: 1,941 tests passed / five skipped, seed 966313376; 51 quiet-build tests passed, seed 870753310; formatter checked 560 Dart files; analyzer no issues; macOS release-script job passed. Summary cycle06-cloud-success-summary.log. Native run 38945364466 is still running at this observation; its outcome is recorded separately below when observed.
+
+## Final native result
+
+Mac run 38945364466 succeeded on the final ebeb4ac PR merge snapshot. Xcode built Runner.app and uploaded artifact 12067070178, 65,317,813 bytes, SHA256 8bfe43f3008e3fdabd96316c142711630000f5874c523be928d8c166cca56d5c; expiry 2026-10-23. Summary cycle06-native-success-summary.log. The app is unsigned and uses compile-only Firebase configuration and upstream bundle identity; it cannot be installed or distributed as a PHANTOM release in this state. Compilation is not a native runtime or hardware pass.
+
+Final CI: https://github.com/jajabinkio-commits/qUnleashed/actions/runs/38945364560
+Final native build: https://github.com/jajabinkio-commits/qUnleashed/actions/runs/38945364466
+Artifact: https://github.com/jajabinkio-commits/qUnleashed/actions/runs/38945364466/artifacts/12067070178
+
+Final evidence-only changes are delivered on phantom/evidence-cycle06, leaving the passing code-review head unchanged. No main-branch merge, signing, firmware operation or private AI request occurred. Next executable source slice: iOS voice input using the same explicit consent and validated controller boundary. Native runtime/privacy and physical M1/M2 gates remain pending.
+
+## Final exact changed files (cycle 06 source and evidence)
 
 - `PHANTOM_README.md`
+- `docs/ACCEPTANCE_STATUS.md`
 - `docs/DECISIONS.md`
 - `docs/FEATURE_MATRIX.csv`
 - `docs/FEATURE_MATRIX.md`
+- `docs/HARDWARE_TEST_LOG.md`
 - `docs/IMPLEMENTATION_CYCLE_06.md`
 - `docs/RELEASE_READINESS.md`
 - `docs/evidence-ledger.md`
 - `docs/evidence/cycle06-analyze.log`
+- `docs/evidence/cycle06-cloud-navigation-failure.log`
+- `docs/evidence/cycle06-cloud-success-summary.log`
 - `docs/evidence/cycle06-focused.log`
 - `docs/evidence/cycle06-format.log`
 - `docs/evidence/cycle06-l10n.log`
+- `docs/evidence/cycle06-native-success-summary.log`
 - `docs/evidence/cycle06-provider-schema.log`
+- `docs/evidence/cycle06-route-naming.log`
+- `lib/app/routes.dart`
+- `lib/components/navigation.dart`
 - `lib/pages/tools/remote/desktop/page.dart`
 - `lib/pages/tools/remote/desktop/session.dart`
 - `lib/pages/tools/remote/desktop/widgets/wide_body.dart`
@@ -46,11 +79,3 @@ Observed pre-upload checks: 57 focused simulated tests passed (including navigat
 - `test/remote_page_wrist_input_test.dart`
 - `test/remote_session_test.dart`
 - `translations/app_en.arb`
-
-A final review found the recording/preview interaction after the first upload; the GIF guard and its regression test are a justified source change. Earlier cycle 06 runs are superseded; final cloud checks must target the guard commit. Exact touched files unchanged.
-
-## First cloud result and navigation correction
-
-Run 38944294329 on 571009f: 1,940 tests passed, one navigation-budget test failed, five skipped; seed 1969671259. The new preview had a local duplicate-opening guard, but direct Navigator.push increased the tracked count. The preview now uses AppRoute.phantomScreen through the central registry with isTopRoute and the existing local guard, honoring ADR 0006 without raising the budget. Actual remote preview/return tests still pass in both layouts. Focused 57 tests pass with the failing cloud seed. Additional files: lib/app/routes.dart; lib/components/navigation.dart; docs/ACCEPTANCE_STATUS.md; docs/evidence/cycle06-cloud-navigation-failure.log.
-
-Native run 38944294342 on 571009f succeeded; the final navigation-adjusted source requires a new Mac result. Earlier runs 38943775322/38943775488 on 5af3863 were cancelled as superseded after the GIF guard. No other acceptance gate is inferred from these results.

@@ -33,3 +33,7 @@ After a real signed build exists, record iOS/Flipper/source versions and test:
 - Read-only AI must reject every mutation, RF, CLI, firmware or invented tool. File/screen/voice inputs are absent from this slice; their acceptance remains pending.
 
 All remain BLOCKED/UNVERIFIED until performed on hardware. The manual Mac workflow has not executed and its unsigned artifact would not itself qualify installation/signing acceptance.
+
+## Cycle 06 screen interpretation procedure (not run)
+
+On a signed build and owned Flipper: verify Explain screen uses the displayed recent frame in each orientation, defaults sharing off and sends nothing on entry; compare visible screenshot pixels to the selected Flipper. Confirm disconnect/device change clears capture, GIF recording disables AI entry and returning from preview resumes streaming. Test provider failure/back/STOP/background with no button or mutation action and no unconsented resend. Enter a test provider key only through the app, approve one bounded live request under an explicit account budget and compare interpretation to the physical screen, marking uncertain OCR as inference. Verify opt-in replay masks both AI pages on a real iPhone. None of these physical/live-provider gates is passed by simulation or compilation.

@@ -1,0 +1,6 @@
+Analyze and test	Check formatting	2026-10-16T18:11:55.2020573Z Checked 560 Dart file(s).
+Analyze and test	Analyze	2026-10-16T18:12:20.6547487Z No issues found! (ran in 24.5s)
+Analyze and test	Test	2026-10-16T18:12:22.4616561Z Shuffling test order with --test-randomize-ordering-seed=966313376
+Analyze and test	Test	2026-10-16T18:15:10.8358600Z 🎉 1941 tests passed, 5 skipped.
+Analyze and test	Test the build that prints nothing	2026-10-16T18:15:11.8369748Z Shuffling test order with --test-randomize-ordering-seed=870753310
+Analyze and test	Test the build that prints nothing	2026-10-16T18:15:18.7162904Z 🎉 51 tests passed.

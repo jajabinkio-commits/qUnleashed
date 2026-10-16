@@ -8,7 +8,7 @@ M0 source audit and baseline verification are recorded. M1 read-only adapter/UI 
 | --- | --- | --- |
 | Pinned recursive source / GPL notices | Source preserved | Full hosted/native dependency notices and source-distribution review |
 | Dart/Flutter validation | See final cycle report | Bundle compilation does not verify native iOS plugins |
-| iOS native build | PASS (unsigned compile only) | Mac run 38938290988 built Runner.app at b099da8 PR merge snapshot; native Keychain runtime and physical operation remain unverified |
+| iOS native build | PASS (unsigned compile only) | Mac run 38945364466 built Runner.app at ebeb4ac PR merge snapshot; native Keychain runtime and physical operation remain unverified |
 | Signing/install | BLOCKED | Appropriate signing/provisioning workflow; Apple Developer membership for TestFlight |
 | Physical BLE/manual regressions | BLOCKED | Actual iPhone/Flipper/firmware versions and M1 operator log |
 | Provider keys/read-only AI | PARTIAL | Keychain source/channel tests, model catalog and read-only loop implemented; native Keychain and live private provider verification pending; writes excluded |
@@ -31,3 +31,5 @@ Cycle 04 access resolved: user completed installation; actual upload and draft P
 Cycle 05 supersedes pending build status: Mac unsigned compile 38938290988 passed and uploaded artifact 12062890468 (expires 2026-10-23); cloud CI 38938290983 passed, 1,928 tests / five skipped and 51 quiet tests. Native compilation verified; runtime/hardware/signing/distribution remain unverified. Test Firebase configuration and upstream bundle identity make this artifact unsuitable for release.
 
 Cycle 06 screen interpretation source implemented with simulated tests; new cloud/native results pending. Existing cycle 05 native pass does not prove the changed source compiles. Screen interpretation accuracy and privacy masking runtime require real provider/iPhone checks. Voice/files/cost controls and supervised execution remain pending.
+
+Cycle 06 FINAL: cloud regression 38945364560 and Mac iPhone compile 38945364466 passed on ebeb4ac PR merge snapshot. Screenshots can be previewed and explicitly shared through the isolated bounded image-request source. No paid inference or physical recognition test. The unsigned artifact expires 2026-10-23; app identity, real service configuration and Apple signing/distribution still required. Full M2, M3–M7 and physical M1 remain incomplete.
