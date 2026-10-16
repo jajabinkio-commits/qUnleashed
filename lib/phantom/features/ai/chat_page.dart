@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../services/guarded.dart';
 import '../../../services/localization/l10n.dart';
+import '../../../components/sensitive_surface.dart';
 import '../../ai/credentials.dart';
 import '../../ai/openrouter.dart';
 import '../../ai/read_only_agent.dart';
@@ -11,7 +12,7 @@ import '../../ai/observation.dart';
 import '../../device/device_gateway.dart';
 import 'observation_card.dart';
 
-class PhantomChatPage extends StatefulWidget {
+class PhantomChatPage extends StatefulWidget with SensitiveSurface {
   const PhantomChatPage({
     super.key,
     required this.createGateway,

@@ -24,7 +24,7 @@ Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Sou
 | AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart | Mock + provider | IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED |
 | AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two validated read-only tools with consent/budgets/STOP; local observed readings displayed separately from AI text; no mutations/persisted audit |
 | AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | iOS permissions | iPhone | NOT IMPLEMENTED |
-| AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | provider multimodal | Provider tests | NOT IMPLEMENTED |
+| AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | screen_interpreter.dart; screen_page.dart; retained RemoteSession | Mock HTTP + UI + iPhone | PARTIAL: consented screenshot preview and one bounded no-tool request; native/live-provider pending; photo import absent |
 | AI05 | Local Ollama endpoint | Bridge or LAN server | P2 | Ollama compatible service | Host integration | NOT IMPLEMENTED; external LAN/bridge service required |
 | AUT01 | Macros/routines & dry-run | iOS direct | P1 | Typed action DSL | Unit + hardware | NOT IMPLEMENTED |
 | AUT02 | Apple Shortcuts/App Intents | iOS direct | P1 | iOS integration | iPhone | NOT IMPLEMENTED |
@@ -34,6 +34,6 @@ Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Sou
 | BR01 | Authenticated local USB bridge | Bridge required | P2 | Custom daemon + RPC | Host integration | NOT IMPLEMENTED |
 | BR02 | Remote bridge via secured tunnel | Optional bridge | P3 | Authenticated TLS/VPN | Security integration | NOT IMPLEMENTED |
 | SEC01 | Keychain secrets/redacted audit | iOS direct | P0 | iOS AppDelegate Keychain channel; credentials.dart; diagnostics/settings.dart; notifications/push_service.dart | Unit + security | PARTIAL: opt-in defaults/migration and redaction tested; iOS Keychain source + channel tests; native security UNVERIFIED |
-| SEC02 | Model prompt-injection defenses | iOS direct | P0 | test/phantom_ai_test.dart; read_only_agent.dart | Unit + redteam | PARTIAL: hostile tool/arg and mixed-batch tests; file/screen inputs excluded, broader red-team pending |
+| SEC02 | Model prompt-injection defenses | iOS direct | P0 | test/phantom_ai_test.dart; read_only_agent.dart | Unit + redteam | PARTIAL: hostile tool/arg and mixed-batch tests; no-tool screenshot isolation tested; file inputs excluded, broader red-team pending |
 
 M0 baseline established; M1 first slice retained, physical gate still blocked. First M2 read-only source slice now exists; full M2 (including voice/screen/files/cost controls/live provider and native Keychain verification) is not complete. M3–M7 remain pending. USB-only functions stay bridge-required and are outside direct iPhone functionality.

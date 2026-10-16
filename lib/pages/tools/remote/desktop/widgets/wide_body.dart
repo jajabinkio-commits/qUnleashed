@@ -38,6 +38,7 @@ class RemoteWideBody extends StatelessWidget {
     required this.onHoldBegin,
     required this.onHoldEnd,
     this.onWristRemoteSettings,
+    this.onExplainScreen,
   });
 
   final RemoteLayout layout;
@@ -61,6 +62,7 @@ class RemoteWideBody extends StatelessWidget {
   final void Function(RemoteButton) onHoldBegin;
   final void Function(RemoteButton) onHoldEnd;
   final VoidCallback? onWristRemoteSettings;
+  final VoidCallback? onExplainScreen;
 
   Widget _ledSlot(RemoteLayout layout, bool connected) {
     final radius =
@@ -151,6 +153,11 @@ class RemoteWideBody extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      IconButton(
+                        tooltip: context.l10n.phantomScreenTitle,
+                        onPressed: onExplainScreen,
+                        icon: const Icon(Icons.image_search),
+                      ),
                       if (onWristRemoteSettings != null) ...[
                         SizedBox(
                           width: 48,

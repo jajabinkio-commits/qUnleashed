@@ -168,6 +168,25 @@ FlipperConnectionState _link({required bool connected}) =>
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  test('a disconnected frame cannot be reused as an AI screenshot', () async {
+    final client = _FakeClient()..connected = true;
+    final session = RemoteSession(client: client);
+    addTearDown(session.dispose);
+    await pumpEventQueue();
+    session.recording = true;
+    client.broadcast.add(
+      Main(guiScreenFrame: ScreenFrame(data: List.filled(1024, 0))),
+    );
+    await pumpEventQueue();
+    expect(session.capturePng(), isNotNull);
+    expect(session.lastFrameAt, isNotNull);
+    client.connected = false;
+    client.connection.add(_link(connected: false));
+    await pumpEventQueue();
+    expect(session.capturePng(), isNull);
+    expect(session.lastFrameAt, isNull);
+  });
+
   test('opening the page asks for the stream at once', () async {
     final client = _FakeClient()..connected = true;
     final session = RemoteSession(client: client);

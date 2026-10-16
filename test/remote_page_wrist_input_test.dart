@@ -123,6 +123,45 @@ void main() {
     (_) {},
   );
 
+  for (final size in [const Size(390, 844), const Size(1200, 800)]) {
+    testWidgets('remote screenshot opens a local-only AI preview at $size', (
+      tester,
+    ) async {
+      final client = _FakeClient();
+      await tester.binding.setSurfaceSize(size);
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await tester.pumpWidget(
+        _wrap(RemoteControlPage(client: client, mediaRemoteSupported: false)),
+      );
+      await tester.pumpAndSettle();
+      client.broadcast.add(
+        Main(guiScreenFrame: ScreenFrame(data: List.filled(1024, 0))),
+      );
+      await tester.pump();
+      await tester.runAsync(pumpEventQueue);
+      await tester.pumpAndSettle();
+      await tester.tap(find.byTooltip('Explain screen'));
+      await tester.pumpAndSettle();
+      expect(
+        find.text('Share this screenshot for this request'),
+        findsOneWidget,
+      );
+      expect(
+        tester.widget<SwitchListTile>(find.byType(SwitchListTile)).value,
+        isFalse,
+      );
+      expect(client.inputEvents, 0);
+      expect(client.sent.any((r) => r.hasGuiStopScreenStreamRequest()), isTrue);
+      await tester.tap(find.byType(BackButton));
+      await tester.pumpAndSettle();
+      expect(find.text('Share this screenshot for this request'), findsNothing);
+      expect(
+        client.sent.where((r) => r.hasGuiStartScreenStreamRequest()).length,
+        greaterThanOrEqualTo(2),
+      );
+    });
+  }
+
   testWidgets('a wrist press while the page is closing never reaches the wire', (
     tester,
   ) async {

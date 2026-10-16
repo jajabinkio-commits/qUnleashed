@@ -8562,5 +8562,14 @@
   "phantomCapabilityEvidence": "Device capability evidence",
   "@phantomCapabilityEvidence": {
     "description": "Heading for a local capability report, which may contain unverified or bridge-required entries."
-  }
+  },
+  "phantomScreenTitle": "Explain screen",
+  "phantomScreenPrivacy": "Review this frozen Flipper screenshot before sharing. It may contain private information. Nothing is uploaded until you choose a model, allow sharing and tap Explain. Set up your OpenRouter key in PHANTOM AI first. Images and explanations stay out of chat history; provider retention follows its policies.",
+  "phantomScreenConsent": "Share this screenshot for this request",
+  "phantomScreenSend": "Explain this screenshot",
+  "phantomScreenInference": "AI interpretation — may be wrong",
+  "phantomScreenFailed": "Could not explain the screenshot. Check your saved OpenRouter key, model and connection. No device action was performed.",
+  "phantomScreenNoModels": "No image-capable models available.",
+  "phantomScreenUnavailable": "No recent screen frame is available. Wait for the live screen and try again.",
+  "phantomScreenBudget": "One request, up to 512 output tokens. Provider charges may apply. STOP cancels locally; an already sent request may still be billed."
 }

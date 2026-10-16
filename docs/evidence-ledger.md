@@ -70,3 +70,7 @@ CI run 38937180923: 1,927 passed, one failed, five skipped, seed 1681970481, on 
 Cycle 05 fresh cloud CI 38938290983 passed on b099da8 PR merge snapshot: 1,928 tests passed, five skipped (seed 586175333); 51 quiet tests passed (seed 3382694367); 556 files formatted clean; analyzer no issues; macOS release-script job passed. Summary cycle05-cloud-ci-summary.log. Native run 38938290988 still pending outcome.
 
 Cycle 05 native run 38938290988 passed; unsigned Runner.app artifact 12062890468 is 65,296,937 bytes, SHA256 79d80e1c5b1933d986f949350183e7985751ff8592538a2e89903899f5b78dfd, expires 2026-10-23. Compile-only plist correction verified. Native Swift/plugin compilation passed; no native runtime, signing or physical gate passed. Summary cycle05-native-success-summary.log.
+
+## Cycle 06 — consented screen interpretation
+
+Reused retained remote capture/encoder, added local preview and explicit per-request image consent. Separate one-request ScreenInterpreter has no device tools/RPC/history, bounded immutable PNG and late-response cancellation. Public OpenRouter ChatContentImage data URL contract/model image capability checked without a key. Focused simulated tests: 51 passed; formatter 558 Dart files unchanged; analyzer no issues. Tests cover actual remote entry/return in portrait and landscape, consent defaults/reset, STOP/background, hostile tool proposals, immutable/size/dimension limits, wire payload, model filtering and disconnect capture clearing. Cloud/native outcome pending; no private inference or physical test. See IMPLEMENTATION_CYCLE_06.md.

@@ -10,6 +10,8 @@ import '../../../../components/notification.dart';
 import '../../../../services/localization/l10n.dart';
 import '../../../../services/logging.dart';
 import '../../../../theme/theme.dart';
+import '../../../../phantom/ai/screen_interpreter.dart';
+import '../../../../phantom/features/ai/screen_page.dart';
 import 'gif_export_dialog.dart';
 import 'gif_recorder.dart';
 import 'input/keyboard_listener.dart';
@@ -374,6 +376,48 @@ class _RemoteControlPageState extends State<RemoteControlPage>
     }
   }
 
+  bool _explainingScreen = false;
+
+  Future<void> _explainScreen() async {
+    if (_explainingScreen) return;
+    final capturedAt = _session.lastFrameAt;
+    if (!_session.inputAvailable ||
+        capturedAt == null ||
+        DateTime.now().difference(capturedAt) > const Duration(seconds: 10)) {
+      context.showNotification(
+        context.l10n.phantomScreenUnavailable,
+        type: QNotificationType.error,
+      );
+      return;
+    }
+    setState(() => _explainingScreen = true);
+    try {
+      final png = _session.capturePng();
+      if (png == null) return;
+      final screen = ScreenAttachment(png, capturedAt: capturedAt);
+      await _session.pauseVisuals();
+      if (!mounted) return;
+      await Navigator.of(context).push<void>(
+        MaterialPageRoute(builder: (_) => PhantomScreenPage(screen: screen)),
+      );
+    } catch (_) {
+      if (mounted) {
+        context.showNotification(
+          context.l10n.phantomScreenUnavailable,
+          type: QNotificationType.error,
+        );
+      }
+    } finally {
+      if (mounted) {
+        await guarded(
+          '[Remote] resume after screen explanation',
+          _session.resumeVisuals,
+        );
+        if (mounted) setState(() => _explainingScreen = false);
+      }
+    }
+  }
+
   Future<void> _copyScreenshot() async {
     if (_savingScreenshot) return;
     setState(() => _savingScreenshot = true);
@@ -473,6 +517,7 @@ class _RemoteControlPageState extends State<RemoteControlPage>
       gifElapsedMs: _gifRecorder.elapsedMs,
       justUnlocked: _session.justUnlocked,
       savingScreenshot: _savingScreenshot,
+      onExplainScreen: _explainingScreen ? null : _explainScreen,
       onBack: _close,
       onConnection: _onConnection,
       onCopy: _copyScreenshot,
@@ -528,6 +573,11 @@ class _RemoteControlPageState extends State<RemoteControlPage>
                     icon: const Icon(Icons.arrow_back),
                   ),
                   actions: [
+                    IconButton(
+                      tooltip: context.l10n.phantomScreenTitle,
+                      onPressed: _explainingScreen ? null : _explainScreen,
+                      icon: const Icon(Icons.image_search),
+                    ),
                     IconButton(
                       tooltip: context.l10n.connectSearch,
                       onPressed: _onConnection,

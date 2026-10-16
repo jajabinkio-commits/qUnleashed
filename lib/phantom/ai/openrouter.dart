@@ -191,13 +191,17 @@ class OpenRouterProvider implements AiProvider {
 }
 
 class ModelChoice {
-  const ModelChoice(this.id, this.name);
+  const ModelChoice(this.id, this.name, {this.supportsImages = false});
   final String id;
   final String name;
+  final bool supportsImages;
 }
 
 /// Public model discovery; invoked by an explicit UI action, not startup.
-Future<List<ModelChoice>> loadOpenRouterModels({http.Client? client}) async {
+Future<List<ModelChoice>> loadOpenRouterModels({
+  http.Client? client,
+  bool visionOnly = false,
+}) async {
   final connection = client ?? http.Client();
   try {
     final response = await connection
@@ -217,18 +221,29 @@ Future<List<ModelChoice>> loadOpenRouterModels({http.Client? client}) async {
     if (data is! Map || data['data'] is! List) throw const AiFailure('models');
     final choices = <String, ModelChoice>{};
     for (final item in data['data'] as List) {
-      if (item is! Map ||
-          item['id'] is! String ||
-          item['name'] is! String ||
-          item['supported_parameters'] is! List ||
-          !(item['supported_parameters'] as List).contains('tools')) {
+      if (item is! Map || item['id'] is! String || item['name'] is! String) {
+        continue;
+      }
+      final parameters = item['supported_parameters'];
+      if (!visionOnly &&
+          (parameters is! List || !parameters.contains('tools'))) {
         continue;
       }
       final id = item['id'] as String;
       if (!RegExp(r'^[a-zA-Z0-9][a-zA-Z0-9/_.:\-]{1,127}$').hasMatch(id)) {
         continue;
       }
-      choices[id] = ModelChoice(id, item['name'] as String);
+      final architecture = item['architecture'];
+      final inputs = architecture is Map
+          ? architecture['input_modalities']
+          : null;
+      final images = inputs is List && inputs.contains('image');
+      if (visionOnly && !images) continue;
+      choices[id] = ModelChoice(
+        id,
+        item['name'] as String,
+        supportsImages: images,
+      );
     }
     if (choices.isEmpty) throw const AiFailure('models');
     return choices.values.toList()..sort((a, b) => a.name.compareTo(b.name));
