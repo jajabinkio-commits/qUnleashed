@@ -8,7 +8,7 @@ M0 source audit and baseline verification are recorded. M1 read-only adapter/UI 
 | --- | --- | --- |
 | Pinned recursive source / GPL notices | Source preserved | Full hosted/native dependency notices and source-distribution review |
 | Dart/Flutter validation | See final cycle report | Bundle compilation does not verify native iOS plugins |
-| iOS native build | BLOCKED on Linux | Manual macOS compile workflow prepared/linted, not run; native Keychain and CocoaPods compilation need observed CI/macOS results |
+| iOS native build | PASS (unsigned compile only) | Mac run 38938290988 built Runner.app at b099da8 PR merge snapshot; native Keychain runtime and physical operation remain unverified |
 | Signing/install | BLOCKED | Appropriate signing/provisioning workflow; Apple Developer membership for TestFlight |
 | Physical BLE/manual regressions | BLOCKED | Actual iPhone/Flipper/firmware versions and M1 operator log |
 | Provider keys/read-only AI | PARTIAL | Keychain source/channel tests, model catalog and read-only loop implemented; native Keychain and live private provider verification pending; writes excluded |
@@ -27,3 +27,5 @@ Cycle 03: local controller readings are now separated from AI explanation, with 
 Cycle 04 supersedes the account-mismatch blocker: owning account now connected and metadata push=true, but actual git push and connector create-branch both fail HTTP 403 (integration authorization). No remote changes or Mac job. PR trigger prepared and actionlint passes; see IMPLEMENTATION_CYCLE_04.md. Effective write authorization must be fixed before remote delivery.
 
 Cycle 04 access resolved: user completed installation; actual upload and draft PR #1 succeeded. Mac unsigned compile and CI are running. Repository authorization is no longer the blocker. Signing/install/hardware remain pending.
+
+Cycle 05 supersedes pending build status: Mac unsigned compile 38938290988 passed and uploaded artifact 12062890468 (expires 2026-10-23); cloud CI 38938290983 passed, 1,928 tests / five skipped and 51 quiet tests. Native compilation verified; runtime/hardware/signing/distribution remain unverified. Test Firebase configuration and upstream bundle identity make this artifact unsuitable for release.

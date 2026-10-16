@@ -1,0 +1,7 @@
+2026-10-16T17:18:10.7111390Z No issues found! (ran in 38.1s)
+2026-10-16T17:23:15.0751570Z Xcode build done.                                           219.8s
+2026-10-16T17:23:18.4908390Z ✓ Built build/ios/iphoneos/Runner.app
+2026-10-16T17:23:24.7949240Z SHA256 digest of uploaded artifact zip is 79d80e1c5b1933d986f949350183e7985751ff8592538a2e89903899f5b78dfd
+2026-10-16T17:23:25.1106700Z Artifact phantom-ios-unsigned-compile.zip successfully finalized. Artifact ID 12062890468
+2026-10-16T17:23:25.1121770Z Artifact phantom-ios-unsigned-compile has been successfully uploaded! Final size is 65296937 bytes. Artifact ID is 12062890468
+2026-10-16T17:23:25.1142960Z Artifact download URL: https://github.com/jajabinkio-commits/qUnleashed/actions/runs/38938290988/artifacts/12062890468
