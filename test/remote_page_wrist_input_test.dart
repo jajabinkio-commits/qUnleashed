@@ -162,6 +162,26 @@ void main() {
     });
   }
 
+  testWidgets('AI preview cannot interrupt an active GIF recording', (
+    tester,
+  ) async {
+    final client = _FakeClient();
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(
+      _wrap(RemoteControlPage(client: client, mediaRemoteSupported: false)),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('GIF'));
+    await tester.pump();
+    final action = tester.widget<IconButton>(
+      find.widgetWithIcon(IconButton, Icons.image_search),
+    );
+    expect(action.onPressed, isNull);
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+  });
+
   testWidgets('a wrist press while the page is closing never reaches the wire', (
     tester,
   ) async {

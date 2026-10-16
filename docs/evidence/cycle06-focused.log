@@ -36,112 +36,113 @@
 00:03 +31: /workspace/PHANTOM/test/remote_session_test.dart: opening the page asks for the stream at once
 00:03 +32: /workspace/PHANTOM/test/remote_session_test.dart: a stale disconnected flag does not hold the request back
 00:03 +33: /workspace/PHANTOM/test/remote_session_test.dart: a failed open is not retried
-[17:57:32] [warning] [Remote] open failed: Bad state: no active session
+[18:02:05] [warning] [Remote] open failed: Bad state: no active session
 00:03 +34: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect racing the initial open still restarts the stream
 00:03 +35: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect restarts the stream
 00:03 +36: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect during a failed open is still honoured
-[17:57:32] [warning] [Remote] open failed: Bad state: no active session
-[17:57:32] [warning] [Remote] open failed: Bad state: no active session
+[18:02:06] [warning] [Remote] open failed: Bad state: no active session
+[18:02:06] [warning] [Remote] open failed: Bad state: no active session
 00:03 +37: /workspace/PHANTOM/test/remote_session_test.dart: one open runs at a time however many requests arrive
 00:03 +38: /workspace/PHANTOM/test/remote_session_test.dart: teardown stops the loop rather than finishing the open
 00:03 +39: /workspace/PHANTOM/test/remote_session_test.dart: a drop clears the screen and input, a reconnect restores input
 00:03 +40: /workspace/PHANTOM/test/remote_session_test.dart: the subscribe cannot be overtaken by the unsubscribe that undoes it
 00:03 +41: /workspace/PHANTOM/test/remote_session_test.dart: a release the session refuses outright still clears the button
-[17:57:32] [RemoteInput] wire PRESS OK
-[17:57:32] [warning] [RemoteInput] failed PRESS OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
-[17:57:32] Receiver: Instance of '_FakeClient'
-[17:57:32] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
-[17:57:32] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
-[17:57:32] [RemoteInput] wire SHORT OK
-[17:57:32] [warning] [RemoteInput] failed SHORT OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
-[17:57:32] Receiver: Instance of '_FakeClient'
-[17:57:32] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
-[17:57:32] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
-[17:57:32] [RemoteInput] wire RELEASE OK
-[17:57:32] [warning] [RemoteInput] failed RELEASE OK: Bad state: No active transport
+[18:02:06] [RemoteInput] wire PRESS OK
+[18:02:06] [warning] [RemoteInput] failed PRESS OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
+[18:02:06] Receiver: Instance of '_FakeClient'
+[18:02:06] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
+[18:02:06] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
+[18:02:06] [RemoteInput] wire SHORT OK
+[18:02:06] [warning] [RemoteInput] failed SHORT OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
+[18:02:06] Receiver: Instance of '_FakeClient'
+[18:02:06] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
+[18:02:06] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
+[18:02:06] [RemoteInput] wire RELEASE OK
+[18:02:06] [warning] [RemoteInput] failed RELEASE OK: Bad state: No active transport
 00:03 +42: /workspace/PHANTOM/test/remote_session_test.dart: ERROR is read as unlocked, not merely as not-a-failure
 00:03 +43: /workspace/PHANTOM/test/remote_session_test.dart: the initial lock state is learned from the poll
 00:03 +44: /workspace/PHANTOM/test/remote_session_test.dart: the polled baseline does not flash an unlock
 00:03 +45: /workspace/PHANTOM/test/remote_session_test.dart: a status frame is preferred over what OK alone would mean
 00:03 +46: /workspace/PHANTOM/test/remote_session_test.dart: a status the firmware refuses is not read as unlocked
-[17:57:32] [warning] [Remote] lock state unavailable: FlipperRpcException(ERROR_NOT_IMPLEMENTED=3)
+[18:02:06] [warning] [Remote] lock state unavailable: FlipperRpcException(ERROR_NOT_IMPLEMENTED=3)
 00:03 +47: loading /workspace/PHANTOM/test/remote_page_wrist_input_test.dart
 00:04 +47: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: remote screenshot opens a local-only AI preview at Size(390.0, 844.0)
 00:05 +48: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: remote screenshot opens a local-only AI preview at Size(1200.0, 800.0)
-00:05 +49: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: a wrist press while the page is closing never reaches the wire
-[17:57:34] [WristRemote] mappings loaded; enabled=true
-[17:57:34] [WristRemote] start requested
-[17:57:34] [WristRemote] started
-[17:57:34] [WristRemote] input playPause -> ok
-[17:57:34] [RemoteInput] wire PRESS OK
-[17:57:34] [RemoteInput] wire SHORT OK
-[17:57:34] [RemoteInput] wire RELEASE OK
-[17:57:34] [RemoteInput] sent RELEASE OK
-[17:57:34] [RemoteInput] sent PRESS OK
-[17:57:34] [RemoteInput] sent SHORT OK
-[17:57:35] [WristRemote] input playPause -> ok
-[17:57:35] [WristRemote] dropped ok: Remote Control unavailable
-[17:57:35] [WristRemote] stop requested
-[17:57:35] [WristRemote] stopped
-00:06 +50: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: the mapping dialog lays out every row without overflowing
-[17:57:35] [WristRemote] mappings loaded; enabled=true
-[17:57:35] [WristRemote] start requested
-[17:57:35] [WristRemote] started
-[17:57:35] [QIconCache] queued; pending=1; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] queued; pending=2; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] queued; pending=3; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] queued; pending=4; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] queued; pending=5; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] queued; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=5; cached=1/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=4; cached=2/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=3; cached=3/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=2; cached=4/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=1; cached=5/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
-[17:57:35] [QIconCache] finished; pending=0; cached=6/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
-[17:57:35] [WristRemote] mapping previous -> none
-[17:57:35] [WristRemote] stop requested
-[17:57:35] [WristRemote] stopped
-00:06 +51: All tests passed!
+00:05 +49: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: AI preview cannot interrupt an active GIF recording
+00:05 +50: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: a wrist press while the page is closing never reaches the wire
+[18:02:08] [WristRemote] mappings loaded; enabled=true
+[18:02:08] [WristRemote] start requested
+[18:02:08] [WristRemote] started
+[18:02:08] [WristRemote] input playPause -> ok
+[18:02:08] [RemoteInput] wire PRESS OK
+[18:02:08] [RemoteInput] wire SHORT OK
+[18:02:08] [RemoteInput] wire RELEASE OK
+[18:02:08] [RemoteInput] sent RELEASE OK
+[18:02:08] [RemoteInput] sent PRESS OK
+[18:02:08] [RemoteInput] sent SHORT OK
+[18:02:08] [WristRemote] input playPause -> ok
+[18:02:08] [WristRemote] dropped ok: Remote Control unavailable
+[18:02:08] [WristRemote] stop requested
+[18:02:08] [WristRemote] stopped
+00:06 +51: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: the mapping dialog lays out every row without overflowing
+[18:02:08] [WristRemote] mappings loaded; enabled=true
+[18:02:08] [WristRemote] start requested
+[18:02:08] [WristRemote] started
+[18:02:08] [QIconCache] queued; pending=1; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] queued; pending=2; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] queued; pending=3; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] queued; pending=4; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] queued; pending=5; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] queued; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=5; cached=1/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=4; cached=2/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=3; cached=3/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=2; cached=4/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=1; cached=5/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:02:08] [QIconCache] finished; pending=0; cached=6/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:02:09] [WristRemote] mapping previous -> none
+[18:02:09] [WristRemote] stop requested
+[18:02:09] [WristRemote] stopped
+00:06 +52: All tests passed!

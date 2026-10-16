@@ -377,9 +377,11 @@ class _RemoteControlPageState extends State<RemoteControlPage>
   }
 
   bool _explainingScreen = false;
+  bool get _canExplainScreen =>
+      !_explainingScreen && _gifRecorder.state == GifRecordingState.idle;
 
   Future<void> _explainScreen() async {
-    if (_explainingScreen) return;
+    if (!_canExplainScreen) return;
     final capturedAt = _session.lastFrameAt;
     if (!_session.inputAvailable ||
         capturedAt == null ||
@@ -517,7 +519,7 @@ class _RemoteControlPageState extends State<RemoteControlPage>
       gifElapsedMs: _gifRecorder.elapsedMs,
       justUnlocked: _session.justUnlocked,
       savingScreenshot: _savingScreenshot,
-      onExplainScreen: _explainingScreen ? null : _explainScreen,
+      onExplainScreen: _canExplainScreen ? _explainScreen : null,
       onBack: _close,
       onConnection: _onConnection,
       onCopy: _copyScreenshot,
@@ -575,7 +577,7 @@ class _RemoteControlPageState extends State<RemoteControlPage>
                   actions: [
                     IconButton(
                       tooltip: context.l10n.phantomScreenTitle,
-                      onPressed: _explainingScreen ? null : _explainScreen,
+                      onPressed: _canExplainScreen ? _explainScreen : null,
                       icon: const Icon(Icons.image_search),
                     ),
                     IconButton(

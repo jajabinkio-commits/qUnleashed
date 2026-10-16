@@ -4,7 +4,7 @@ Base source b099da8 (prior native/CI pass), local evidence commit 988f166. BLE t
 
 ## Implemented
 
-- Explain screen entry on narrow/wide remote controls; freeze a recent frame, pause streaming during local preview and resume on return. Clear capture/timestamp on disconnect or device switch; no fabricated screen when no recent frame exists.
+- Explain screen entry on narrow/wide remote controls; freeze a recent frame, pause streaming during local preview and resume on return. AI entry is disabled during GIF recording/encoding so it cannot interrupt retained recording. Clear capture/timestamp on disconnect or device switch; no fabricated screen when no recent frame exists.
 - Preview timestamp and image; per-request sharing switch defaults off and resets on Send/STOP/background. No upload on entry or public model discovery. Key is configured through existing PHANTOM AI; no new credential storage.
 - Public model capability filtering for image input, including vision models without tools. Verified official OpenAPI ChatContentImage data-URL contract.
 - Dedicated ScreenInterpreter: one image request, no tools/RPC/executor/history, strict immutable PNG byte/dimension limits, existing HTTP limits, 45-second workflow bound, STOP/late-response suppression, plain labelled inference and erase. No paid/private provider call performed.
@@ -18,7 +18,7 @@ Limits: screenshot interpretation only; no camera/photo import, live AI screen s
 
 Next task: freeze this source, push the review branch, verify cloud tests and Mac compile, repair failures and record the actual run results. Then expand native runtime/security coverage and the remaining M2 features.
 
-Observed pre-upload checks: 51 focused simulated tests passed (cycle06-focused.log); analyzer no issues (cycle06-analyze.log); formatter checked 558 files unchanged (cycle06-format.log). Initial analyzer had three style findings, corrected before final verification. No failing focused tests. Public schema evidence: cycle06-provider-schema.log.
+Observed pre-upload checks: 52 focused simulated tests passed (cycle06-focused.log); analyzer no issues (cycle06-analyze.log); formatter checked 558 files unchanged (cycle06-format.log). Initial analyzer had three style findings, corrected before final verification. The initial added GIF-protection test used a tooltip finder as an IconButton; corrected the finder, then all 52 focused tests passed. Public schema evidence: cycle06-provider-schema.log.
 
 ## Exact changed files
 
@@ -46,3 +46,5 @@ Observed pre-upload checks: 51 focused simulated tests passed (cycle06-focused.l
 - `test/remote_page_wrist_input_test.dart`
 - `test/remote_session_test.dart`
 - `translations/app_en.arb`
+
+A final review found the recording/preview interaction after the first upload; the GIF guard and its regression test are a justified source change. Earlier cycle 06 runs are superseded; final cloud checks must target the guard commit. Exact touched files unchanged.
