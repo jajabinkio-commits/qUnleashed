@@ -1,0 +1,26 @@
+Analyze and test	Test	2026-10-16T18:04:44.0961063Z Shuffling test order with --test-randomize-ordering-seed=1969671259
+Analyze and test	Test	2026-10-16T18:06:08.7193777Z ##[endgroup]
+Analyze and test	Test	2026-10-16T18:06:08.7224633Z ##[group]❌ /home/runner/work/qUnleashed/qUnleashed/test/navigator_push_budget_test.dart: no area pushes more pages unguarded than its budget (failed)
+Analyze and test	Test	2026-10-16T18:06:08.7253168Z Expected: empty
+Analyze and test	Test	2026-10-16T18:06:08.7283454Z   Actual: ['pages/tools: 3, up from 2']
+Analyze and test	Test	2026-10-16T18:06:08.7313775Z A tap handler whose whole effect is a push needs pushPage, or a guard of its own: twice is two stacked pages and two of whatever the pushed page does on open (#244).
+Analyze and test	Test	2026-10-16T18:06:08.7340527Z If this site is guarded some other way, raise the budget and say which way.
+Analyze and test	Test	2026-10-16T18:06:08.7342980Z See docs/adr/0006-navigation.md
+Analyze and test	Test	2026-10-16T18:06:08.7373366Z   pages/tools: 3, up from 2
+Analyze and test	Test	2026-10-16T18:06:08.7399813Z     lib/pages/tools/infrared/infrareds_page.dart:104
+Analyze and test	Test	2026-10-16T18:06:08.7417269Z     lib/pages/tools/overview/page.dart:311
+Analyze and test	Test	2026-10-16T18:06:08.7418098Z     lib/pages/tools/remote/desktop/page.dart:402
+Analyze and test	Test	2026-10-16T18:06:08.7418825Z 
+Analyze and test	Test	2026-10-16T18:06:08.7419370Z package:matcher                                     expect
+Analyze and test	Test	2026-10-16T18:06:08.7420253Z package:flutter_test/src/widget_tester.dart 473:18  expect
+Analyze and test	Test	2026-10-16T18:06:08.7421155Z test/ratchet.dart 156:3                             expectWithinBudget
+Analyze and test	Test	2026-10-16T18:06:08.7422048Z test/navigator_push_budget_test.dart 114:5          main.<fn>
+Analyze and test	Test	2026-10-16T18:06:08.7423408Z ##[endgroup]
+Analyze and test	Test	2026-10-16T18:06:08.7424483Z ##[group]✅ Passing tests
+Analyze and test	Test	2026-10-16T18:06:08.7425671Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/navigator_push_budget_test.dart: does not count a push on something that is not a navigator
+Analyze and test	Test	2026-10-16T18:06:08.7427204Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/navigator_push_budget_test.dart: counts a push through Navigator.of
+Analyze and test	Test	2026-10-16T18:06:08.7452303Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/navigator_push_budget_test.dart: counts the static form, and a replacement
+Analyze and test	Test	2026-10-16T18:06:08.7503990Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/navigator_push_budget_test.dart: does not count the helper that owns pushing
+Analyze and test	Test	2026-10-16T18:06:08.9030760Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/device_name_rule_test.dart: what a name may be judges the trimmed name, which is the one that gets written
+Analyze and test	Test	2026-10-16T18:06:08.9064282Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/device_name_rule_test.dart: what a name may be refuses an empty name, including one that is only spaces
+Analyze and test	Test	2026-10-16T18:07:45.3264628Z ##[error]1940 tests passed, 1 failed, 5 skipped.

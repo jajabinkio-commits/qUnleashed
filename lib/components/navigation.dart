@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 enum AppRoute {
   phantomInspection,
   phantomAi,
+  phantomScreen,
   remoteControl,
   pixelEditor,
   plotter,

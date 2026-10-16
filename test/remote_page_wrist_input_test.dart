@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:qunleashed/pages/tools/remote/desktop/media_remote.dart';
+import 'package:qunleashed/app/routes.dart';
 import 'package:qunleashed/pages/tools/remote/desktop/models/models.dart';
 import 'package:qunleashed/pages/tools/remote/desktop/page.dart';
 import 'package:qunleashed/theme/theme.dart';
@@ -93,6 +94,7 @@ Widget _wrap(Widget child) => MaterialApp(
 );
 
 void main() {
+  setUp(registerAppRoutes);
   const channel = MethodChannel('qunleashed/media_remote');
   late TestDefaultBinaryMessenger messenger;
   final nativeCalls = <String>[];

@@ -18,7 +18,7 @@ Limits: screenshot interpretation only; no camera/photo import, live AI screen s
 
 Next task: freeze this source, push the review branch, verify cloud tests and Mac compile, repair failures and record the actual run results. Then expand native runtime/security coverage and the remaining M2 features.
 
-Observed pre-upload checks: 52 focused simulated tests passed (cycle06-focused.log); analyzer no issues (cycle06-analyze.log); formatter checked 558 files unchanged (cycle06-format.log). Initial analyzer had three style findings, corrected before final verification. The initial added GIF-protection test used a tooltip finder as an IconButton; corrected the finder, then all 52 focused tests passed. Public schema evidence: cycle06-provider-schema.log.
+Observed pre-upload checks: 57 focused simulated tests passed (including navigation guards) (cycle06-focused.log); analyzer no issues (cycle06-analyze.log); formatter checked 558 files unchanged (cycle06-format.log). Initial analyzer had three style findings, corrected before final verification. The initial added GIF-protection test used a tooltip finder as an IconButton; corrected the finder, then all 57 focused tests including navigation checks passed. Public schema evidence: cycle06-provider-schema.log.
 
 ## Exact changed files
 
@@ -48,3 +48,9 @@ Observed pre-upload checks: 52 focused simulated tests passed (cycle06-focused.l
 - `translations/app_en.arb`
 
 A final review found the recording/preview interaction after the first upload; the GIF guard and its regression test are a justified source change. Earlier cycle 06 runs are superseded; final cloud checks must target the guard commit. Exact touched files unchanged.
+
+## First cloud result and navigation correction
+
+Run 38944294329 on 571009f: 1,940 tests passed, one navigation-budget test failed, five skipped; seed 1969671259. The new preview had a local duplicate-opening guard, but direct Navigator.push increased the tracked count. The preview now uses AppRoute.phantomScreen through the central registry with isTopRoute and the existing local guard, honoring ADR 0006 without raising the budget. Actual remote preview/return tests still pass in both layouts. Focused 57 tests pass with the failing cloud seed. Additional files: lib/app/routes.dart; lib/components/navigation.dart; docs/ACCEPTANCE_STATUS.md; docs/evidence/cycle06-cloud-navigation-failure.log.
+
+Native run 38944294342 on 571009f succeeded; the final navigation-adjusted source requires a new Mac result. Earlier runs 38943775322/38943775488 on 5af3863 were cancelled as superseded after the GIF guard. No other acceptance gate is inferred from these results.

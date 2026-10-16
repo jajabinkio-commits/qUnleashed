@@ -6,12 +6,12 @@ import 'package:qunleashed/components/appbar.dart';
 
 import '../../../../services/guarded.dart';
 import '../../../../components/dialogs/connection.dart';
+import '../../../../components/navigation.dart';
 import '../../../../components/notification.dart';
 import '../../../../services/localization/l10n.dart';
 import '../../../../services/logging.dart';
 import '../../../../theme/theme.dart';
 import '../../../../phantom/ai/screen_interpreter.dart';
-import '../../../../phantom/features/ai/screen_page.dart';
 import 'gif_export_dialog.dart';
 import 'gif_recorder.dart';
 import 'input/keyboard_listener.dart';
@@ -399,9 +399,9 @@ class _RemoteControlPageState extends State<RemoteControlPage>
       final screen = ScreenAttachment(png, capturedAt: capturedAt);
       await _session.pauseVisuals();
       if (!mounted) return;
-      await Navigator.of(context).push<void>(
-        MaterialPageRoute(builder: (_) => PhantomScreenPage(screen: screen)),
-      );
+      if (isTopRoute(context)) {
+        await openRoute<void>(context, AppRoute.phantomScreen, args: screen);
+      }
     } catch (_) {
       if (mounted) {
         context.showNotification(
