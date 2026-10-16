@@ -19,3 +19,9 @@ Exact changed files: .github/workflows/phantom-ios.yml, docs/IMPLEMENTATION_CYCL
 - Independent connector create-branch call: HTTP 403, Resource not accessible by integration. No branch was created, no PR opened and no remote native build started. These are GitHub integration authorization errors, not local approval-review rejections.
 - The repository metadata push=true describes account permission, but actual authenticated write operations were denied. Do not treat metadata as proof of effective credential write scope. Inspect the GitHub app installation/repository authorization before retrying; platform connection support may be required if no write grant is offered.
 - Local code stays committed. Main is unchanged remotely. Source archive prepared at /workspace/PHANTOM-cycle-04.zip including recursive tracked source and an incremental commit patch series.
+
+## Installation resolved and delivery verified
+
+The user completed the GitHub installation. Connector discovery now returns installation 172153173 for jajabinkio-commits with selected repositories. Actual git push succeeded, creating phantom/m0-m2-iphone at 438784297f26311646592600aa557574d151a3de. Draft PR #1 opened: https://github.com/jajabinkio-commits/qUnleashed/pull/1. GitHub reports MERGEABLE; main was not modified.
+
+Unsigned native compile run 38937180677 and regression CI run 38937180923 started on GitHub. This supersedes the earlier authorization blocker; build outcomes must still be observed. No signing, distribution or physical hardware operation occurred.

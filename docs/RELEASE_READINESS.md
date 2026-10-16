@@ -25,3 +25,5 @@ Cycle 02: Apple Developer membership is not established (user unsure/not yet). N
 Cycle 03: local controller readings are now separated from AI explanation, with missing-value, cancellation/erase and failed-provider tests. 1,914 tests passed and five were skipped; analyzer, format and Linux-target Dart bundle checks passed. The supplied `jajabinkio-commits/qUnleashed` fork exists, but connected account `jssanderson93-svg` has read-only access (push=false). Reconnecting the owning account with repository access is required before upload. No online macOS build has run.
 
 Cycle 04 supersedes the account-mismatch blocker: owning account now connected and metadata push=true, but actual git push and connector create-branch both fail HTTP 403 (integration authorization). No remote changes or Mac job. PR trigger prepared and actionlint passes; see IMPLEMENTATION_CYCLE_04.md. Effective write authorization must be fixed before remote delivery.
+
+Cycle 04 access resolved: user completed installation; actual upload and draft PR #1 succeeded. Mac unsigned compile and CI are running. Repository authorization is no longer the blocker. Signing/install/hardware remain pending.
