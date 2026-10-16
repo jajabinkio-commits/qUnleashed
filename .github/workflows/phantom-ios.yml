@@ -4,6 +4,8 @@ name: PHANTOM iOS compile check
 # account, PHANTOM app identity, signing and explicit release workflow.
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: read
