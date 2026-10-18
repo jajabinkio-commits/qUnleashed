@@ -9,6 +9,7 @@ import '../../ai/credentials.dart';
 import '../../ai/openrouter.dart';
 import '../../ai/read_only_agent.dart';
 import '../../ai/observation.dart';
+import '../../ai/voice_input.dart';
 import '../../device/device_gateway.dart';
 import 'observation_card.dart';
 
@@ -19,11 +20,13 @@ class PhantomChatPage extends StatefulWidget with SensitiveSurface {
     this.credentials = const KeychainCredentialStore(),
     this.createProvider,
     this.loadModels,
+    this.voiceInput,
   });
   final DeviceGateway Function() createGateway;
   final CredentialStore credentials;
   final AiProvider Function()? createProvider;
   final Future<List<ModelChoice>> Function()? loadModels;
+  final VoiceInput? voiceInput;
   @override
   State<PhantomChatPage> createState() => _PhantomChatPageState();
 }
@@ -32,6 +35,10 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     with WidgetsBindingObserver {
   late final DeviceGateway _gateway;
   late final ReadOnlyAgent _agent;
+  late final VoiceInput _voice;
+  bool _listening = false;
+  bool _finishingVoice = false;
+  int _voiceGeneration = 0;
   final _key = TextEditingController();
   final _input = TextEditingController();
   final _messages =
@@ -50,6 +57,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _gateway = widget.createGateway();
+    _voice = widget.voiceInput ?? NativeVoiceInput();
     _agent = ReadOnlyAgent(
       gateway: _gateway,
       credentials: widget.credentials,
@@ -131,7 +139,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
   Future<void> _send() async {
     final model = _model;
     final text = _input.text.trim();
-    if (_busy || model == null || text.isEmpty) return;
+    if (_busy || _listening || model == null || text.isEmpty) return;
     final generation = ++_generation;
     final shareStatus = _shareStatus;
     _input.clear();
@@ -177,7 +185,79 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     }
   }
 
-  void _stop() {
+  Future<void> _dictate() async {
+    if (_busy || _listening) return;
+    final generation = ++_voiceGeneration;
+    final draft = _input.text.trim();
+    setState(() {
+      _listening = true;
+      _finishingVoice = false;
+      _shareStatus = false;
+      _error = null;
+    });
+    try {
+      final transcript = await _voice.listen();
+      if (!mounted || generation != _voiceGeneration) return;
+      final text = [
+        draft,
+        transcript.trim(),
+      ].where((s) => s.isNotEmpty).join(' ');
+      if (transcript.trim().isEmpty || text.length > 2000) {
+        throw const VoiceFailure();
+      }
+      _input.text = text;
+      _input.selection = TextSelection.collapsed(offset: text.length);
+      setState(() => _shareStatus = false);
+    } catch (_) {
+      if (mounted && generation == _voiceGeneration) {
+        setState(() => _error = context.l10n.phantomVoiceUnavailable);
+      }
+    } finally {
+      if (mounted && generation == _voiceGeneration) {
+        setState(() {
+          _listening = false;
+          _finishingVoice = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _finishVoice() async {
+    if (!_listening || _finishingVoice) return;
+    final generation = _voiceGeneration;
+    setState(() => _finishingVoice = true);
+    try {
+      await _voice.finish();
+    } catch (_) {
+      if (mounted && generation == _voiceGeneration) {
+        _cancelVoice();
+        setState(() => _error = context.l10n.phantomVoiceUnavailable);
+      }
+    }
+  }
+
+  void _cancelVoice({bool updateUi = true}) {
+    final generation = ++_voiceGeneration;
+    if (_listening) {
+      unawaited(
+        _voice.cancel().then<void>((acknowledged) {
+          if (!acknowledged && mounted && generation == _voiceGeneration) {
+            setState(() => _error = context.l10n.phantomVoiceStopFailed);
+          }
+        }),
+      );
+    }
+    if (mounted && updateUi) {
+      setState(() {
+        _listening = false;
+        _finishingVoice = false;
+        _shareStatus = false;
+      });
+    }
+  }
+
+  void _stop({bool includeVoice = true}) {
+    if (includeVoice) _cancelVoice();
     _generation++;
     _agent.stop();
     if (mounted) setState(() => _busy = false);
@@ -186,6 +266,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
   void _eraseChat() {
     _stop();
     _agent.eraseConversation();
+    _input.clear();
     setState(() {
       _messages.clear();
       _shareStatus = false;
@@ -195,7 +276,16 @@ class _PhantomChatPageState extends State<PhantomChatPage>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state != AppLifecycleState.resumed) _stop();
+    if (state != AppLifecycleState.resumed) {
+      // Permission dialogs cause inactive. Native background/interruption
+      // handlers and real Flutter background states cancel microphone work.
+      _stop(
+        includeVoice:
+            state == AppLifecycleState.paused ||
+            state == AppLifecycleState.hidden ||
+            state == AppLifecycleState.detached,
+      );
+    }
   }
 
   @override
@@ -203,6 +293,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     WidgetsBinding.instance.removeObserver(this);
     _generation++;
     _agent.stop();
+    _cancelVoice(updateUi: false);
     _key.dispose();
     _input.dispose();
     unawaited(guarded('[PHANTOM AI] close device gateway', _gateway.close));
@@ -232,7 +323,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
             spacing: 8,
             children: [
               TextButton(
-                onPressed: _busy ? null : _saveKey,
+                onPressed: _busy || _listening ? null : _saveKey,
                 child: Text(l10n.phantomAiSaveKey),
               ),
               TextButton(
@@ -240,7 +331,9 @@ class _PhantomChatPageState extends State<PhantomChatPage>
                 child: Text(l10n.phantomAiEraseKey),
               ),
               TextButton(
-                onPressed: _loadingModels || _busy ? null : _loadModels,
+                onPressed: _loadingModels || _busy || _listening
+                    ? null
+                    : _loadModels,
                 child: Text(l10n.phantomAiLoadModels),
               ),
             ],
@@ -259,7 +352,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
                     child: Text(model.name, overflow: TextOverflow.ellipsis),
                   ),
               ],
-              onChanged: _busy
+              onChanged: _busy || _listening
                   ? null
                   : (model) => setState(() => _model = model),
             ),
@@ -267,7 +360,7 @@ class _PhantomChatPageState extends State<PhantomChatPage>
             contentPadding: EdgeInsets.zero,
             title: Text(l10n.phantomAiShareStatus),
             value: _shareStatus,
-            onChanged: _busy
+            onChanged: _busy || _listening
                 ? null
                 : (value) => setState(() => _shareStatus = value),
           ),
@@ -298,21 +391,39 @@ class _PhantomChatPageState extends State<PhantomChatPage>
           if (_error != null) Text(_error!),
           TextField(
             controller: _input,
+            readOnly: _listening,
             maxLength: 2000,
             minLines: 1,
             maxLines: 4,
             decoration: InputDecoration(labelText: l10n.phantomAiMessage),
+          ),
+          Text(l10n.phantomVoicePrivacy),
+          if (_listening) Text(l10n.phantomVoiceListening),
+          TextButton.icon(
+            onPressed: _busy || _finishingVoice
+                ? null
+                : _listening
+                ? _finishVoice
+                : _dictate,
+            icon: Icon(
+              _listening ? Icons.stop_circle_outlined : Icons.mic_none,
+            ),
+            label: Text(
+              _listening ? l10n.phantomVoiceFinish : l10n.phantomVoiceStart,
+            ),
           ),
           if (_busy) const LinearProgressIndicator(),
           Wrap(
             spacing: 8,
             children: [
               FilledButton(
-                onPressed: _busy || !_saved || _model == null ? null : _send,
+                onPressed: _busy || _listening || !_saved || _model == null
+                    ? null
+                    : _send,
                 child: Text(l10n.phantomAiSend),
               ),
               OutlinedButton(
-                onPressed: _busy ? _stop : null,
+                onPressed: _busy || _listening ? _stop : null,
                 child: Text(l10n.phantomAiStop),
               ),
               TextButton(

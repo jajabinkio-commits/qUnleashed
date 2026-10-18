@@ -8571,5 +8571,11 @@
   "phantomScreenFailed": "Could not explain the screenshot. Check your saved OpenRouter key, model and connection. No device action was performed.",
   "phantomScreenNoModels": "No image-capable models available.",
   "phantomScreenUnavailable": "No recent screen frame is available. Wait for the live screen and try again.",
-  "phantomScreenBudget": "One request, up to 512 output tokens. Provider charges may apply. STOP cancels locally; an already sent request may still be billed."
+  "phantomScreenBudget": "One request, up to 512 output tokens. Provider charges may apply. STOP cancels locally; an already sent request may still be billed.",
+  "phantomVoicePrivacy": "Dictation uses on-device speech recognition when available. Tap to allow microphone access. Review and edit the transcript, then tap Send yourself. No audio is saved by PHANTOM or sent to OpenRouter.",
+  "phantomVoiceListening": "Waiting for permission or listening. Finish when done; recording stops after 20 seconds.",
+  "phantomVoiceStart": "Dictate message",
+  "phantomVoiceFinish": "Finish recording",
+  "phantomVoiceUnavailable": "On-device dictation is unavailable, permission was denied, or the message is too long. You can still type.",
+  "phantomVoiceStopFailed": "Could not confirm dictation stopped. The recording time limit still applies."
 }

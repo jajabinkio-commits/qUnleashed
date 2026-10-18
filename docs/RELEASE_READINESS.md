@@ -33,3 +33,5 @@ Cycle 05 supersedes pending build status: Mac unsigned compile 38938290988 passe
 Cycle 06 screen interpretation source implemented with simulated tests; new cloud/native results pending. Existing cycle 05 native pass does not prove the changed source compiles. Screen interpretation accuracy and privacy masking runtime require real provider/iPhone checks. Voice/files/cost controls and supervised execution remain pending.
 
 Cycle 06 FINAL: cloud regression 38945364560 and Mac iPhone compile 38945364466 passed on ebeb4ac PR merge snapshot. Screenshots can be previewed and explicitly shared through the isolated bounded image-request source. No paid inference or physical recognition test. The unsigned artifact expires 2026-10-23; app identity, real service configuration and Apple signing/distribution still required. Full M2, M3–M7 and physical M1 remain incomplete.
+
+Cycle 07 voice source added: reviewed on-device-only dictation, bounded microphone session and explicit Send. Mock tests pass; new native compile and actual iPhone recognition/permission/privacy verification pending. No speech playback, signing or installation yet.

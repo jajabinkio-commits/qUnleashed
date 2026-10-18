@@ -23,7 +23,7 @@ Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Sou
 | CLI01 | Flipper USB terminal | Bridge required | P2 | flipperlib USB transport; tools overview excludes iOS CLI; new bridge label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
 | AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart | Mock + provider | IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED |
 | AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two validated read-only tools with consent/budgets/STOP; local observed readings displayed separately from AI text; no mutations/persisted audit |
-| AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | iOS permissions | iPhone | NOT IMPLEMENTED |
+| AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | voice_input.dart; iOS PhantomSpeech channel | Mock + iPhone | PARTIAL: on-device-only dictation, editable draft and explicit Send; native runtime/permissions unverified; TTS pending |
 | AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | screen_interpreter.dart; screen_page.dart; retained RemoteSession | Mock HTTP + UI + iPhone | PARTIAL: consented screenshot preview and one bounded no-tool request; native/live-provider pending; photo import absent |
 | AI05 | Local Ollama endpoint | Bridge or LAN server | P2 | Ollama compatible service | Host integration | NOT IMPLEMENTED; external LAN/bridge service required |
 | AUT01 | Macros/routines & dry-run | iOS direct | P1 | Typed action DSL | Unit + hardware | NOT IMPLEMENTED |

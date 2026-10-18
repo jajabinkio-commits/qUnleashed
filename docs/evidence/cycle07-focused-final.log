@@ -1,0 +1,55 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_voice_test.dart
+00:00 +0: /workspace/PHANTOM/test/phantom_voice_test.dart: construction makes no audio call; explicit methods only
+00:00 +1: /workspace/PHANTOM/test/phantom_voice_test.dart: permission error details are never propagated
+00:00 +2: /workspace/PHANTOM/test/phantom_voice_test.dart: empty, oversized and malformed transcripts fail closed
+00:00 +3: /workspace/PHANTOM/test/phantom_voice_test.dart: cancel rejects a late transcript after a permission/start race
+00:00 +4: /workspace/PHANTOM/test/phantom_voice_test.dart: stuck native session times out and is cancelled
+00:00 +5: /workspace/PHANTOM/test/phantom_voice_test.dart: missing cancellation acknowledgement is observable without native details
+00:00 +6: loading /workspace/PHANTOM/test/phantom_voice_page_test.dart
+00:02 +6: /workspace/PHANTOM/test/phantom_voice_page_test.dart: speech is editable text; only explicit Send reaches the AI
+00:03 +7: /workspace/PHANTOM/test/phantom_voice_page_test.dart: permission dialog inactive is allowed; background discards late speech
+00:04 +8: /workspace/PHANTOM/test/phantom_voice_page_test.dart: STOP discards late speech; erase clears the draft
+00:04 +9: /workspace/PHANTOM/test/phantom_voice_page_test.dart: permission failure preserves typing and the existing draft
+00:04 +10: /workspace/PHANTOM/test/phantom_voice_page_test.dart: late old session cannot replace a newer transcript
+00:04 +11: /workspace/PHANTOM/test/phantom_voice_page_test.dart: oversized combined transcript preserves the existing draft
+00:05 +12: /workspace/PHANTOM/test/phantom_voice_page_test.dart: failed cancellation acknowledgement is shown without accepting late speech
+00:05 +13: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:05 +13: /workspace/PHANTOM/test/phantom_chat_page_test.dart: opening AI sends no provider request or device RPC; sharing defaults off
+00:06 +14: /workspace/PHANTOM/test/phantom_chat_page_test.dart: save key clears the obscured input
+00:07 +15: /workspace/PHANTOM/test/phantom_chat_page_test.dart: selected model and send show response without granting device access
+00:07 +16: /workspace/PHANTOM/test/phantom_chat_page_test.dart: backgrounding cancels AI and discards a late tool call
+00:08 +17: /workspace/PHANTOM/test/phantom_chat_page_test.dart: device readings remain distinct from conflicting AI narrative
+00:08 +18: /workspace/PHANTOM/test/phantom_chat_page_test.dart: model text cannot invent an observed device reading
+00:08 +19: /workspace/PHANTOM/test/phantom_chat_page_test.dart: provider failure preserves already observed device readings
+00:09 +20: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:09 +20: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:09 +21: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:09 +22: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:09 +23: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:09 +24: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:09 +25: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:09 +26: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:09 +27: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:09 +28: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:09 +29: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:09 +30: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:09 +31: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:09 +32: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:09 +33: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:09 +34: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:09 +35: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:09 +36: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:09 +37: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:09 +38: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:09 +39: /workspace/PHANTOM/test/phantom_ai_test.dart: controller evidence is immutable and belongs only to its request
+00:09 +40: /workspace/PHANTOM/test/phantom_ai_test.dart: a model cannot populate local evidence with invented text
+00:09 +41: loading /workspace/PHANTOM/test/bare_catch_budget_test.dart
+00:10 +41: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is a catch that does nothing
+00:10 +42: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a catch that does something with it
+00:10 +43: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule counts a body that holds only a comment
+00:10 +44: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a finally that does nothing
+00:10 +45: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not something that merely reads like one
+00:10 +46: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule follows the catch wherever it is nested
+00:10 +47: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule reports the line the catch is on
+00:10 +48: /workspace/PHANTOM/test/bare_catch_budget_test.dart: no area swallows more failures than its budget
+00:12 +49: All tests passed!

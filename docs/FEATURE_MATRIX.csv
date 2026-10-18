@@ -18,7 +18,7 @@ FW02,Full USB DFU repair,Bridge required,P2,flipperlib src/dfu; new bridge capab
 CLI01,Flipper USB terminal,Bridge required,P2,flipperlib USB transport; tools overview excludes iOS CLI; new bridge label,USB host,BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED
 AI01,OpenRouter chat and selected models,iOS direct + internet,P0,lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart,Mock + provider,IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED
 AI02,Typed tool policy/audit,iOS direct,P0,lib/phantom/ai/read_only_agent.dart,Unit + redteam,PARTIAL: two validated read-only tools with consent/budgets/STOP; local observed readings displayed separately from AI text; no mutations/persisted audit
-AI03,Voice/Speech and text-to-speech,iOS direct,P1,iOS permissions,iPhone,NOT IMPLEMENTED
+AI03,Voice/Speech and text-to-speech,iOS direct,P1,iOS permissions,Mock channel/UI + iPhone,PARTIAL: iOS on-device-only dictation to editable chat draft; explicit Send uses existing read-only controller; mock tests; speech runtime/permissions/hardware and TTS unverified or pending
 AI04,Photo/screen model interpretation,iOS direct + cloud,P1,provider multimodal,Provider tests,PARTIAL: consented frozen remote screenshot preview and bounded no-tool image request; mock HTTP/UI tests; live provider and physical iPhone unverified; photo import not implemented
 AI05,Local Ollama endpoint,Bridge or LAN server,P2,Ollama compatible service,Host integration,NOT IMPLEMENTED; external LAN/bridge service required
 AUT01,Macros/routines & dry-run,iOS direct,P1,Typed action DSL,Unit + hardware,NOT IMPLEMENTED
