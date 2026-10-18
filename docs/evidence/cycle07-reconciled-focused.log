@@ -1,0 +1,69 @@
+Shuffling test order with --test-randomize-ordering-seed=3816894737
+00:00 +0: loading /workspace/PHANTOM/test/phantom_voice_test.dart
+00:00 +0: /workspace/PHANTOM/test/phantom_voice_test.dart: empty, oversized and malformed transcripts fail closed
+00:00 +1: /workspace/PHANTOM/test/phantom_voice_test.dart: permission error details are never propagated
+00:00 +2: /workspace/PHANTOM/test/phantom_voice_test.dart: missing cancellation acknowledgement is observable without native details
+00:00 +3: /workspace/PHANTOM/test/phantom_voice_test.dart: cancel rejects a late transcript after a permission/start race
+00:00 +4: /workspace/PHANTOM/test/phantom_voice_test.dart: stuck native session times out and is cancelled
+00:00 +5: /workspace/PHANTOM/test/phantom_voice_test.dart: construction makes no audio call; explicit methods only
+00:00 +6: loading /workspace/PHANTOM/test/phantom_voice_page_test.dart
+00:02 +6: /workspace/PHANTOM/test/phantom_voice_page_test.dart: speech is editable text; only explicit Send reaches the AI
+00:04 +7: /workspace/PHANTOM/test/phantom_voice_page_test.dart: unexpected cancel rejection is handled and redacted
+00:04 +8: /workspace/PHANTOM/test/phantom_voice_page_test.dart: failed cancellation acknowledgement is shown without accepting late speech
+00:05 +9: /workspace/PHANTOM/test/phantom_voice_page_test.dart: late old session cannot replace a newer transcript
+00:05 +10: /workspace/PHANTOM/test/phantom_voice_page_test.dart: oversized combined transcript preserves the existing draft
+00:05 +11: /workspace/PHANTOM/test/phantom_voice_page_test.dart: permission dialog inactive is allowed; background discards late speech
+00:05 +12: /workspace/PHANTOM/test/phantom_voice_page_test.dart: permission failure preserves typing and the existing draft
+00:06 +13: /workspace/PHANTOM/test/phantom_voice_page_test.dart: STOP discards late speech; erase clears the draft
+00:06 +14: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:06 +14: /workspace/PHANTOM/test/phantom_chat_page_test.dart: opening AI sends no provider request or device RPC; sharing defaults off
+00:07 +15: /workspace/PHANTOM/test/phantom_chat_page_test.dart: provider failure preserves already observed device readings
+00:08 +16: /workspace/PHANTOM/test/phantom_chat_page_test.dart: device readings remain distinct from conflicting AI narrative
+00:09 +17: /workspace/PHANTOM/test/phantom_chat_page_test.dart: selected model and send show response without granting device access
+00:09 +18: /workspace/PHANTOM/test/phantom_chat_page_test.dart: backgrounding cancels AI and discards a late tool call
+00:09 +19: /workspace/PHANTOM/test/phantom_chat_page_test.dart: model text cannot invent an observed device reading
+00:10 +20: /workspace/PHANTOM/test/phantom_chat_page_test.dart: save key clears the obscured input
+00:10 +21: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:10 +21: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:10 +22: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:10 +23: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:10 +24: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:10 +25: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:10 +26: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:10 +27: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:10 +28: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:10 +29: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:10 +30: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:10 +31: /workspace/PHANTOM/test/phantom_ai_test.dart: controller evidence is immutable and belongs only to its request
+00:10 +32: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:10 +33: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:10 +34: /workspace/PHANTOM/test/phantom_ai_test.dart: a model cannot populate local evidence with invented text
+00:10 +35: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:10 +36: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:10 +37: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:10 +38: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:10 +39: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:10 +40: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:10 +41: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:10 +42: loading /workspace/PHANTOM/test/bare_catch_budget_test.dart
+00:11 +42: /workspace/PHANTOM/test/bare_catch_budget_test.dart: no area swallows more failures than its budget
+00:13 +43: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is a catch that does nothing
+00:13 +44: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule reports the line the catch is on
+00:13 +45: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not something that merely reads like one
+00:13 +46: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule counts a body that holds only a comment
+00:13 +47: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a finally that does nothing
+00:13 +48: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule follows the catch wherever it is nested
+00:13 +49: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a catch that does something with it
+00:13 +50: loading /workspace/PHANTOM/test/unawaited_budget_test.dart
+00:14 +50: /workspace/PHANTOM/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget
+00:16 +51: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule wants the handler attached to something
+00:16 +52: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reports the line the call is on
+00:16 +53: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the one-argument form
+00:16 +54: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts one it cannot see inside
+00:16 +55: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts a future dropped with no handler
+00:16 +56: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the call, not anything that mentions it
+00:16 +57: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule finds it wherever it is nested
+00:16 +58: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not a method that merely shares the name
+00:16 +59: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reads through parentheses
+00:16 +60: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not one that names what happens on failure
+00:16 +61: All tests passed!

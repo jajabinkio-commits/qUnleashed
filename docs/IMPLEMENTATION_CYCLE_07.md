@@ -43,3 +43,15 @@ Final analyzer: no issues; formatter checked 561 Dart files unchanged. Added can
 - `test/phantom_voice_page_test.dart`
 - `test/phantom_voice_test.dart`
 - `translations/app_en.arb`
+
+## Initial cloud result and explicit future handling
+
+CI 39126865452 on 393978e: 1,953 passed, one unawaited-future policy failure, five skipped; seed 3816894737. Native Mac build 39126865424 passed, verifying the new Speech/AVAudioEngine Swift source compiles. The cancelled-future results were handled by the callees, but the project requires explicit error handling at each asynchronous boundary. Timeout now awaits the bounded cancellation before raising the already user-visible timeout; UI cancellation chains attach a catchError that reports a generic failure without native data. No policy budget relaxed. Timeout permits at most the 90-second permission/channel wait plus the three-second cancellation wait; native capture remains 20 seconds plus eight-second finalization.
+
+The first patch did not match a formatter-expanded expression and briefly left an unresolved unawaited reference after import removal; caught locally, fixed before upload, intermediate log retained. Final focused rerun with seed 3816894737: 61 passed, including unexpected cancellation rejection handling and the repository future/error-policy checks. New full-cloud/native results required for the corrected source. Native recognition accuracy/permissions remain unverified regardless of compile success.
+
+## Concurrent repository changes preserved
+
+Before updating the branch, a fresh read found new owner-authored commits 8183c1a, ee13ed6 and 383782f, which wrap cancellation in the existing guarded helper. The old-head update was not applied. Retained those commits and their timeout wrapper rather than replacing them; added inner sanitized cancellation-failure feedback and the rejection test on top. The final timeout wrapper retains a 90-second client timeout and separately bounded cancellation (superseding the local awaited-timeout variant above). All subsequent tests target the reconciled tree. GitHub API-created unpublished commit a6390ab is not the review-branch head and is not claimed delivered/tested.
+
+Reconciled pre-upload source: 61 focused tests passed with seed 3816894737; analyzer no issues; 561 Dart files formatted unchanged. Test log cycle07-reconciled-focused.log. The new native Speech implementation remains identical to the source that passed compile run 39126865424; final integrated code still receives its own cloud/native checks.

@@ -15,6 +15,7 @@ class _Voice implements VoiceInput {
   int finishes = 0;
   int cancels = 0;
   bool acknowledged = true;
+  bool cancellationThrows = false;
   Completer<String>? pending;
   @override
   Future<String> listen() {
@@ -31,6 +32,7 @@ class _Voice implements VoiceInput {
   @override
   Future<bool> cancel() async {
     cancels++;
+    if (cancellationThrows) throw StateError('private native details');
     return acknowledged;
   }
 }
@@ -242,4 +244,22 @@ void main() {
       expect(provider.requests, isEmpty);
     },
   );
+  testWidgets('unexpected cancel rejection is handled and redacted', (
+    tester,
+  ) async {
+    await open(tester);
+    voice.cancellationThrows = true;
+    await tester.tap(find.text('Dictate message'));
+    await tester.pump();
+    await tester.tap(find.text('Stop'));
+    await tester.pumpAndSettle();
+    expect(
+      find.textContaining('Could not confirm dictation stopped'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('private native details'), findsNothing);
+    voice.pending!.complete('late');
+    await tester.pumpAndSettle();
+    expect(provider.requests, isEmpty);
+  });
 }

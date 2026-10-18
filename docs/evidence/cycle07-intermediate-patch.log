@@ -1,0 +1,168 @@
+Shuffling test order with --test-randomize-ordering-seed=3816894737
+00:00 +0: loading /workspace/PHANTOM/test/phantom_voice_test.dart
+lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+ - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                unawaited(cancel().then<void>((_) {}));
+                ^^^^^^^^^
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_voice_test.dart [E]
+  Failed to load "/workspace/PHANTOM/test/phantom_voice_test.dart":
+  Compilation failed for testPath=/workspace/PHANTOM/test/phantom_voice_test.dart: lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+   - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                  unawaited(cancel().then<void>((_) {}));
+                  ^^^^^^^^^
+  .
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_voice_page_test.dart
+00:00 +0 -1: loading /workspace/PHANTOM/test/phantom_voice_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+ - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                unawaited(cancel().then<void>((_) {}));
+                ^^^^^^^^^
+00:00 +0 -2: loading /workspace/PHANTOM/test/phantom_voice_page_test.dart [E]
+  Failed to load "/workspace/PHANTOM/test/phantom_voice_page_test.dart":
+  Compilation failed for testPath=/workspace/PHANTOM/test/phantom_voice_page_test.dart: lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+   - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                  unawaited(cancel().then<void>((_) {}));
+                  ^^^^^^^^^
+  .
+00:00 +0 -2: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:00 +0 -2: loading /workspace/PHANTOM/test/phantom_voice_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+ - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                unawaited(cancel().then<void>((_) {}));
+                ^^^^^^^^^
+00:00 +0 -3: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart [E]
+  Failed to load "/workspace/PHANTOM/test/phantom_chat_page_test.dart":
+  Compilation failed for testPath=/workspace/PHANTOM/test/phantom_chat_page_test.dart: lib/phantom/ai/voice_input.dart:30:17: Error: The method 'unawaited' isn't defined for the type 'NativeVoiceInput'.
+   - 'NativeVoiceInput' is from 'package:qunleashed/phantom/ai/voice_input.dart' ('lib/phantom/ai/voice_input.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'unawaited'.
+                  unawaited(cancel().then<void>((_) {}));
+                  ^^^^^^^^^
+  .
+00:00 +0 -3: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:00 +0 -3: loading /workspace/PHANTOM/test/phantom_voice_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 1024:11   DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 816:35                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 810:35                      _CustomZone.run
+  dart:async/zone.dart 702:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 743:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 193:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:00 +1 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:00 +2 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:00 +3 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:00 +4 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:00 +5 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:00 +6 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:00 +7 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:00 +8 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:00 +9 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:00 +10 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: controller evidence is immutable and belongs only to its request
+00:00 +11 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:00 +12 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:00 +13 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: a model cannot populate local evidence with invented text
+00:00 +14 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:00 +15 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:00 +16 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:00 +17 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:00 +18 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:00 +19 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:00 +20 -3: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:00 +21 -3: loading /workspace/PHANTOM/test/bare_catch_budget_test.dart
+00:00 +21 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: no area swallows more failures than its budget
+00:02 +22 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is a catch that does nothing
+00:02 +23 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule reports the line the catch is on
+00:02 +24 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not something that merely reads like one
+00:02 +25 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule counts a body that holds only a comment
+00:02 +26 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a finally that does nothing
+00:02 +27 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule follows the catch wherever it is nested
+00:02 +28 -3: /workspace/PHANTOM/test/bare_catch_budget_test.dart: the rule is not a catch that does something with it
+00:02 +29 -3: loading /workspace/PHANTOM/test/unawaited_budget_test.dart
+00:03 +29 -3: /workspace/PHANTOM/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget
+00:05 +29 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget [E]
+  Expected: empty
+    Actual: ['phantom: 1, up from 0']
+  a future nobody awaits still rejects, and with no handler the rejection reaches the zone - so it arrives in the log as an unlabelled [uncaught], and a catch written around the call site never sees it.
+  Wrap it in guarded with the operation it was doing, so the failure has a name, or attach a catchError that says what happens instead.
+  If the callee genuinely handles its own and the call site should say so, say that in a comment and raise kBudget in test/unawaited_budget_test.dart.
+  See https://github.com/DarkFlippers/qUnleashed/blob/main/docs/adr/0008-swallowed-errors.md
+    phantom: 1, up from 0
+      lib/phantom/ai/voice_input.dart:30
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test/ratchet.dart 156:3                             expectWithinBudget
+  test/unawaited_budget_test.dart 278:5               main.<fn>
+  
+00:05 +29 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule wants the handler attached to something
+00:05 +30 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reports the line the call is on
+00:05 +31 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the one-argument form
+00:05 +32 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts one it cannot see inside
+00:05 +33 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule counts a future dropped with no handler
+00:05 +34 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is the call, not anything that mentions it
+00:05 +35 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule finds it wherever it is nested
+00:05 +36 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not a method that merely shares the name
+00:05 +37 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule reads through parentheses
+00:05 +38 -4: /workspace/PHANTOM/test/unawaited_budget_test.dart: the rule is not one that names what happens on failure
+00:05 +39 -4: Some tests failed.
+
+Failing tests:
+  /workspace/PHANTOM/test/phantom_chat_page_test.dart: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+  /workspace/PHANTOM/test/phantom_voice_page_test.dart: loading /workspace/PHANTOM/test/phantom_voice_page_test.dart
+  /workspace/PHANTOM/test/phantom_voice_test.dart: loading /workspace/PHANTOM/test/phantom_voice_test.dart
+  /workspace/PHANTOM/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget

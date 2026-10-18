@@ -1,0 +1,25 @@
+Analyze and test	Test	2026-10-18T12:21:56.8864288Z Shuffling test order with --test-randomize-ordering-seed=3816894737
+Analyze and test	Test	2026-10-18T12:22:26.2685074Z ##[endgroup]
+Analyze and test	Test	2026-10-18T12:22:26.2686806Z ##[group]❌ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: no area drops more unhandled futures than its budget (failed)
+Analyze and test	Test	2026-10-18T12:22:26.2687999Z Expected: empty
+Analyze and test	Test	2026-10-18T12:22:26.2688452Z   Actual: ['phantom: 2, up from 0']
+Analyze and test	Test	2026-10-18T12:22:26.2689668Z a future nobody awaits still rejects, and with no handler the rejection reaches the zone - so it arrives in the log as an unlabelled [uncaught], and a catch written around the call site never sees it.
+Analyze and test	Test	2026-10-18T12:22:26.2691508Z Wrap it in guarded with the operation it was doing, so the failure has a name, or attach a catchError that says what happens instead.
+Analyze and test	Test	2026-10-18T12:22:26.2692821Z If the callee genuinely handles its own and the call site should say so, say that in a comment and raise kBudget in test/unawaited_budget_test.dart.
+Analyze and test	Test	2026-10-18T12:22:26.2693921Z See https://github.com/DarkFlippers/qUnleashed/blob/main/docs/adr/0008-swallowed-errors.md
+Analyze and test	Test	2026-10-18T12:22:26.2694815Z   phantom: 2, up from 0
+Analyze and test	Test	2026-10-18T12:22:26.2695291Z     lib/phantom/ai/voice_input.dart:32
+Analyze and test	Test	2026-10-18T12:22:26.2695852Z     lib/phantom/features/ai/chat_page.dart:242
+Analyze and test	Test	2026-10-18T12:22:26.2696259Z 
+Analyze and test	Test	2026-10-18T12:22:26.2699468Z package:matcher                                     expect
+Analyze and test	Test	2026-10-18T12:22:26.2700035Z package:flutter_test/src/widget_tester.dart 473:18  expect
+Analyze and test	Test	2026-10-18T12:22:26.2701037Z test/ratchet.dart 156:3                             expectWithinBudget
+Analyze and test	Test	2026-10-18T12:22:26.2701909Z test/unawaited_budget_test.dart 278:5               main.<fn>
+Analyze and test	Test	2026-10-18T12:22:26.2702626Z ##[endgroup]
+Analyze and test	Test	2026-10-18T12:22:26.2733726Z ##[group]✅ Passing tests
+Analyze and test	Test	2026-10-18T12:22:26.2738776Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: the rule wants the handler attached to something
+Analyze and test	Test	2026-10-18T12:22:26.2776288Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: the rule reports the line the call is on
+Analyze and test	Test	2026-10-18T12:22:26.2800934Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: the rule is the one-argument form
+Analyze and test	Test	2026-10-18T12:22:26.2824234Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: the rule counts one it cannot see inside
+Analyze and test	Test	2026-10-18T12:22:26.2844546Z ✅ /home/runner/work/qUnleashed/qUnleashed/test/unawaited_budget_test.dart: the rule counts a future dropped with no handler
+Analyze and test	Test	2026-10-18T12:25:01.9440531Z ##[error]1953 tests passed, 1 failed, 5 skipped.

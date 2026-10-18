@@ -236,15 +236,26 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     }
   }
 
+  void _voiceCancelFailed(int generation) {
+    if (mounted && generation == _voiceGeneration) {
+      setState(() => _error = context.l10n.phantomVoiceStopFailed);
+    }
+  }
+
   void _cancelVoice({bool updateUi = true}) {
     final generation = ++_voiceGeneration;
     if (_listening) {
       unawaited(
         guarded('[PHANTOM voice] cancel dictation', () async {
-          final acknowledged = await _voice.cancel();
-          if (!acknowledged && mounted && generation == _voiceGeneration) {
-            setState(() => _error = context.l10n.phantomVoiceStopFailed);
+          final bool acknowledged;
+          try {
+            acknowledged = await _voice.cancel();
+          } catch (_) {
+            // Report cancellation failure without logging native speech details.
+            _voiceCancelFailed(generation);
+            return;
           }
+          if (!acknowledged) _voiceCancelFailed(generation);
         }),
       );
     }
