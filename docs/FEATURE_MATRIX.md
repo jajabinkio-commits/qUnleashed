@@ -37,3 +37,5 @@ Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Sou
 | SEC02 | Model prompt-injection defenses | iOS direct | P0 | test/phantom_ai_test.dart; read_only_agent.dart | Unit + redteam | PARTIAL: hostile tool/arg and mixed-batch tests; no-tool screenshot isolation tested; file inputs excluded, broader red-team pending |
 
 M0 baseline established; M1 first slice retained, physical gate still blocked. First M2 read-only source slice now exists; full M2 (including voice/screen/files/cost controls/live provider and native Keychain verification) is not complete. M3–M7 remain pending. USB-only functions stay bridge-required and are outside direct iPhone functionality.
+
+Cycle 08 distribution evidence: manual signed build/TestFlight workflow prepared and locally linted with three simulated preflight tests. Signing, App Store Connect upload and installation remain BLOCKED on Apple membership/assets and actual native validation. No tracked device capability changes status.
