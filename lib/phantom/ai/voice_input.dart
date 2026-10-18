@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+import '../../services/guarded.dart';
+
 class VoiceFailure implements Exception {
   const VoiceFailure();
 }
@@ -29,7 +31,11 @@ class NativeVoiceInput implements VoiceInput {
             const Duration(seconds: 90),
             onTimeout: () {
               if (generation == _generation) {
-                unawaited(cancel().then<void>((_) {}));
+                unawaited(
+                  guarded('[PHANTOM voice] cancel timed-out dictation', () async {
+                    await cancel();
+                  }),
+                );
               }
               throw const VoiceFailure();
             },
