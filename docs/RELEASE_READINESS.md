@@ -8,7 +8,7 @@ M0 source audit and baseline verification are recorded. M1 read-only adapter/UI 
 | --- | --- | --- |
 | Pinned recursive source / GPL notices | Source preserved | Full hosted/native dependency notices and source-distribution review |
 | Dart/Flutter validation | See final cycle report | Bundle compilation does not verify native iOS plugins |
-| iOS native build | PASS (unsigned compile only) | Mac run 38945364466 built Runner.app at ebeb4ac PR merge snapshot; native Keychain runtime and physical operation remain unverified |
+| iOS native build | PASS (unsigned compile only) | Mac run 39127848307 built Runner.app at a31c07f; native Keychain runtime and physical operation remain unverified |
 | Signing/install | BLOCKED | Appropriate signing/provisioning workflow; Apple Developer membership for TestFlight |
 | Physical BLE/manual regressions | BLOCKED | Actual iPhone/Flipper/firmware versions and M1 operator log |
 | Provider keys/read-only AI | PARTIAL | Keychain source/channel tests, model catalog and read-only loop implemented; native Keychain and live private provider verification pending; writes excluded |
@@ -35,3 +35,5 @@ Cycle 06 screen interpretation source implemented with simulated tests; new clou
 Cycle 06 FINAL: cloud regression 38945364560 and Mac iPhone compile 38945364466 passed on ebeb4ac PR merge snapshot. Screenshots can be previewed and explicitly shared through the isolated bounded image-request source. No paid inference or physical recognition test. The unsigned artifact expires 2026-10-23; app identity, real service configuration and Apple signing/distribution still required. Full M2, M3–M7 and physical M1 remain incomplete.
 
 Cycle 07 voice source added: reviewed on-device-only dictation, bounded microphone session and explicit Send. Mock tests pass; new native compile and actual iPhone recognition/permission/privacy verification pending. No speech playback, signing or installation yet.
+
+Cycle 07 FINAL supersedes its pending status: cloud CI 39127848306 passed (1,955 regression tests, five skipped; 51 quiet tests), and native Mac run 39127848307 compiled the integrated Speech/AVAudioEngine source. Artifact 12137321309 expires 2026-10-25. Reviewed dictation source and simulated checks are implemented; actual microphone/permission/recognition behavior remains unverified. No TTS, installable signed app or TestFlight build exists. Signing and physical-device gates above remain open.
