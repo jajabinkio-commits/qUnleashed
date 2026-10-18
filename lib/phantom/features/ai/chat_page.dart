@@ -240,7 +240,8 @@ class _PhantomChatPageState extends State<PhantomChatPage>
     final generation = ++_voiceGeneration;
     if (_listening) {
       unawaited(
-        _voice.cancel().then<void>((acknowledged) {
+        guarded('[PHANTOM voice] cancel dictation', () async {
+          final acknowledged = await _voice.cancel();
           if (!acknowledged && mounted && generation == _voiceGeneration) {
             setState(() => _error = context.l10n.phantomVoiceStopFailed);
           }
