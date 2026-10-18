@@ -32,9 +32,12 @@ class NativeVoiceInput implements VoiceInput {
             onTimeout: () {
               if (generation == _generation) {
                 unawaited(
-                  guarded('[PHANTOM voice] cancel timed-out dictation', () async {
-                    await cancel();
-                  }),
+                  guarded(
+                    '[PHANTOM voice] cancel timed-out dictation',
+                    () async {
+                      await cancel();
+                    },
+                  ),
                 );
               }
               throw const VoiceFailure();
