@@ -30,15 +30,31 @@ class PushTopics {
 
 class PushService {
   PushService._();
+
+  @visibleForTesting
+  PushService.forTest({
+    required FirebaseMessaging messaging,
+    required Future<void> Function() initialize,
+  }) : _testMessaging = messaging,
+       _testInitialize = initialize;
+
+  FirebaseMessaging? _testMessaging;
+  Future<void> Function()? _testInitialize;
+  FirebaseMessaging get _messaging =>
+      _testMessaging ?? FirebaseMessaging.instance;
+  bool get _supported => _testInitialize != null || isSupported;
+  final Map<String, bool> _choices = {};
+  Future<void> _chain = Future.value();
   static final PushService instance = PushService._();
 
-  static const _prefAppReleases = 'push.app_releases_enabled';
-  static const _prefAppDev = 'push.app_dev_enabled';
-  static const _prefEnabled = 'push.notifications_enabled';
-  static const _prefDevUpdates = 'push.dev_updates_enabled';
+  static const _prefAppReleases = 'phantom.push.app_releases_enabled.v1';
+  static const _prefAppDev = 'phantom.push.app_dev_enabled.v1';
+  static const _prefEnabled = 'phantom.push.notifications_enabled.v1';
+  static const _prefDevUpdates = 'phantom.push.dev_updates_enabled.v1';
   static const _androidChannelId = 'firmware_updates';
 
   bool _started = false;
+  bool _enabled = false;
   static bool _unavailable = false;
 
   final ValueNotifier<PushIntent?> taps = ValueNotifier<PushIntent?>(null);
@@ -48,47 +64,95 @@ class PushService {
 
   static bool get isUnavailable => _unavailable;
 
-  Future<void> start() async {
-    if (_started || !isSupported) return;
-    _started = true;
+  /// No Firebase initialization, permission prompt or token registration until
+  /// a PHANTOM notification category has been explicitly enabled.
+  Future<void> start() => _reconcile();
 
-    try {
-      await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      );
-
-      FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-
-      await NotificationCenter.instance.initialize(
-        onNotificationTap: (payload) => _dispatch(PushIntent.decode(payload)),
-      );
-      await _ensureAndroidChannel();
-
-      final messaging = FirebaseMessaging.instance;
-      await messaging.requestPermission(alert: true, badge: false, sound: true);
-
-      await messaging.setForegroundNotificationPresentationOptions(
-        alert: true,
-        badge: false,
-        sound: true,
-      );
-    } catch (error) {
+  Future<void> _reconcile() {
+    _chain = _chain.then((_) => _sync()).catchError((Object error) {
       _unavailable = true;
-      // isUnavailable does reach Settings -> Push, but what it renders is
-      // "this build is not signed for push", asserted for any throw in the
-      // block above - a missing Play Services, a denied notification
-      // permission, a transient network failure during Firebase init. A
-      // positive claim about the wrong cause is worse than silence, because
-      // the reader stops looking. The real one is only here.
-      LogService.warn('Push notifications unavailable in this build: $error');
+      LogService.warn(
+        '[Push] notification settings could not be applied: ${error.runtimeType}',
+      );
+    });
+    return _chain;
+  }
+
+  Future<void> _sync() async {
+    if (!_supported) return;
+    final enabled =
+        await isAppReleasesEnabled() || await isFirmwareReleasesEnabled();
+    if (!enabled && (!_started || !_enabled)) return;
+    if (!enabled) {
+      await _messaging.setAutoInitEnabled(false);
+      await _applySubscriptions();
+      await _messaging.deleteToken();
+      _enabled = false;
       return;
     }
-
+    if (!_started) {
+      if (_testInitialize case final initialize?) {
+        await initialize();
+      } else {
+        await _initializePlatform();
+      }
+      _started = true;
+    }
+    // Consent may have been revoked while the native permission sheet was up.
+    if (!(await isAppReleasesEnabled() || await isFirmwareReleasesEnabled())) {
+      await _messaging.setAutoInitEnabled(false);
+      await _messaging.deleteToken();
+      _enabled = false;
+      return;
+    }
+    _enabled = true;
+    await _messaging.setAutoInitEnabled(true);
     await _applySubscriptions();
+    _unavailable = false;
+  }
 
+  Future<void> _initializePlatform() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await _messaging.setAutoInitEnabled(false);
+    FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+    await NotificationCenter.instance.initialize(
+      onNotificationTap: (payload) => _dispatch(PushIntent.decode(payload)),
+    );
+    await _ensureAndroidChannel();
+    await _messaging.requestPermission(alert: true, badge: false, sound: true);
+    await _messaging.setForegroundNotificationPresentationOptions(
+      alert: true,
+      badge: false,
+      sound: true,
+    );
     FirebaseMessaging.onMessage.listen(_showForeground);
     FirebaseMessaging.onMessageOpenedApp.listen(_open);
-    _open(await FirebaseMessaging.instance.getInitialMessage());
+    _open(await _messaging.getInitialMessage());
+  }
+
+  Future<bool> _readChoice(String key) async {
+    if (_choices[key] case final choice?) return choice;
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.get(key) == true;
+    } catch (error) {
+      LogService.warn(
+        '[Push] consent could not be read; notifications remain off: ${error.runtimeType}',
+      );
+      return false;
+    }
+  }
+
+  Future<void> _setChoice(String key, bool enabled) async {
+    _choices[key] = enabled;
+    await persistSetting('notification consent', (prefs) async {
+      if (!await prefs.setBool(key, enabled)) {
+        throw StateError('Notification consent was not saved');
+      }
+    });
+    await _reconcile();
   }
 
   void _open(RemoteMessage? message) {
@@ -107,60 +171,21 @@ class PushService {
     return seed & 0x7fffffff;
   }
 
-  Future<bool> isAppReleasesEnabled() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_prefAppReleases) ?? true;
-  }
-
-  Future<void> setAppReleasesEnabled(bool enabled) async {
-    await persistSetting(
-      _prefAppReleases,
-      (prefs) => prefs.setBool(_prefAppReleases, enabled),
-    );
-    if (isSupported && !_unavailable) await _applySubscriptions();
-  }
-
-  Future<bool> isAppDevEnabled() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_prefAppDev) ?? false;
-  }
-
-  Future<void> setAppDevEnabled(bool enabled) async {
-    await persistSetting(
-      _prefAppDev,
-      (prefs) => prefs.setBool(_prefAppDev, enabled),
-    );
-    if (isSupported && !_unavailable) await _applySubscriptions();
-  }
-
-  Future<bool> isFirmwareReleasesEnabled() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_prefEnabled) ?? true;
-  }
-
-  Future<void> setFirmwareReleasesEnabled(bool enabled) async {
-    await persistSetting(
-      _prefEnabled,
-      (prefs) => prefs.setBool(_prefEnabled, enabled),
-    );
-    if (isSupported && !_unavailable) await _applySubscriptions();
-  }
-
-  Future<bool> isFirmwareDevEnabled() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool(_prefDevUpdates) ?? false;
-  }
-
-  Future<void> setFirmwareDevEnabled(bool enabled) async {
-    await persistSetting(
-      _prefDevUpdates,
-      (prefs) => prefs.setBool(_prefDevUpdates, enabled),
-    );
-    if (isSupported && !_unavailable) await _applySubscriptions();
-  }
+  Future<bool> isAppReleasesEnabled() => _readChoice(_prefAppReleases);
+  Future<void> setAppReleasesEnabled(bool enabled) =>
+      _setChoice(_prefAppReleases, enabled);
+  Future<bool> isAppDevEnabled() => _readChoice(_prefAppDev);
+  Future<void> setAppDevEnabled(bool enabled) =>
+      _setChoice(_prefAppDev, enabled);
+  Future<bool> isFirmwareReleasesEnabled() => _readChoice(_prefEnabled);
+  Future<void> setFirmwareReleasesEnabled(bool enabled) =>
+      _setChoice(_prefEnabled, enabled);
+  Future<bool> isFirmwareDevEnabled() => _readChoice(_prefDevUpdates);
+  Future<void> setFirmwareDevEnabled(bool enabled) =>
+      _setChoice(_prefDevUpdates, enabled);
 
   Future<void> _applySubscriptions() async {
-    final messaging = FirebaseMessaging.instance;
+    final messaging = _messaging;
     final appEnabled = await isAppReleasesEnabled();
     final appDevEnabled = await isAppDevEnabled();
     final enabled = await isFirmwareReleasesEnabled();
@@ -202,6 +227,9 @@ class PushService {
   }
 
   Future<void> _showForeground(RemoteMessage message) async {
+    if (!(await isAppReleasesEnabled() || await isFirmwareReleasesEnabled())) {
+      return;
+    }
     final notification = message.notification;
     final title = notification?.title ?? l10n.notificationUpdateFallbackTitle;
     final body = notification?.body ?? '';

@@ -1,0 +1,55 @@
+Shuffling test order with --test-randomize-ordering-seed=20261015
+00:00 +0: loading /workspace/PHANTOM/test/logging_kept_test.dart
+00:00 +0: /workspace/PHANTOM/test/logging_kept_test.dart: flipperlib the chatty levels from the library are not
+00:00 +1: /workspace/PHANTOM/test/logging_kept_test.dart: flipperlib a warning from the library is kept
+00:00 +2: /workspace/PHANTOM/test/logging_kept_test.dart: flipperlib an error from the library is kept
+00:00 +3: /workspace/PHANTOM/test/logging_kept_test.dart: a message repeating itself is sent once
+00:00 +4: /workspace/PHANTOM/test/logging_kept_test.dart: a warning is kept too
+00:00 +5: /workspace/PHANTOM/test/logging_kept_test.dart: a caught failure is not dressed as a warning
+00:00 +6: /workspace/PHANTOM/test/logging_kept_test.dart: the chatty levels are not kept
+00:00 +7: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches an error nobody awaited is kept, and stays unhandled
+00:00 +8: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches a framework error is kept
+00:00 +9: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches installing twice does not make one failure look like two
+00:00 +10: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches a framework error carries where it was thrown
+00:00 +11: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches a missing stack does not leave the word null in the entry
+00:00 +12: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches the handler already installed still runs
+00:00 +13: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches an error the framework marks silent is not kept
+00:00 +14: /workspace/PHANTOM/test/logging_kept_test.dart: what nothing else catches a failure while recording does not cost the handler below
+00:00 +15: /workspace/PHANTOM/test/logging_kept_test.dart: a different message between two runs breaks the fold
+00:00 +16: /workspace/PHANTOM/test/logging_kept_test.dart: a caught failure is kept in a build that prints nothing
+00:00 +17: /workspace/PHANTOM/test/logging_kept_test.dart: the build under test is the one the run asked for
+00:00 +18: /workspace/PHANTOM/test/logging_kept_test.dart: an error is kept whether or not the build prints anything
+00:00 +19: /workspace/PHANTOM/test/logging_kept_test.dart: describe an empty stack that is not the const is still no stack
+00:00 +20: /workspace/PHANTOM/test/logging_kept_test.dart: describe an error with a stack carries it
+00:00 +21: /workspace/PHANTOM/test/logging_kept_test.dart: describe an error with no stack is just the error
+00:00 +22: /workspace/PHANTOM/test/logging_kept_test.dart: a message with a stack trace is one kept line, not one per frame
+00:00 +23: loading /workspace/PHANTOM/test/kept_sink_test.dart
+00:00 +23: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs the sequence is what arrives, in order
+00:00 +24: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs every repeat arrives, unlike a kept line
+00:00 +25: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs carries absolute paths, because the sink is what scrubs
+00:00 +26: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs a warning is both a breadcrumb and a kept line
+00:00 +27: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs a sink that throws costs neither the line nor the process
+00:00 +28: /workspace/PHANTOM/test/kept_sink_test.dart: breadcrumbs the library's info arrives, and is still not kept
+00:00 +29: /workspace/PHANTOM/test/kept_sink_test.dart: which levels reach it error arrives as error
+00:00 +30: /workspace/PHANTOM/test/kept_sink_test.dart: which levels reach it warn arrives as warning
+00:00 +31: /workspace/PHANTOM/test/kept_sink_test.dart: which levels reach it info reaches nothing, because nothing keeps it
+00:00 +32: /workspace/PHANTOM/test/kept_sink_test.dart: which levels reach it caught arrives as caught, not as a warning
+00:00 +33: /workspace/PHANTOM/test/kept_sink_test.dart: the level the library is pinned at a talking build is never lowered by turning reporting off
+00:00 +34: /workspace/PHANTOM/test/kept_sink_test.dart: the level the library is pinned at rises to info when one is installed, and falls again
+00:00 +35: /workspace/PHANTOM/test/kept_sink_test.dart: the level the library is pinned at is the keep threshold with no breadcrumb reader
+00:00 +36: /workspace/PHANTOM/test/kept_sink_test.dart: the body it is handed carries no timestamp, because the reader stamps its own
+00:00 +37: /workspace/PHANTOM/test/kept_sink_test.dart: the body it is handed is raw, because the sink is what scrubs
+00:00 +38: /workspace/PHANTOM/test/kept_sink_test.dart: the body it is handed is not scrubbed, and the console is not either
+00:00 +39: /workspace/PHANTOM/test/kept_sink_test.dart: no sink installed is not an error
+00:00 +40: /workspace/PHANTOM/test/kept_sink_test.dart: flipperlib lines an info from the library reaches nothing
+00:00 +41: /workspace/PHANTOM/test/kept_sink_test.dart: flipperlib lines a warning from the library arrives as warning
+00:00 +42: /workspace/PHANTOM/test/kept_sink_test.dart: flipperlib lines an error from the library arrives as error
+00:00 +43: /workspace/PHANTOM/test/kept_sink_test.dart: a sink that fails that logs instead of throwing does not recurse either
+00:00 +44: /workspace/PHANTOM/test/kept_sink_test.dart: a sink that fails is tried again on the next line, so the guard does not latch
+00:00 +45: /workspace/PHANTOM/test/kept_sink_test.dart: a sink that fails that fails asynchronously does not loop either
+00:00 +46: /workspace/PHANTOM/test/kept_sink_test.dart: a sink that fails is not re-entered by the report, however it is reported
+00:00 +47: /workspace/PHANTOM/test/kept_sink_test.dart: a sink that fails is reported to the console, because nothing else is left
+00:00 +48: /workspace/PHANTOM/test/kept_sink_test.dart: a repeated line the same line again after something else arrives again
+00:00 +49: /workspace/PHANTOM/test/kept_sink_test.dart: a repeated line a different line after a run of repeats arrives
+00:00 +50: /workspace/PHANTOM/test/kept_sink_test.dart: a repeated line arrives once, however many times it is logged
+00:00 +51: All tests passed!

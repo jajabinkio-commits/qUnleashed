@@ -1,0 +1,31 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:00 +0: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:00 +1: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:00 +2: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:00 +3: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:00 +4: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:00 +5: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:00 +6: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:00 +7: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:00 +8: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:00 +9: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:00 +10: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:00 +11: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:00 +12: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:00 +13: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:00 +14: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:00 +15: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:00 +16: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:00 +17: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:00 +18: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:00 +19: /workspace/PHANTOM/test/phantom_ai_test.dart: controller evidence is immutable and belongs only to its request
+00:00 +20: /workspace/PHANTOM/test/phantom_ai_test.dart: a model cannot populate local evidence with invented text
+00:00 +21: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:01 +21: /workspace/PHANTOM/test/phantom_chat_page_test.dart: opening AI sends no provider request or device RPC; sharing defaults off
+00:01 +22: /workspace/PHANTOM/test/phantom_chat_page_test.dart: save key clears the obscured input
+00:02 +23: /workspace/PHANTOM/test/phantom_chat_page_test.dart: selected model and send show response without granting device access
+00:02 +24: /workspace/PHANTOM/test/phantom_chat_page_test.dart: backgrounding cancels AI and discards a late tool call
+00:03 +25: /workspace/PHANTOM/test/phantom_chat_page_test.dart: device readings remain distinct from conflicting AI narrative
+00:03 +26: /workspace/PHANTOM/test/phantom_chat_page_test.dart: model text cannot invent an observed device reading
+00:03 +27: /workspace/PHANTOM/test/phantom_chat_page_test.dart: provider failure preserves already observed device readings
+00:04 +28: All tests passed!

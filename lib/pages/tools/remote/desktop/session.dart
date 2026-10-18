@@ -59,6 +59,8 @@ class RemoteSession extends ChangeNotifier {
   bool _recording = false;
 
   RawFrameData? _lastRaw;
+  DateTime? _lastFrameAt;
+  DateTime? get lastFrameAt => _lastFrameAt;
 
   StreamOrientation _orientation = StreamOrientation.horizontal;
   bool _isLocked = true;
@@ -313,6 +315,8 @@ class RemoteSession extends ChangeNotifier {
     if (!state.connected) {
       _pendingFrame = null;
       _pendingRgba = null;
+      _lastRaw = null;
+      _lastFrameAt = null;
       final prev = _frameImage;
       _frameImage = null;
       _frameNotifier.value = null;
@@ -327,6 +331,8 @@ class RemoteSession extends ChangeNotifier {
     if (inputChanged) _safeNotify();
     final binding = _binding;
     if (binding != null && !_holds(binding, state.device)) {
+      _lastRaw = null;
+      _lastFrameAt = null;
       _releaseAll('device changed', send: true);
       unawaited(
         guarded('[Remote] follow device', () async {
@@ -415,6 +421,7 @@ class RemoteSession extends ChangeNotifier {
     onRawFrame?.call(raw);
     if (orientationChanged) _safeNotify();
     _lastRaw = raw;
+    _lastFrameAt = DateTime.now();
     _scheduleUpload(raw.rgba);
   }
 

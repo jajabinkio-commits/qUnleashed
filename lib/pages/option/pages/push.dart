@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'dart:async';
+
 import '../../../components/cardlist.dart';
+import '../../../services/guarded.dart';
 import '../../../services/localization/l10n.dart';
 import '../../../services/notifications/push_service.dart';
 import '../../../theme/theme.dart';
@@ -28,9 +31,9 @@ class NotificationsSettingsPage extends StatefulWidget {
 }
 
 class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
-  bool _appReleases = true;
+  bool _appReleases = false;
   bool _appDev = false;
-  bool _firmwareReleases = true;
+  bool _firmwareReleases = false;
   bool _firmwareDev = false;
 
   @override
@@ -57,22 +60,31 @@ class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
 
   void _setAppReleases(bool value) {
     setState(() => _appReleases = value);
-    PushService.instance.setAppReleasesEnabled(value);
+    _save(() => PushService.instance.setAppReleasesEnabled(value));
   }
 
   void _setAppDev(bool value) {
     setState(() => _appDev = value);
-    PushService.instance.setAppDevEnabled(value);
+    _save(() => PushService.instance.setAppDevEnabled(value));
   }
 
   void _setFirmwareReleases(bool value) {
     setState(() => _firmwareReleases = value);
-    PushService.instance.setFirmwareReleasesEnabled(value);
+    _save(() => PushService.instance.setFirmwareReleasesEnabled(value));
   }
 
   void _setFirmwareDev(bool value) {
     setState(() => _firmwareDev = value);
-    PushService.instance.setFirmwareDevEnabled(value);
+    _save(() => PushService.instance.setFirmwareDevEnabled(value));
+  }
+
+  void _save(Future<void> Function() change) {
+    unawaited(
+      guarded('[Push] apply notification choice', () async {
+        await change();
+        if (mounted) setState(() {});
+      }),
+    );
   }
 
   Widget _tile(BuildContext context, _Toggle t) {
@@ -125,7 +137,7 @@ class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     final unavailable = PushService.isUnavailable;
-    final supported = PushService.isSupported && !unavailable;
+    final supported = PushService.isSupported;
     return Scaffold(
       backgroundColor: colors.background,
       appBar: AppBar(
@@ -136,7 +148,7 @@ class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 10),
         children: [
-          if (!supported)
+          if (!supported || unavailable)
             Padding(
               padding: const EdgeInsets.fromLTRB(26, 0, 26, 8),
               child: Text(

@@ -6,55 +6,15 @@ import '../prefs_reader.dart';
 import '../settings/persist.dart';
 import '../settings/store.dart';
 
-/// Whether the app shares what fails with the people who wrote it.
-///
-/// One switch, on by default, sending automatically -
-/// [ADR 0013 §1](../../../docs/adr/0013-observability-with-sentry.md). Not a
-/// consent record: reporting is already running while the notice that explains
-/// it is on screen, which is what makes it a notice and not a gate.
-///
-/// Constructed rather than a `static final instance`, unlike the three
-/// preference stores it is a sibling of. Those are the legacy shape CLAUDE.md
-/// names, and the switch has exactly one reader in `_initCore` plus one in the
-/// settings screen, so passing it is cheap here where retrofitting the other
-/// three would be a task of its own.
+/// Optional diagnostics. PHANTOM requires a fresh, explicit opt-in for both
+/// error reports and screen replay. Legacy qUnleashed choices are not consent.
 class DiagnosticsSettings extends PrefsBackedSettings {
-  static const String _shareLogsKey = 'diagnostics.share_logs';
-  static const String _replayKey = 'diagnostics.share_replay';
-  static const String _noticeShownKey = 'diagnostics.notice_shown';
-
-  /// On, and the direction of that default is the decision rather than a
-  /// convenience. §1: an opt-in crash reporter on a tool with this audience
-  /// collects from a single-digit share of installs, which is not enough
-  /// reports to find a fault in a BLE stack on a handset nobody on the
-  /// project owns.
-  static const bool _defaultShareLogs = true;
-
-  /// Named for the same reason as its sibling, and pointing the other way:
-  /// [onLoadFailed] and [noticeShown] each argue why. Written as a literal in
-  /// three places before, which is how two defaults that must differ come to
-  /// agree by accident.
+  static const String _shareLogsKey = 'phantom.diagnostics.share_logs.v1';
+  static const String _replayKey = 'phantom.diagnostics.share_replay.v1';
+  static const String _noticeShownKey = 'phantom.diagnostics.notice_shown.v1';
+  static const bool _defaultShareLogs = false;
+  static const bool _defaultShareReplay = false;
   static const bool _defaultNoticeShown = false;
-
-  /// On, which is §1's decision and not an oversight - and it is the masks in
-  /// `options.dart` that make it defensible, because of what "errors only"
-  /// does and does not mean.
-  ///
-  /// A replay is only **sent** when something already failed. It is
-  /// **recorded** continuously: `onErrorSampleRate` above zero starts the
-  /// native recorder at init, and the frames go into a rolling buffer that is
-  /// discarded unless an error arrives. So this default is not the same trade
-  /// [_defaultShareLogs] makes - that one costs nothing until a failure, this
-  /// one costs a masked screen capture all the time the app is up on Android
-  /// and iOS.
-  ///
-  /// What makes it still the right default is that the masking runs at capture
-  /// time, so the buffer never holds card bytes, a pulse plot or the device
-  /// screen in the first place; the alternative is too few reports to find a
-  /// fault on a handset nobody on the project owns. The user is told this in
-  /// `diagnosticsReplaySubtitle` rather than left to infer it from the word
-  /// "errors".
-  static const bool _defaultShareReplay = true;
 
   /// Whether replay can record on this platform at all.
   ///
@@ -109,9 +69,8 @@ class DiagnosticsSettings extends PrefsBackedSettings {
   /// never read again after that.
   ///
   /// Defaults to false, so a store that will not open means the notice is
-  /// shown again rather than skipped. The direction is deliberate and it is
-  /// the opposite of [shareLogs]'s: being told twice is a nuisance, never
-  /// being told is the failure that matters.
+  /// shown again rather than skipped. Neither a missing notice nor a failed
+  /// read can enable sharing.
   bool get noticeShown => _noticeShown;
 
   @override
@@ -122,23 +81,14 @@ class DiagnosticsSettings extends PrefsBackedSettings {
     reader.report('[Diagnostics]');
   }
 
-  /// **Reports rather than going quiet**, which is the opposite of what the
-  /// consent shape this reversed would have needed.
-  ///
-  /// [loaded] stays false and [shareLogs] stays at its initialiser, so a
-  /// preference store that will not open leaves reporting on. Under consent a
-  /// failed read had to mean "no" — there was no answer, and acting without
-  /// one is the thing consent forbids. On by default inverts that: the
-  /// setting the user never changed is the one that was already in force, and
-  /// a broken store is not them turning it off.
-  ///
-  /// So nothing downstream gates on [loaded]. `Telemetry.start` reads
-  /// [shareLogs] directly for that reason.
+  /// A failed preference read cannot authorize recording or transmission.
   @override
   void onLoadFailed(Object error, StackTrace stack) {
+    _shareLogs = false;
+    _shareReplay = false;
     LogService.warn(
-      '[Diagnostics] load failed, reporting stays on: '
-      '${LogService.describe(error, stack)}',
+      '[Diagnostics] consent could not be read; sharing remains off: '
+      '${error.runtimeType}',
     );
   }
 

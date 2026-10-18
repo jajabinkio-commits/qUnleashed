@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>PHANTOM uses the microphone only when you choose to dictate an AI message.</string>
+  <key>NSSpeechRecognitionUsageDescription</key>
+  <string>PHANTOM turns your speech into editable text using on-device recognition. You review and send the message yourself.</string>
+	<key>FirebaseMessagingAutoInitEnabled</key>
+	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>FlipperMap uses your location to show distance to saved Flipper files.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

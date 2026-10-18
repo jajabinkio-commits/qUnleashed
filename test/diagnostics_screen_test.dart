@@ -20,9 +20,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Returned through a variable rather than passed back, because the two tests
 /// that drive the switch want to read it after a tap.
 DiagnosticsSettings? lastSettings;
+late DiagnosticsSettings optedInSettings;
 
 Widget wrap(Widget child, {DiagnosticsSettings? settings}) {
-  lastSettings = settings ?? DiagnosticsSettings();
+  lastSettings = settings ?? optedInSettings;
   return MaterialApp(
     theme: buildAppTheme(Brightness.dark, const Color(0xFFCC241D)),
     // The real app mounts this in `MaterialApp.builder` so a pushed route is
@@ -56,11 +57,16 @@ bool switchValue(WidgetTester tester, String title) =>
     tester.widget<Switch>(switchFor(title)).value;
 
 void main() {
-  setUp(() {
+  setUp(() async {
     // The switch reads preferences on its first build. Without a mock store
     // every test would log a load failure, and the one asserting the default
     // would be passing on the fallback rather than on the read.
-    SharedPreferences.setMockInitialValues(<String, Object>{});
+    SharedPreferences.setMockInitialValues(<String, Object>{
+      'phantom.diagnostics.share_logs.v1': true,
+      'phantom.diagnostics.share_replay.v1': true,
+    });
+    optedInSettings = DiagnosticsSettings();
+    await optedInSettings.load();
   });
 
   testWidgets('is on, and says what is never sent', (tester) async {
@@ -86,7 +92,7 @@ void main() {
     expect(switchValue(tester, l10nGlobal.diagnosticsShareTitle), isFalse);
     expect(lastSettings!.shareLogs, isFalse);
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getBool('diagnostics.share_logs'), isFalse);
+    expect(prefs.getBool('phantom.diagnostics.share_logs.v1'), isFalse);
   });
 
   testWidgets('a value changed from elsewhere redraws the row', (tester) async {
@@ -145,7 +151,7 @@ void main() {
       // the other with it.
       expect(lastSettings!.shareLogs, isTrue);
       final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getBool('diagnostics.share_replay'), isFalse);
+      expect(prefs.getBool('phantom.diagnostics.share_replay.v1'), isFalse);
     });
 
     testWidgets('goes away when sharing is turned off', (tester) async {

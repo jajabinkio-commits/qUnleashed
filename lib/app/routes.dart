@@ -10,10 +10,29 @@ import '../pages/tools/paint/editor/page.dart';
 import '../pages/tools/plotter/page.dart';
 import '../pages/tools/remote/desktop/page.dart';
 import '../pages/devices/device_scope.dart';
+import '../phantom/device/flipper_gateway.dart';
+import '../phantom/features/ai/chat_page.dart';
+import '../phantom/features/ai/screen_page.dart';
+import '../phantom/ai/screen_interpreter.dart';
+import '../phantom/features/devices/inspection_page.dart';
 
 /// Binds every cross-feature route to the page that implements it. This is the
 /// only place that knows about all feature pages at once.
 void registerAppRoutes() {
+  registerRoute(
+    AppRoute.phantomScreen,
+    (_, args) => PhantomScreenPage(screen: args as ScreenAttachment),
+  );
+  registerRoute(AppRoute.phantomAi, (context, _) {
+    final client = DeviceScope.of(context).client;
+    return PhantomChatPage(createGateway: () => FlipperGateway(client: client));
+  });
+  registerRoute(AppRoute.phantomInspection, (context, _) {
+    final client = DeviceScope.of(context).client;
+    return PhantomInspectionPage(
+      createGateway: () => FlipperGateway(client: client),
+    );
+  });
   registerRoute(
     AppRoute.remoteControl,
     (context, _) => RemoteControlPage(client: DeviceScope.of(context).client),

@@ -1,0 +1,4 @@
+https://developer.apple.com/tutorials/data/documentation/speech/sfspeechrecognizer.json | SFSpeechRecognizer
+https://developer.apple.com/tutorials/data/documentation/speech/sfspeechrecognitionrequest/requiresondevicerecognition.json | requiresOnDeviceRecognition
+https://developer.apple.com/tutorials/data/documentation/speech/sfspeechaudiobufferrecognitionrequest.json | SFSpeechAudioBufferRecognitionRequest
+Public documentation only; no audio capture or Apple recognition request performed.

@@ -1,0 +1,155 @@
+Shuffling test order with --test-randomize-ordering-seed=1969671259
+00:00 +0: loading /workspace/PHANTOM/test/phantom_screen_test.dart
+00:00 +0: /workspace/PHANTOM/test/phantom_screen_test.dart: vision catalog includes images without requiring tool support
+00:00 +1: /workspace/PHANTOM/test/phantom_screen_test.dart: no consent or incompatible model creates no provider request
+00:00 +2: /workspace/PHANTOM/test/phantom_screen_test.dart: actual HTTP request uses image data URL and excludes tools
+00:00 +3: /workspace/PHANTOM/test/phantom_screen_test.dart: hostile model tool proposals cannot execute or start another request
+00:00 +4: /workspace/PHANTOM/test/phantom_screen_test.dart: one image with no tools, no identifiers and no retained history
+00:00 +5: /workspace/PHANTOM/test/phantom_screen_test.dart: STOP rejects late answers and closes the provider
+00:00 +6: /workspace/PHANTOM/test/phantom_screen_test.dart: screen copy is immutable; invalid dimensions and oversized input fail
+00:00 +7: loading /workspace/PHANTOM/test/phantom_screen_page_test.dart
+00:00 +7: /workspace/PHANTOM/test/phantom_screen_page_test.dart: background revokes consent and ignores late provider answer
+00:01 +8: /workspace/PHANTOM/test/phantom_screen_page_test.dart: preview defaults off, explicit send resets consent; erase removes interpretation
+00:02 +9: loading /workspace/PHANTOM/test/phantom_ai_test.dart
+00:02 +9: /workspace/PHANTOM/test/phantom_ai_test.dart: no consent offers no tools and performs no device RPC
+00:02 +10: /workspace/PHANTOM/test/phantom_ai_test.dart: provider error body is never exposed as an exception or key leak
+00:02 +11: /workspace/PHANTOM/test/phantom_ai_test.dart: a model cannot populate local evidence with invented text
+00:02 +12: /workspace/PHANTOM/test/phantom_ai_test.dart: consented device answers are not resent on an unconsented turn
+00:02 +13: /workspace/PHANTOM/test/phantom_ai_test.dart: erasing conversation removes prior text from future provider requests
+00:02 +14: /workspace/PHANTOM/test/phantom_ai_test.dart: model confirmation and injection arguments never alter policy
+00:02 +15: /workspace/PHANTOM/test/phantom_ai_test.dart: validated status query sends observed minimized values only
+00:02 +16: /workspace/PHANTOM/test/phantom_ai_test.dart: a pasted active API key is rejected before any HTTP request
+00:02 +17: /workspace/PHANTOM/test/phantom_ai_test.dart: oversized provider response is rejected
+00:02 +18: /workspace/PHANTOM/test/phantom_ai_test.dart: entire mixed batch is rejected before an accepted read
+00:02 +19: /workspace/PHANTOM/test/phantom_ai_test.dart: controller evidence is immutable and belongs only to its request
+00:02 +20: /workspace/PHANTOM/test/phantom_ai_test.dart: OpenRouter request uses bearer header and bounded custom tools
+00:02 +21: /workspace/PHANTOM/test/phantom_ai_test.dart: credential method channel has fixed operations and no plaintext fallback
+00:02 +22: /workspace/PHANTOM/test/phantom_ai_test.dart: missing key prevents model requests and device RPC
+00:02 +23: /workspace/PHANTOM/test/phantom_ai_test.dart: a provider-echoed credential is redacted before display or history
+00:02 +24: /workspace/PHANTOM/test/phantom_ai_test.dart: public model discovery filters tool support and sends no authorization
+00:02 +25: /workspace/PHANTOM/test/phantom_ai_test.dart: mutation name cannot execute even with consent
+00:02 +26: /workspace/PHANTOM/test/phantom_ai_test.dart: hallucinated read without consent is rejected before RPC
+00:02 +27: /workspace/PHANTOM/test/phantom_ai_test.dart: STOP closes provider and discards a late tool proposal
+00:02 +28: /workspace/PHANTOM/test/phantom_ai_test.dart: switching selected Flipper rejects tool result path
+00:02 +29: /workspace/PHANTOM/test/phantom_ai_test.dart: three-completion budget stops endless model tool requests
+00:02 +30: loading /workspace/PHANTOM/test/remote_session_test.dart
+00:03 +30: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect restarts the stream
+00:03 +31: /workspace/PHANTOM/test/remote_session_test.dart: a stale disconnected flag does not hold the request back
+00:03 +32: /workspace/PHANTOM/test/remote_session_test.dart: a release the session refuses outright still clears the button
+[18:09:57] [RemoteInput] wire PRESS OK
+[18:09:57] [warning] [RemoteInput] failed PRESS OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
+[18:09:57] Receiver: Instance of '_FakeClient'
+[18:09:57] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
+[18:09:57] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
+[18:09:57] [RemoteInput] wire SHORT OK
+[18:09:57] [warning] [RemoteInput] failed SHORT OK: NoSuchMethodError: Class '_FakeClient' has no instance method 'sendRpc' with matching arguments.
+[18:09:57] Receiver: Instance of '_FakeClient'
+[18:09:57] Tried calling: sendRpc(Instance of 'Main', priority: Instance of 'FlipperRequestPriority', sendTimeout: Instance of 'Duration')
+[18:09:57] Found: sendRpc(Main, {FlipperRequestPriority priority, Duration sendTimeout}) => Future<void>
+[18:09:57] [RemoteInput] wire RELEASE OK
+[18:09:57] [warning] [RemoteInput] failed RELEASE OK: Bad state: No active transport
+00:03 +33: /workspace/PHANTOM/test/remote_session_test.dart: opening the page asks for the stream at once
+00:03 +34: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect racing the initial open still restarts the stream
+00:03 +35: /workspace/PHANTOM/test/remote_session_test.dart: the initial lock state is learned from the poll
+00:03 +36: /workspace/PHANTOM/test/remote_session_test.dart: a disconnected frame cannot be reused as an AI screenshot
+00:03 +37: /workspace/PHANTOM/test/remote_session_test.dart: the polled baseline does not flash an unlock
+00:03 +38: /workspace/PHANTOM/test/remote_session_test.dart: a status frame is preferred over what OK alone would mean
+00:03 +39: /workspace/PHANTOM/test/remote_session_test.dart: teardown stops the loop rather than finishing the open
+00:03 +40: /workspace/PHANTOM/test/remote_session_test.dart: ERROR is read as unlocked, not merely as not-a-failure
+00:03 +41: /workspace/PHANTOM/test/remote_session_test.dart: a failed open is not retried
+[18:09:57] [warning] [Remote] open failed: Bad state: no active session
+00:03 +42: /workspace/PHANTOM/test/remote_session_test.dart: a reconnect during a failed open is still honoured
+[18:09:57] [warning] [Remote] open failed: Bad state: no active session
+[18:09:57] [warning] [Remote] open failed: Bad state: no active session
+00:03 +43: /workspace/PHANTOM/test/remote_session_test.dart: a status the firmware refuses is not read as unlocked
+[18:09:57] [warning] [Remote] lock state unavailable: FlipperRpcException(ERROR_NOT_IMPLEMENTED=3)
+00:03 +44: /workspace/PHANTOM/test/remote_session_test.dart: one open runs at a time however many requests arrive
+00:03 +45: /workspace/PHANTOM/test/remote_session_test.dart: the subscribe cannot be overtaken by the unsubscribe that undoes it
+00:03 +46: /workspace/PHANTOM/test/remote_session_test.dart: a drop clears the screen and input, a reconnect restores input
+00:03 +47: loading /workspace/PHANTOM/test/remote_page_wrist_input_test.dart
+00:07 +47: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: remote screenshot opens a local-only AI preview at Size(390.0, 844.0)
+00:08 +48: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: a wrist press while the page is closing never reaches the wire
+[18:10:02] [WristRemote] mappings loaded; enabled=true
+[18:10:02] [WristRemote] start requested
+[18:10:02] [WristRemote] started
+[18:10:02] [WristRemote] input playPause -> ok
+[18:10:02] [RemoteInput] wire PRESS OK
+[18:10:02] [RemoteInput] wire SHORT OK
+[18:10:02] [RemoteInput] wire RELEASE OK
+[18:10:02] [RemoteInput] sent RELEASE OK
+[18:10:02] [RemoteInput] sent PRESS OK
+[18:10:02] [RemoteInput] sent SHORT OK
+[18:10:02] [WristRemote] input playPause -> ok
+[18:10:02] [WristRemote] dropped ok: Remote Control unavailable
+[18:10:02] [WristRemote] stop requested
+[18:10:02] [WristRemote] stopped
+00:08 +49: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: remote screenshot opens a local-only AI preview at Size(1200.0, 800.0)
+00:08 +50: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: AI preview cannot interrupt an active GIF recording
+00:08 +51: /workspace/PHANTOM/test/remote_page_wrist_input_test.dart: the mapping dialog lays out every row without overflowing
+[18:10:02] [WristRemote] mappings loaded; enabled=true
+[18:10:02] [WristRemote] start requested
+[18:10:02] [WristRemote] started
+[18:10:02] [QIconCache] queued; pending=1; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:02] [QIconCache] queued; pending=2; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:02] [QIconCache] queued; pending=3; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:02] [QIconCache] queued; pending=4; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:02] [QIconCache] queued; pending=5; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:02] [QIconCache] queued; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:02] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] joined; pending=6; cached=0/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=5; cached=1/256; asset=assets/ic/control/hint/up.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=4; cached=2/256; asset=assets/ic/control/hint/down.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=3; cached=3/256; asset=assets/ic/control/hint/left.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=2; cached=4/256; asset=assets/ic/control/hint/right.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=1; cached=5/256; asset=assets/ic/control/hint/ok.svg; pixelSize=18
+[18:10:03] [QIconCache] finished; pending=0; cached=6/256; asset=assets/ic/control/hint/back.svg; pixelSize=18
+[18:10:03] [WristRemote] mapping previous -> none
+[18:10:03] [WristRemote] stop requested
+[18:10:03] [WristRemote] stopped
+00:09 +52: loading /workspace/PHANTOM/test/navigator_push_budget_test.dart
+00:14 +52: /workspace/PHANTOM/test/navigator_push_budget_test.dart: no area pushes more pages unguarded than its budget
+00:15 +53: /workspace/PHANTOM/test/navigator_push_budget_test.dart: does not count a push on something that is not a navigator
+00:15 +54: /workspace/PHANTOM/test/navigator_push_budget_test.dart: counts a push through Navigator.of
+00:15 +55: /workspace/PHANTOM/test/navigator_push_budget_test.dart: counts the static form, and a replacement
+00:15 +56: /workspace/PHANTOM/test/navigator_push_budget_test.dart: does not count the helper that owns pushing
+00:15 +57: All tests passed!

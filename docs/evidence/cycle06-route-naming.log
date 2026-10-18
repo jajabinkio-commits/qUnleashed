@@ -1,0 +1,5 @@
+00:00 +0: loading /workspace/PHANTOM/test/route_naming_test.dart
+00:00 +0: a pushed route is named after the enum
+00:00 +1: a replacement is named too
+00:00 +2: every registered route lands with its own name
+00:00 +3: All tests passed!

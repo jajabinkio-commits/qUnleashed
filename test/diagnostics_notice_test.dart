@@ -72,21 +72,19 @@ void main() {
     expect(find.text(l10nGlobal.diagnosticsNoticeTurnOff), findsOneWidget);
   });
 
-  testWidgets('reporting is already on while the notice is on screen', (
+  testWidgets('reporting stays off while the notice is on screen', (
     tester,
   ) async {
-    // This is the difference between a notice and a gate, and it is the whole
-    // of §1's reversal. If this ever inverts, the decision has changed and the
-    // ADR has to change with it.
+    // Showing explanatory text is not consent to transmit diagnostics.
     final settings = DiagnosticsSettings();
     await tester.pumpWidget(wrap(settings));
     await tester.pumpAndSettle();
 
     expect(notice(), findsOneWidget);
-    expect(settings.shareLogs, isTrue);
+    expect(settings.shareLogs, isFalse);
   });
 
-  testWidgets('Got it closes it and leaves sharing on', (tester) async {
+  testWidgets('Got it closes it and leaves sharing off', (tester) async {
     final settings = DiagnosticsSettings();
     await tester.pumpWidget(wrap(settings));
     await tester.pumpAndSettle();
@@ -95,7 +93,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(notice(), findsNothing);
-    expect(settings.shareLogs, isTrue);
+    expect(settings.shareLogs, isFalse);
   });
 
   testWidgets('Turn it off closes it and turns sharing off', (tester) async {
@@ -111,12 +109,12 @@ void main() {
     expect(notice(), findsNothing);
     expect(settings.shareLogs, isFalse);
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getBool('diagnostics.share_logs'), isFalse);
+    expect(prefs.getBool('phantom.diagnostics.share_logs.v1'), isNot(isTrue));
   });
 
   testWidgets('somebody who has seen it is not shown it again', (tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
-      'diagnostics.notice_shown': true,
+      'phantom.diagnostics.notice_shown.v1': true,
     });
     await tester.pumpWidget(wrap(DiagnosticsSettings()));
     await tester.pumpAndSettle();
@@ -136,7 +134,7 @@ void main() {
     expect(notice(), findsOneWidget, reason: 'still open, nothing tapped');
     expect(settings.noticeShown, isTrue);
     final prefs = await SharedPreferences.getInstance();
-    expect(prefs.getBool('diagnostics.notice_shown'), isTrue);
+    expect(prefs.getBool('phantom.diagnostics.notice_shown.v1'), isTrue);
   });
 
   testWidgets('dismissing it counts as Got it', (tester) async {
@@ -151,16 +149,14 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(notice(), findsNothing);
-    expect(settings.shareLogs, isTrue);
+    expect(settings.shareLogs, isFalse);
     expect(settings.noticeShown, isTrue);
   });
 
   testWidgets('a store that will not open shows it rather than skipping it', (
     tester,
   ) async {
-    // The opposite direction from the sharing switch's default, on purpose:
-    // being told twice is a nuisance, never being told is the failure that
-    // matters.
+    // A read failure must neither hide the explanation nor enable sharing.
     useUnopenablePrefs();
     final settings = DiagnosticsSettings();
     await tester.pumpWidget(wrap(settings));

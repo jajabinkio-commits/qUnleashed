@@ -1,0 +1,4 @@
+Public endpoints only; no key or inference used.
+OpenAPI SHA256 8287890b719d375d64b5651ca4fa2bc34be3af84b24e8fceb8ab13ae9894fe12
+ChatRequest references ChatContentImage: type=image_url, image_url.url supports data URLs.
+Model architecture.input_modalities checked: 305 image-capable models advertised. Capabilities advertised, not privately exercised.

@@ -1,0 +1,7 @@
+compile-ios	Check Dart	2026-10-16T18:13:08.0807230Z No issues found! (ran in 33.6s)
+compile-ios	Compile unsigned iPhone application	2026-10-16T18:18:11.3416740Z Xcode build done.                                           216.7s
+compile-ios	Compile unsigned iPhone application	2026-10-16T18:18:15.7766200Z ✓ Built build/ios/iphoneos/Runner.app
+compile-ios	Upload compile artifact (not installable)	2026-10-16T18:18:24.7435630Z SHA256 digest of uploaded artifact zip is 8bfe43f3008e3fdabd96316c142711630000f5874c523be928d8c166cca56d5c
+compile-ios	Upload compile artifact (not installable)	2026-10-16T18:18:25.1011990Z Artifact phantom-ios-unsigned-compile.zip successfully finalized. Artifact ID 12067070178
+compile-ios	Upload compile artifact (not installable)	2026-10-16T18:18:25.1014320Z Artifact phantom-ios-unsigned-compile has been successfully uploaded! Final size is 65317813 bytes. Artifact ID is 12067070178
+compile-ios	Upload compile artifact (not installable)	2026-10-16T18:18:25.1033100Z Artifact download URL: https://github.com/jajabinkio-commits/qUnleashed/actions/runs/38945364466/artifacts/12067070178

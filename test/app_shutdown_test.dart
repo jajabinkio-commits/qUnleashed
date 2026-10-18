@@ -76,7 +76,9 @@ Future<Telemetry> startReporting({
   required List<String> steps,
   bool closeHangs = false,
 }) async {
-  SharedPreferences.setMockInitialValues(<String, Object>{});
+  SharedPreferences.setMockInitialValues(<String, Object>{
+    'phantom.diagnostics.share_logs.v1': true,
+  });
   final telemetry = Telemetry(
     settings: DiagnosticsSettings(),
     dsn: 'https://key@o0.ingest.sentry.io/1',

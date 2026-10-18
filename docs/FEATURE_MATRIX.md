@@ -1,0 +1,39 @@
+# PHANTOM capability matrix
+
+Cycle 03: iPhone-only priority. All 31 supplied capabilities remain tracked. Source implementation and simulated checks do not pass physical gates. Original contract CSV: SPEC_FEATURE_MATRIX.csv.
+
+| ID | Feature | Execution Mode | Priority | Evidence Source | Test Method | Current Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| D01 | BLE scan/pair/reconnect | iOS direct | P0 | lib/services/connection/link_service.dart; flipperlib client/transport/ble | Hardware iPhone | Retained upstream implementation; physical behavior UNVERIFIED |
+| D02 | Multi-device sessions and identity | iOS direct | P1 | FlipperClient.bindCurrentSession/deviceToken; lib/phantom/device/flipper_gateway.dart | Hardware + unit | Read-only adapter/UI slice tested in simulation; retained manual source; physical gate BLOCKED |
+| D03 | Battery/system/firmware/storage status | iOS direct | P0 | FlipperClient.deviceInfo/powerInfo/protobufVersion/storageInfo; lib/phantom/features/devices/inspection_page.dart | Hardware | Read-only adapter/UI slice tested in simulation; retained manual source; physical gate BLOCKED |
+| R01 | Live 128x64 screen stream | iOS direct | P0 | lib/pages/tools/remote/desktop/session.dart; client/api/gui.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| R02 | Virtual button short/long | iOS direct | P0 | lib/pages/tools/remote/desktop/session.dart; gui.proto | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| R03 | Screenshot/GIF export | iOS direct | P1 | lib/pages/tools/remote/desktop/screenshot_encoder.dart; GIF code | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| R04 | AI bounded screen navigation | iOS direct + cloud | P1 | gui.proto + AI | Hardware | NOT IMPLEMENTED |
+| F01 | File list/download/upload/create/edit | iOS direct | P0 | lib/pages/archive/browser/; FlipperGateway.listFiles | Hardware | Retained source; safe list adapter simulated; transfers/hardware UNVERIFIED |
+| F02 | Rename/delete/backup and restore | iOS direct conditional | P1 | lib/services/archive/storage.dart; client/api/storage.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| A01 | Per-device archive sync/favorites/search | iOS direct | P1 | lib/services/archive/storage.dart; lib/pages/archive/overview/ | Unit + hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| A02 | IR/RFID/NFC/iButton/SubGHz saved actions | iOS direct conditional | P1 | lib/services/emulate/service.dart; client/api/app.dart | Hardware + confirmation | Retained upstream implementation; physical behavior UNVERIFIED |
+| A03 | BadUSB/JS launch | iOS direct conditional | P2 | lib/services/emulate/service.dart; archive categories | Hardware + confirmation | Retained upstream implementation; physical behavior UNVERIFIED |
+| P01 | App catalog/install/update/remove | iOS direct | P0 | lib/pages/apps/data/catalog_api.dart; install_engine.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| P02 | App RPC launch/stop | iOS direct conditional | P1 | flipperlib client/api/app.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| FW01 | Normal firmware update via BLE | iOS direct | P1 | lib/pages/devices/firmware/installer.dart | Hardware | Retained upstream implementation; physical behavior UNVERIFIED |
+| FW02 | Full USB DFU repair | Bridge required | P2 | flipperlib src/dfu; new bridge capability label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
+| CLI01 | Flipper USB terminal | Bridge required | P2 | flipperlib USB transport; tools overview excludes iOS CLI; new bridge label | USB host | BRIDGE REQUIRED on iPhone; label implemented; bridge NOT IMPLEMENTED |
+| AI01 | OpenRouter chat and selected models | iOS direct + internet | P0 | lib/phantom/ai/openrouter.dart; features/ai/chat_page.dart | Mock + provider | IMPLEMENTED FIRST SLICE: model discovery/chat tested with mock HTTP; public catalog verified; paid provider chat UNVERIFIED |
+| AI02 | Typed tool policy/audit | iOS direct | P0 | lib/phantom/ai/read_only_agent.dart | Unit + redteam | PARTIAL: two validated read-only tools with consent/budgets/STOP; local observed readings displayed separately from AI text; no mutations/persisted audit |
+| AI03 | Voice/Speech and text-to-speech | iOS direct | P1 | voice_input.dart; iOS PhantomSpeech channel | Mock + iPhone | PARTIAL: on-device-only dictation, editable draft and explicit Send; native runtime/permissions unverified; TTS pending |
+| AI04 | Photo/screen model interpretation | iOS direct + cloud | P1 | screen_interpreter.dart; screen_page.dart; retained RemoteSession | Mock HTTP + UI + iPhone | PARTIAL: consented screenshot preview and one bounded no-tool request; native/live-provider pending; photo import absent |
+| AI05 | Local Ollama endpoint | Bridge or LAN server | P2 | Ollama compatible service | Host integration | NOT IMPLEMENTED; external LAN/bridge service required |
+| AUT01 | Macros/routines & dry-run | iOS direct | P1 | Typed action DSL | Unit + hardware | NOT IMPLEMENTED |
+| AUT02 | Apple Shortcuts/App Intents | iOS direct | P1 | iOS integration | iPhone | NOT IMPLEMENTED |
+| EXT01 | Feberis Pro/GhostESP telemetry | Conditional extension | P2 | Actual adapter API | Hardware | UNVERIFIED module API; NOT IMPLEMENTED |
+| EXT02 | ESP32/GPIO adapters | Conditional extension | P2 | Actual app/module API | Hardware | UNVERIFIED module API; NOT IMPLEMENTED |
+| TOOL01 | Pixel Draw / IRDB / Pulse plot / map | iOS direct conditional | P2 | lib/pages/tools/paint,infrared,plotter; lib/pages/archive/map | Regression | Retained upstream implementation; physical behavior UNVERIFIED |
+| BR01 | Authenticated local USB bridge | Bridge required | P2 | Custom daemon + RPC | Host integration | NOT IMPLEMENTED |
+| BR02 | Remote bridge via secured tunnel | Optional bridge | P3 | Authenticated TLS/VPN | Security integration | NOT IMPLEMENTED |
+| SEC01 | Keychain secrets/redacted audit | iOS direct | P0 | iOS AppDelegate Keychain channel; credentials.dart; diagnostics/settings.dart; notifications/push_service.dart | Unit + security | PARTIAL: opt-in defaults/migration and redaction tested; iOS Keychain source + channel tests; native security UNVERIFIED |
+| SEC02 | Model prompt-injection defenses | iOS direct | P0 | test/phantom_ai_test.dart; read_only_agent.dart | Unit + redteam | PARTIAL: hostile tool/arg and mixed-batch tests; no-tool screenshot isolation tested; file inputs excluded, broader red-team pending |
+
+M0 baseline established; M1 first slice retained, physical gate still blocked. First M2 read-only source slice now exists; full M2 (including voice/screen/files/cost controls/live provider and native Keychain verification) is not complete. M3–M7 remain pending. USB-only functions stay bridge-required and are outside direct iPhone functionality.

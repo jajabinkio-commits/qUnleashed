@@ -1,0 +1,3 @@
+$ diff -u /workspace/reference/flipperzero-protobuf/gui.proto lib/modules/flipperlib/proto/flipperzero/gui.proto
+
+Exit: 0

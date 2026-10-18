@@ -1,0 +1,96 @@
+00:00 +0: loading /workspace/PHANTOM/test/phantom_chat_page_test.dart
+00:00 +0: opening AI sends no provider request or device RPC; sharing defaults off
+00:00 +1: save key clears the obscured input
+00:01 +2: selected model and send show response without granting device access
+00:01 +3: backgrounding cancels AI and discards a late tool call
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown while dispatching notifications for
+WidgetsBindingObserver.didChangeAppLifecycleState:
+Invalid state transition from AppLifecycleState.paused to AppLifecycleState.resumed
+'package:flutter/src/widgets/app_lifecycle_listener.dart':
+Failed assertion: line 225 pos 11: 'previousState == null ||
+              previousState == AppLifecycleState.inactive ||
+              previousState == AppLifecycleState.detached'
+
+Either the assertion indicates an error in the framework itself, or we should provide substantially
+more information in this error message to help you determine and fix the underlying cause.
+In either case, please report this assertion by filing a bug on GitHub:
+  https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+
+When the exception was thrown, this was the stack:
+#2      AppLifecycleListener.didChangeAppLifecycleState (package:flutter/src/widgets/app_lifecycle_listener.dart:225:11)
+#3      WidgetsBinding.handleAppLifecycleStateChanged (package:flutter/src/widgets/binding.dart:1334:18)
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_chat_page_test.dart:108:20)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown while dispatching notifications for
+WidgetsBindingObserver.didChangeAppLifecycleState:
+Invalid state transition from AppLifecycleState.paused to AppLifecycleState.resumed
+'package:flutter/src/widgets/app_lifecycle_listener.dart':
+Failed assertion: line 225 pos 11: 'previousState == null ||
+              previousState == AppLifecycleState.inactive ||
+              previousState == AppLifecycleState.detached'
+
+Either the assertion indicates an error in the framework itself, or we should provide substantially
+more information in this error message to help you determine and fix the underlying cause.
+In either case, please report this assertion by filing a bug on GitHub:
+  https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+
+When the exception was thrown, this was the stack:
+#2      AppLifecycleListener.didChangeAppLifecycleState (package:flutter/src/widgets/app_lifecycle_listener.dart:225:11)
+#3      WidgetsBinding.handleAppLifecycleStateChanged (package:flutter/src/widgets/binding.dart:1334:18)
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_chat_page_test.dart:108:20)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY WIDGETS LIBRARY ╞═══════════════════════════════════════════════════════════
+The following assertion was thrown while dispatching notifications for
+WidgetsBindingObserver.didChangeAppLifecycleState:
+Invalid state transition from AppLifecycleState.paused to AppLifecycleState.resumed
+'package:flutter/src/widgets/app_lifecycle_listener.dart':
+Failed assertion: line 225 pos 11: 'previousState == null ||
+              previousState == AppLifecycleState.inactive ||
+              previousState == AppLifecycleState.detached'
+
+Either the assertion indicates an error in the framework itself, or we should provide substantially
+more information in this error message to help you determine and fix the underlying cause.
+In either case, please report this assertion by filing a bug on GitHub:
+  https://github.com/flutter/flutter/issues/new?template=02_bug.yml
+
+When the exception was thrown, this was the stack:
+#2      AppLifecycleListener.didChangeAppLifecycleState (package:flutter/src/widgets/app_lifecycle_listener.dart:225:11)
+#3      WidgetsBinding.handleAppLifecycleStateChanged (package:flutter/src/widgets/binding.dart:1334:18)
+#4      main.<anonymous closure> (file:///workspace/PHANTOM/test/phantom_chat_page_test.dart:108:20)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 3 frames from class _AssertionError and package:stack_trace)
+════════════════════════════════════════════════════════════════════════════════════════════════════
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following message was thrown:
+Multiple exceptions (3) were detected during the running of the current test, and at least one was
+unexpected.
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +3 -1: backgrounding cancels AI and discards a late tool call [E]
+  Test failed. See exception logs above.
+  The test description was: backgrounding cancels AI and discards a late tool call
+  
+00:02 +3 -1: Some tests failed.
+
+Failing tests:
+  /workspace/PHANTOM/test/phantom_chat_page_test.dart: backgrounding cancels AI and discards a late tool call

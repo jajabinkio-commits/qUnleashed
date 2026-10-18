@@ -1,0 +1,14 @@
+Analyzing PHANTOM...                                            
+
+   info • Use an initializing formal to assign a parameter to a field. Try using an initialing formal ('this._client') to initialize the field • lib/phantom/device/flipper_gateway.dart:14:8 • prefer_initializing_formals
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/phantom/device/flipper_gateway.dart:123:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/phantom/device/flipper_gateway.dart:138:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/phantom/device/flipper_gateway.dart:153:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/phantom/device/flipper_gateway.dart:166:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • lib/phantom/device/flipper_gateway.dart:265:7 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • test/phantom_gateway_test.dart:82:9 • curly_braces_in_flow_control_structures
+   info • Statements in an if should be enclosed in a block. Try wrapping the statement in a block • test/phantom_gateway_test.dart:84:9 • curly_braces_in_flow_control_structures
+  error • The function 'Int64' isn't defined. Try importing the library that defines 'Int64', correcting the name to the name of an existing function, or defining a function named 'Int64' • test/phantom_gateway_test.dart:122:29 • undefined_function
+  error • The function 'Int64' isn't defined. Try importing the library that defines 'Int64', correcting the name to the name of an existing function, or defining a function named 'Int64' • test/phantom_gateway_test.dart:123:28 • undefined_function
+
+10 issues found. (ran in 15.0s)

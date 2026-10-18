@@ -1,0 +1,32 @@
+ID,Feature,Execution Mode,Priority,Evidence Source,Test Method,Current Status
+D01,BLE scan/pair/reconnect,iOS direct,P0,qUnleashed BLE,Hardware iPhone,Unverified until built
+D02,Multi-device sessions and identity,iOS direct,P1,qUnleashed flipperlib,Hardware + unit,Unverified
+D03,Battery/system/firmware/storage status,iOS direct,P0,Flipper RPC,Hardware,Unverified
+R01,Live 128x64 screen stream,iOS direct,P0,gui.proto,Hardware,Unverified
+R02,Virtual button short/long,iOS direct,P0,gui.proto,Hardware,Unverified
+R03,Screenshot/GIF export,iOS direct,P1,qUnleashed,Hardware,Unverified
+R04,AI bounded screen navigation,iOS direct + cloud,P1,gui.proto + AI,Hardware,To implement
+F01,File list/download/upload/create/edit,iOS direct,P0,RPC storage,Hardware,Unverified
+F02,Rename/delete/backup and restore,iOS direct conditional,P1,RPC + safeguards,Hardware,Unverified
+A01,Per-device archive sync/favorites/search,iOS direct,P1,qUnleashed,Unit + hardware,Unverified
+A02,IR/RFID/NFC/iButton/SubGHz saved actions,iOS direct conditional,P1,RPC or app,Hardware + confirmation,Requires capability probe
+A03,BadUSB/JS launch,iOS direct conditional,P2,Installed app,Hardware + confirmation,Requires capability probe
+P01,App catalog/install/update/remove,iOS direct,P0,qUnleashed/official catalog,Hardware,Unverified
+P02,App RPC launch/stop,iOS direct conditional,P1,RPC application,Hardware,Requires capability probe
+FW01,Normal firmware update via BLE,iOS direct,P1,qUnleashed/official docs,Hardware,Unverified
+FW02,Full USB DFU repair,Bridge required,P2,qFlipper/flipperlib,USB host,Not iOS direct
+CLI01,Flipper USB terminal,Bridge required,P2,flipperlib CLI,USB host,Not iOS direct
+AI01,OpenRouter chat and selected models,iOS direct + internet,P0,OpenRouter tools,Mock + provider,To implement
+AI02,Typed tool policy/audit,iOS direct,P0,Local deterministic,Unit + redteam,To implement
+AI03,Voice/Speech and text-to-speech,iOS direct,P1,iOS permissions,iPhone,To implement
+AI04,Photo/screen model interpretation,iOS direct + cloud,P1,provider multimodal,Provider tests,To implement
+AI05,Local Ollama endpoint,Bridge or LAN server,P2,Ollama compatible service,Host integration,Not on-device Ollama
+AUT01,Macros/routines & dry-run,iOS direct,P1,Typed action DSL,Unit + hardware,To implement
+AUT02,Apple Shortcuts/App Intents,iOS direct,P1,iOS integration,iPhone,To implement
+EXT01,Feberis Pro/GhostESP telemetry,Conditional extension,P2,Actual adapter API,Hardware,Investigate
+EXT02,ESP32/GPIO adapters,Conditional extension,P2,Actual app/module API,Hardware,Investigate
+TOOL01,Pixel Draw / IRDB / Pulse plot / map,iOS direct conditional,P2,qUnleashed retained,Regression,Unverified
+BR01,Authenticated local USB bridge,Bridge required,P2,Custom daemon + RPC,Host integration,To implement
+BR02,Remote bridge via secured tunnel,Optional bridge,P3,Authenticated TLS/VPN,Security integration,To implement
+SEC01,Keychain secrets/redacted audit,iOS direct,P0,Keychain + policy,Unit + security,To implement
+SEC02,Model prompt-injection defenses,iOS direct,P0,Typed tool registry,Unit + redteam,To implement

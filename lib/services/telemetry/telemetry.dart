@@ -255,11 +255,10 @@ class Telemetry {
     _settlingToward = true;
     _settlingTowardReplay = settings.shareReplay;
     try {
-      // Never gated on `loaded`. A preference store that will not open leaves
-      // the switch at its default, which is on -
-      // DiagnosticsSettings.onLoadFailed has the argument for why that
-      // direction is right now that this is not consent.
+      // A failed read leaves consent off. Capture the loaded replay choice,
+      // not its pre-load default, so taps during SDK startup are reconciled.
       await settings.load();
+      _settlingTowardReplay = settings.shareReplay;
       final plan = TelemetryPlan(
         dsn: dsn,
         shareLogs: settings.shareLogs,
