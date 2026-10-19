@@ -1,5 +1,7 @@
 # PHANTOM cycle 07 — reviewed on-device dictation
 
+**FINAL: source a31c07f passed cloud regression and unsigned iPhone compilation. Physical speech, signing and installation remain unverified.**
+
 Base 14da891 (cycle 06 evidence over tested source ebeb4ac). The workspace restarted before prior unfinished voice work was uploaded. Restored the public repository recursively and rebuilt that work from saved implementation details. Reinstalled pinned Flutter 3.47.1 / Dart 3.13.1 from verified tag 6655482ec0; root release-manifest URLs returned 404, resolved by the SDK's own bootstrap. Dependencies installed with --enforce-lockfile; no protocol, firmware, dependency or submodule revisions changed.
 
 ## Implemented
@@ -55,3 +57,15 @@ The first patch did not match a formatter-expanded expression and briefly left a
 Before updating the branch, a fresh read found new owner-authored commits 8183c1a, ee13ed6 and 383782f, which wrap cancellation in the existing guarded helper. The old-head update was not applied. Retained those commits and their timeout wrapper rather than replacing them; added inner sanitized cancellation-failure feedback and the rejection test on top. The final timeout wrapper retains a 90-second client timeout and separately bounded cancellation (superseding the local awaited-timeout variant above). All subsequent tests target the reconciled tree. GitHub API-created unpublished commit a6390ab is not the review-branch head and is not claimed delivered/tested.
 
 Reconciled pre-upload source: 61 focused tests passed with seed 3816894737; analyzer no issues; 561 Dart files formatted unchanged. Test log cycle07-reconciled-focused.log. The new native Speech implementation remains identical to the source that passed compile run 39126865424; final integrated code still receives its own cloud/native checks.
+
+## Final cloud regression passed
+
+CI run 39127848306 on a31c07f5188a8f5d5dd2ca9648812980c8ca7aa8 PR merge snapshot passed: 1,955 tests passed, five skipped (seed 1236824613), plus 51 quiet-build tests passed (seed 2846591398). Formatting checked 563 Dart files; analyzer no issues; macOS release-script job passed. Reconciled source tree 77598765f6caa707d178e112f57bca8aecd893e3 matched the local tested tree byte-for-byte before branch update. Native run 39127848307 is still running at this observation; its outcome is recorded separately.
+
+## Final native result and delivery
+
+Native run [39127848307](https://github.com/jajabinkio-commits/qUnleashed/actions/runs/39127848307) completed successfully on a31c07f. Xcode compiled Runner.app in 276 seconds. Artifact 12137321309, `phantom-ios-unsigned-compile`, is 65,348,338 bytes, expires 2026-10-25T12:42:56Z; SHA-256 `4e50ec88049228ff61458fdb78b0ffdc80c75ce5e2045fcfdf8f2c1da56a7af2`. This compile-only artifact has no signing and uses test-only Firebase placeholders/upstream identity: it is not an installable release.
+
+Final totals: 1,955 regression tests passed, five skipped; 51 quiet-logging tests passed; 61 focused tests passed locally. Fourteen new voice tests cover the final implementation. Earlier failures above were fixed; no final check failed. Native microphone capture, permissions, recognition accuracy, background cleanup and actual device behavior require physical testing and are not proven by compilation.
+
+The reviewed code remains on `phantom/m0-m2-iphone`, draft PR #1. Final evidence is published separately on `phantom/evidence-cycle07` so the verified source is unchanged. Next executable engineering task: add optional read-aloud replies with stop/background handling and tests. Physical M1/manual controls, native voice checks, signing/distribution and complete M2–M7 remain outstanding.

@@ -1,0 +1,46 @@
+name: PHANTOM signed iPhone build
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: Upload to App Store Connect for TestFlight processing
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: phantom-testflight
+  cancel-in-progress: false
+jobs:
+  signed-build:
+    environment: phantom-testflight
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+      - uses: ./.github/actions/setup-flutter
+        with:
+          swift-package-manager: 'false'
+      - name: Archive, sign and optionally upload PHANTOM
+        shell: bash
+        env:
+          APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }}
+          PHANTOM_BUNDLE_ID: ${{ vars.PHANTOM_BUNDLE_ID }}
+          IOS_CERTIFICATE_BASE64: ${{ secrets.IOS_CERTIFICATE_BASE64 }}
+          IOS_CERTIFICATE_PASSWORD: ${{ secrets.IOS_CERTIFICATE_PASSWORD }}
+          IOS_PROFILE_BASE64: ${{ secrets.IOS_PROFILE_BASE64 }}
+          FIREBASE_OPTIONS_BASE64: ${{ secrets.FIREBASE_OPTIONS_BASE64 }}
+          IOS_FIREBASE_PLIST_BASE64: ${{ secrets.IOS_FIREBASE_PLIST_BASE64 }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_PRIVATE_KEY_BASE64: ${{ secrets.ASC_PRIVATE_KEY_BASE64 }}
+          UPLOAD_TESTFLIGHT: ${{ inputs.upload }}
+        run: bash .github/scripts/phantom/testflight.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phantom-signed-ipa
+          path: build/phantom-testflight/*.ipa
+          if-no-files-found: error
+          retention-days: 3
